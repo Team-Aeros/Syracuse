@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * Syracuse
+ *
+ * @version     1.0 Beta 1
+ * @author      Team Aeros
+ * @copyright   2017, Syracuse
+ * @since       1.0 Beta 1
+ *
+ * @license     MIT
+ */
+
+class Config {
+
+    private $_settings;
+
+    public function __construct() {
+        $this->_settings = [
+            /**
+             * Database-related settings
+             */
+            'database_username' => 'root',
+            'database_password' => '',
+            'database_server' => 'localhost',
+            'database_name' => 'syracuse',
+            'database_prefix' => 'syra_'
+        ];
+    }
+
+    public function get(string $identifier) {
+        return $this->_settings[$identifier];
+    }
+
+    public function wipeSensitiveData() : void {
+        $this->_settings = array_merge([
+            'database_username' => 'hidden',
+            'database_password' => 'hidden',
+            'database_server' => 'hidden',
+            'database_name' => 'hidden'
+        ]);
+    }
+}
