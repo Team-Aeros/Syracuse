@@ -11,6 +11,8 @@
  * @license     MIT
  */
 
+namespace Syracuse;
+
 class Config {
 
     private $_settings;
