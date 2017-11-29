@@ -13,10 +13,17 @@
 
 namespace Syracuse\src\main\controllers;
 
+use Syracuse\Config;
+use Syracuse\src\core\models\Registry;
+
 class Syracuse {
 
-    public function __construct() {
+    private $_gui;
 
+    public function __construct() {
+        $this->_gui = new GUI();
+
+        Registry::store('config', new Config());
     }
 
     public function start() : void {

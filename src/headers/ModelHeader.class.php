@@ -13,6 +13,6 @@
 
 namespace Syracuse\src\headers;
 
-abstract class Controller {
+abstract class ModelHeader {
 
 }

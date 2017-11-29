@@ -18,6 +18,8 @@ spl_autoload_register(function ($class) {
 
     if (count($parsed) == 0)
         $path = __DIR__ . '/' . $class . '.class.php';
+    else if (count($parsed) == 1)
+        $path = __DIR__ . '/public/' . $parsed[1] . '.php';
     else
         $path = __DIR__ . '/' . implode('/', $parsed) . '.class.php';
 
