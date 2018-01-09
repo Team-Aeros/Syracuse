@@ -19,19 +19,19 @@ class Database {
 
     private static $_connection;
 
-    public static function store(string $table, array $values) : bool {
+    public static function store(string $table, array $values) : int {
         return ReturnCode::NOT_IMPLEMENTED;
     }
 
-    public static function retrieve(string $table, array $parameters) : bool {
+    public static function retrieve(string $table, array $parameters) : int {
         return ReturnCode::NOT_IMPLEMENTED;
     }
 
-    public static function modify(string $table, array $parameters) : bool {
+    public static function modify(string $table, array $parameters) : int {
         return ReturnCode::NOT_IMPLEMENTED;
     }
 
-    public static function setConnection(Connection $connection) : bool {
+    public static function setConnection(Connection $connection) : int {
         if (!empty(self::$_connection))
             return ReturnCode::CANNOT_ENDANGER_CONNECTION;
 

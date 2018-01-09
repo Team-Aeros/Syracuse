@@ -15,8 +15,7 @@ namespace Syracuse\src\main\controllers;
 
 use Syracuse\Config;
 use Syracuse\src\core\models\Registry;
-use Syracuse\src\database\Connection;
-use Syracuse\src\database\Database;
+use Syracuse\src\database\{Connection, Database};
 
 class Syracuse {
 
