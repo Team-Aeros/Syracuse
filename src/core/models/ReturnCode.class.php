@@ -29,6 +29,12 @@ class ReturnCode {
     // Overwriting the connection object _should_ trigger this error
     public const CANNOT_ENDANGER_CONNECTION = 0x04;
 
+    // A database error occurred
+    public const DATABASE_ERROR = 0x05;
+
+    // Invalid query type
+    public const INVALID_QUERY_TYPE = 0x06;
+
     // Features that haven't been implemented (yet)
     public const NOT_IMPLEMENTED = 0xFF;
 }

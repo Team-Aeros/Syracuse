@@ -38,5 +38,14 @@ class Syracuse {
         ));
 
         $this->_config->wipeSensitiveData();
+
+        // !! debug
+        $errors = [];
+        $results = [];
+
+        $results = Database::interact('retrieve', 'station')->fields('stn', 'country')->getAll();
+
+        // NOTE: Template and language loading should be done BEFORE this constant
+        define('LOADED_TEMPLATE_AND_LANG', true);
     }
 }

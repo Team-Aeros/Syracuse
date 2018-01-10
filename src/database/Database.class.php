@@ -19,16 +19,11 @@ class Database {
 
     private static $_connection;
 
-    public static function store(string $table, array $values) : int {
-        return ReturnCode::NOT_IMPLEMENTED;
-    }
+    public const ASC = 0;
+    public const DESC = 1;
 
-    public static function retrieve(string $table, array $parameters) : int {
-        return ReturnCode::NOT_IMPLEMENTED;
-    }
-
-    public static function modify(string $table, array $parameters) : int {
-        return ReturnCode::NOT_IMPLEMENTED;
+    public static function interact(string $action, string $table) : QueryBuilder {
+        return new QueryBuilder(self::$_connection, $action, $table);
     }
 
     public static function setConnection(Connection $connection) : int {

@@ -15,6 +15,7 @@ namespace Syracuse\src\database;
 
 use PDO;
 use PDOException;
+use Syracuse\src\core\models\ReturnCode;
 
 class Connection {
 
@@ -24,7 +25,8 @@ class Connection {
     public function __construct(string $host, string $username, string $password, string $dbname, string $prefix, ?string $charset = 'utf8mb4') {
         try {
             $options = [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             ];
 
             $this->_pdoConnection = new PDO(
@@ -46,7 +48,22 @@ class Connection {
         return $this->_prefix;
     }
 
-    public function executeQuery(string $query, array $params) : void {
-        // execute the query
+    public function executeQuery(string $query, array $params, array &$errors, array &$results = []) : int {
+        try {
+            $preparedQuery = $this->_pdoConnection->prepare($query);
+
+            foreach ($params as $key => $value)
+                $preparedQuery->bindValue(':' . $key, $value);
+
+            $preparedQuery->execute();
+            $results = $preparedQuery->fetchAll();
+        }
+
+        catch (PDOException $e) {
+            $errors[] = $e->getMessage();
+            return ReturnCode::DATABASE_ERROR;
+        }
+
+        return ReturnCode::SUCCESS;
     }
 }
