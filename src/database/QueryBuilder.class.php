@@ -4,8 +4,8 @@
  * Syracuse
  *
  * @version     1.0 Beta 1
- * @author      Team Aeros
- * @copyright   2017, Syracuse
+ * @author      Aeros Development
+ * @copyright   2017-2018 Syracuse
  * @since       1.0 Beta 1
  *
  * @license     MIT
@@ -30,6 +30,7 @@ class QueryBuilder {
     private $_limitMin;
 
     private $_params;
+    private $_query;
 
     public function __construct(Connection $connection, string $action, string $table) {
         $this->_connection = $connection;
@@ -38,9 +39,10 @@ class QueryBuilder {
         $this->_errors = [];
 
         $this->_fields = [];
+        $this->_params = [];
     }
 
-    public function fields(...$fields) : self {
+    public function fields(string ...$fields) : self {
         $this->_fields = $fields ?? [];
 
         return $this;
@@ -51,12 +53,14 @@ class QueryBuilder {
         return $this;
     }
 
-    public function orderBy(string $fieldName, int $direction) : self {
+    public function orderBy(string $fieldName, string $direction) : self {
+        $this->_order = $fieldName . ' ' . $direction;
 
         return $this;
     }
 
     public function orderByMultiple(array $fields) : self {
+        $this->_order = $fields;
 
         return $this;
     }
@@ -74,38 +78,40 @@ class QueryBuilder {
         return $this;
     }
 
-    private function generateQuery() : ?string {
-        $query = '';
-
+    private function generateQuery() : void {
         switch ($this->_action) {
             case 'retrieve':
-                $query = 'SELECT ' . (empty($this->_fields) ? '*' : implode(', ', $this->_fields)) . ' FROM ';
+                $this->_query = 'SELECT ' . (empty($this->_fields) ? '*' : implode(', ', $this->_fields)) . ' FROM ';
                 break;
             default:
-                return null;
+                return;
         }
 
-        $query .= $this->_table;
+        $this->_query .= $this->_connection->getPrefix() . $this->_table;
 
-        return null;
+        if (!empty($this->_order))
+            $this->_query .= ' ORDER BY ' . (is_array($this->_order) ? implode(', ', $this->_order) : $this->_order);
+
+        if (!empty($this->_limitMax))
+            $this->_query .= ' LIMIT ' . (!empty($this->_limitMin) ? $this->_limitMin . ', ' : '') . $this->_limitMax;
     }
 
     public function getAll() : array {
-        $query = $this->generateQuery();
+        $this->generateQuery();
         $results = [];
 
         if ($this->_action != 'retrieve') {
             $this->_errors[] = 'Invalid action. You can only invoke the getAll() method on an object with query type \'retrieve\'';
             return [];
         }
-        else if (empty($query)) {
+        else if (empty($this->_query)) {
             $this->_errors[] = 'Could not generate query.';
             return [];
         }
 
-        $this->_connection->executeQuery($query, $this->_params, $this->_errors, $results);
+        $returnCode = $this->_connection->executeQuery($this->_query, $this->_params, $this->_errors, $results);
 
-        return $results ?? [];
+        return $results ?? ['error' => $returnCode];
     }
 
     public function getReturnCode() : int {
@@ -114,5 +120,9 @@ class QueryBuilder {
 
     public function getErrors() : array {
         return $this->_errors;
+    }
+
+    public function __toString() : string {
+        return $this->_query;
     }
 }

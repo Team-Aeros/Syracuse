@@ -4,8 +4,8 @@
  * Syracuse
  *
  * @version     1.0 Beta 1
- * @author      Team Aeros
- * @copyright   2017, Syracuse
+ * @author      Aeros Development
+ * @copyright   2017-2018 Syracuse
  * @since       1.0 Beta 1
  *
  * @license     MIT
@@ -43,7 +43,13 @@ class Syracuse {
         $errors = [];
         $results = [];
 
-        $results = Database::interact('retrieve', 'station')->fields('stn', 'country')->getAll();
+        $results = Database::interact('retrieve', 'station')
+            ->fields('stn', 'country')
+            ->max(10)
+            ->orderBy('country', 'ASC')
+            ->getAll();
+
+        print_r($results);
 
         // NOTE: Template and language loading should be done BEFORE this constant
         define('LOADED_TEMPLATE_AND_LANG', true);
