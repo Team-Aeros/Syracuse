@@ -45,7 +45,7 @@ class Syracuse {
 
         $results = Database::interact('retrieve', 'station')
             ->fields('stn', 'country')
-            ->max(10)
+            ->where(['country', 'netherlands'])
             ->orderBy('country', 'ASC')
             ->getAll();
 

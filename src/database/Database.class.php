@@ -14,12 +14,17 @@
 namespace Syracuse\src\database;
 
 use Syracuse\src\core\models\ReturnCode;
+use Syracuse\src\errors\Error;
 
 class Database {
 
     private static $_connection;
 
     public static function interact(string $action, string $table) : QueryBuilder {
+        // @todo Replace with the Error class
+        if (!in_array($action, ['retrieve', 'delete', 'modify', 'insert']))
+            (new Error('Could not execute query.', 'Unknown action'))->trigger();
+
         return new QueryBuilder(self::$_connection, $action, $table);
     }
 

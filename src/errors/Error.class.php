@@ -11,7 +11,7 @@
  * @license     MIT
  */
 
-namespace Syracuse\src\error;
+namespace Syracuse\src\errors;
 
 class Error {
 
@@ -19,7 +19,7 @@ class Error {
     protected $detailedError;
     protected $isFatal;
 
-    public function __construct(string $message, string $detailedError, bool $fatal = false) {
+    public function __construct(string $message, string $detailedError, bool $fatal = true) {
         $this->message = $message;
         $this->detailedError = $detailedError;
         $this->isFatal = $fatal;

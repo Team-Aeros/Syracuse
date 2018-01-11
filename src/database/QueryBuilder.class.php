@@ -29,6 +29,8 @@ class QueryBuilder {
     private $_limitMax;
     private $_limitMin;
 
+    private $_joins;
+
     private $_params;
     private $_query;
 
@@ -39,6 +41,7 @@ class QueryBuilder {
         $this->_errors = [];
 
         $this->_fields = [];
+        $this->_conditions = [];
         $this->_params = [];
     }
 
@@ -48,7 +51,20 @@ class QueryBuilder {
         return $this;
     }
 
-    public function where(array $conditions) : self {
+    public function where(array ...$conditions) : self {
+        foreach ($conditions as $condition)
+            $this->_conditions[] = sprintf('`%s` = \'%s\'', $condition[0], $condition[1]);
+
+        return $this;
+    }
+
+    /**
+     * Allows the developer to specify custom conditions.
+     * @param string|\string[] ...$conditions
+     * @return QueryBuilder
+     */
+    public function whereCustom(string ...$conditions) : self {
+        $this->_conditions = array_merge($this->_conditions, $conditions);
 
         return $this;
     }
@@ -59,7 +75,7 @@ class QueryBuilder {
         return $this;
     }
 
-    public function orderByMultiple(array $fields) : self {
+    public function orderByMultiple(string ...$fields) : self {
         $this->_order = $fields;
 
         return $this;
@@ -78,6 +94,18 @@ class QueryBuilder {
         return $this;
     }
 
+    public function join(string $join) : self {
+        $this->_joins[] = $join;
+
+        return $this;
+    }
+
+    public function raw(string $query) : self {
+        $this->_query = $query;
+
+        return $this;
+    }
+
     private function generateQuery() : void {
         switch ($this->_action) {
             case 'retrieve':
@@ -89,6 +117,12 @@ class QueryBuilder {
 
         $this->_query .= $this->_connection->getPrefix() . $this->_table;
 
+        if (!empty($this->_joins))
+            $this->_query .= ' ' . implode(' ', $this->_joins);
+
+        if (!empty($this->_conditions))
+            $this->_query .= ' WHERE ' . implode(' AND ', $this->_conditions);
+
         if (!empty($this->_order))
             $this->_query .= ' ORDER BY ' . (is_array($this->_order) ? implode(', ', $this->_order) : $this->_order);
 
@@ -97,7 +131,9 @@ class QueryBuilder {
     }
 
     public function getAll() : array {
-        $this->generateQuery();
+        if (empty($this->_query))
+            $this->generateQuery();
+
         $results = [];
 
         if ($this->_action != 'retrieve') {
