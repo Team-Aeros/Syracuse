@@ -8,3 +8,7 @@
  *
  * @license     MIT
  */
+
+function perform_request(url) {
+    alert('Performed request.');
+}
