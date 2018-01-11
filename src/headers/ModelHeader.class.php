@@ -13,6 +13,13 @@
 
 namespace Syracuse\src\headers;
 
+use Syracuse\src\core\models\Registry;
+
 abstract class ModelHeader {
 
+    protected $config;
+
+    protected function loadSettings() : void {
+        $this->config = Registry::retrieve('config');
+    }
 }

@@ -23,8 +23,6 @@ class Syracuse {
     private $_config;
 
     public function __construct() {
-        $this->_gui = new GUI();
-
         $this->_config = Registry::store('config', new Config());
     }
 
@@ -39,7 +37,17 @@ class Syracuse {
 
         $this->_config->wipeSensitiveData();
 
-        // NOTE: Template and language loading should be done BEFORE this constant
+        $settings = Database::interact('retrieve', 'setting')
+            ->fields('identifier', 'val')
+            ->getAll();
+
+        $this->_config->import($settings);
+
+        $this->_gui = new GUI();
+
+        // NOTE: Template and language loading should be done BEFORE this constant is set
         define('LOADED_TEMPLATE_AND_LANG', true);
+
+        $this->_gui->displayMainTemplate();
     }
 }
