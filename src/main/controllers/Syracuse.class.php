@@ -39,27 +39,6 @@ class Syracuse {
 
         $this->_config->wipeSensitiveData();
 
-        // !! debug
-        $errors = [];
-        $results = [];
-
-        $results = Database::interact('retrieve', 'station')
-            ->fields('stn', 'country')
-            ->where(['country', 'netherlands'])
-            ->orderBy('country', 'ASC')
-            ->getAll();
-
-        $returnCode = Database::interact('insert', 'station')->insert([
-            'name' => 'Nieuw station',
-            'country' => 'Nederland',
-            'latitude' => 2.34,
-            'longitude' => 3.32,
-            'elevation' => 23.0
-        ], false);
-
-        print_r($results);
-        echo 'Return code: ', $returnCode;
-
         // NOTE: Template and language loading should be done BEFORE this constant
         define('LOADED_TEMPLATE_AND_LANG', true);
     }

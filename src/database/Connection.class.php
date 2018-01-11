@@ -49,7 +49,7 @@ class Connection {
         return $this->_prefix;
     }
 
-    public function executeQuery(string $query, array $params, array &$errors, bool $hasResults = true, array &$results = []) : int {
+    public function executeQuery(string $query, array $params, bool $hasResults = true, array &$results = []) : int {
         try {
             $preparedQuery = $this->_pdoConnection->prepare($query);
 
@@ -63,11 +63,7 @@ class Connection {
         }
 
         catch (PDOException $e) {
-            $errors[] = $e->getMessage();
-
             (new Error('Could not execute query.', $e->getMessage()))->trigger();
-
-            return ReturnCode::DATABASE_ERROR;
         }
 
         return ReturnCode::SUCCESS;

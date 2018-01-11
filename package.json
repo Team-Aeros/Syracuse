@@ -1,0 +1,27 @@
+{
+  "name": "syracuse",
+  "version": "1.0.0",
+  "description": "Web interface for analyzing weather data.",
+  "main": "index.php",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Aeros/Syracuse.git"
+  },
+  "author": "Aeros Development",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Team-Aeros/Syracuse/issues"
+  },
+  "homepage": "https://github.com/Team-Aeros/Syracuse#readme"
+}

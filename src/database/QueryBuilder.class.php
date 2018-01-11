@@ -119,6 +119,13 @@ class QueryBuilder {
             $fields[] = '`' . $field . '`';
 
         $this->_query .= sprintf('INSERT INTO %s (%s) VALUES (', $this->_connection->getPrefix() . $this->_table, implode(', ', $fields));
+        $this->setValues($values);
+        $this->_query .= ');';
+
+        return $this->_connection->executeQuery($this->_query, $this->_params);
+    }
+
+    private function setValues(array $values) : void {
         $valueCount = count($values);
 
         $counter = 0;
@@ -133,24 +140,29 @@ class QueryBuilder {
 
             $counter++;
         }
-
-        $this->_query .= ');';
-
-        echo $this->_query;
-
-        return $this->_connection->executeQuery($this->_query, $this->_params, $this->_errors);
     }
 
-    private function generateQuery() : void {
+    private function generateQuery(?array $values = []) : void {
         switch ($this->_action) {
             case 'retrieve':
                 $this->_query = 'SELECT ' . (empty($this->_fields) ? '*' : implode(', ', $this->_fields)) . ' FROM ';
+                break;
+            case 'delete':
+                $this->_query = 'DELETE FROM ';
+                break;
+            case 'update':
+                $this->_query = 'UPDATE ';
                 break;
             default:
                 return;
         }
 
         $this->_query .= $this->_connection->getPrefix() . $this->_table;
+
+        if ($this->_action == 'update' && !empty($values)) {
+            $this->_query .= ' SET ';
+            $this->setValues($values);
+        }
 
         if (!empty($this->_joins))
             $this->_query .= ' ' . implode(' ', $this->_joins);
@@ -163,6 +175,13 @@ class QueryBuilder {
 
         if (!empty($this->_limitMax))
             $this->_query .= ' LIMIT ' . (!empty($this->_limitMin) ? $this->_limitMin . ', ' : '') . $this->_limitMax;
+    }
+
+    public function update(array $values) : int {
+        if (empty($this->_query))
+            $this->generateQuery($values);
+
+        return $this->_connection->executeQuery($this->_query, $this->_params, false);
     }
 
     public function getAll() : array {
@@ -180,9 +199,9 @@ class QueryBuilder {
             return [];
         }
 
-        $returnCode = $this->_connection->executeQuery($this->_query, $this->_params, $this->_errors, true, $results);
+        $this->_connection->executeQuery($this->_query, $this->_params, true, $results);
 
-        return $results ?? ['error' => $returnCode];
+        return $results ?? [];
     }
 
     public function getReturnCode() : int {
