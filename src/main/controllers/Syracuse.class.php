@@ -51,7 +51,10 @@ class Syracuse {
 
         $returnCode = Database::interact('insert', 'station')->insert([
             'name' => 'Nieuw station',
-            'country' => 'Nederland'
+            'country' => 'Nederland',
+            'latitude' => 2.34,
+            'longitude' => 3.32,
+            'elevation' => 23.0
         ], false);
 
         print_r($results);

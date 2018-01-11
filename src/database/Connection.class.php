@@ -16,6 +16,7 @@ namespace Syracuse\src\database;
 use PDO;
 use PDOException;
 use Syracuse\src\core\models\ReturnCode;
+use Syracuse\src\errors\Error;
 
 class Connection {
 
@@ -38,7 +39,7 @@ class Connection {
         }
 
         catch (PDOException $e) {
-            earlyExit('Could not connect to the database', $e->getMessage());
+            earlyExit('Could not connect to the database.', $e->getMessage());
         }
 
         $this->_prefix = $prefix;
@@ -63,6 +64,9 @@ class Connection {
 
         catch (PDOException $e) {
             $errors[] = $e->getMessage();
+
+            (new Error('Could not execute query.', $e->getMessage()))->trigger();
+
             return ReturnCode::DATABASE_ERROR;
         }
 

@@ -30,6 +30,8 @@ class Error {
     }
 
     public function trigger() : void {
+        ob_clean();
+
         if ($this->canLoadTemplate())
             echo 'This is an error with an error template.';
         else

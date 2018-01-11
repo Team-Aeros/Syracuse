@@ -21,7 +21,6 @@ class Database {
     private static $_connection;
 
     public static function interact(string $action, string $table) : QueryBuilder {
-        // @todo Replace with the Error class
         if (!in_array($action, ['retrieve', 'delete', 'modify', 'insert']))
             (new Error('Could not execute query.', 'Unknown action'))->trigger();
 

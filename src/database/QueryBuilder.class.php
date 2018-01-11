@@ -34,8 +34,6 @@ class QueryBuilder {
     private $_params;
     private $_query;
 
-    private $_values;
-
     public function __construct(Connection $connection, string $action, string $table) {
         $this->_connection = $connection;
         $this->_action = $action;
@@ -104,6 +102,12 @@ class QueryBuilder {
 
     public function raw(string $query) : self {
         $this->_query = $query;
+
+        return $this;
+    }
+
+    public function placeholders(array $placeholders) : self {
+        $this->_params = $placeholders;
 
         return $this;
     }
