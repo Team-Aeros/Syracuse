@@ -49,10 +49,13 @@ class GUI extends ControllerHeader {
     }
 
     public function displayMainTemplate() : void {
-        $template = $this->_twig->load('main.tpl');
-
-        echo $template->render($this->_defaultData);
+        echo $this->_twig->load('main.tpl')->render($this->_defaultData);
     }
+
+    public function displayTemplate(string $template, array $data) : void {
+        echo $this->_twig->load($template . '.tpl')->render($this->_defaultData + $data);
+    }
+
 
     private function setDefaultData() : void {
         $this->_defaultData = [
@@ -60,7 +63,8 @@ class GUI extends ControllerHeader {
             'image_url' => self::$config->get('url') . '/public/views/' . self::$config->get('theme') . '/images',
             'stylesheet_url' => self::$config->get('url') . '/public/views/' . self::$config->get('theme') . '/css',
             'base_url' => self::$config->get('url'),
-            'scripturl' => self::$config->get('url') . '/public/scripts'
+            'scripturl' => self::$config->get('url') . '/public/scripts',
+            'page_title' => $this->_model->getPageTitle()
         ];
     }
 
