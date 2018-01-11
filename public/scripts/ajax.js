@@ -9,6 +9,6 @@
  * @license     MIT
  */
 
-function perform_request(url) {
-    alert('Performed request.');
+function perform_request(url, data_to_send, handler) {
+    alert('This is a request.');
 }

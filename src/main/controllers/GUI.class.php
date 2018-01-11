@@ -63,7 +63,8 @@ class GUI extends ControllerHeader {
             'image_url' => self::$config->get('url') . '/public/views/' . self::$config->get('theme') . '/images',
             'stylesheet_url' => self::$config->get('url') . '/public/views/' . self::$config->get('theme') . '/css',
             'base_url' => self::$config->get('url'),
-            'scripturl' => self::$config->get('url') . '/public/scripts',
+            'script_url' => self::$config->get('url') . '/public/scripts',
+            'node_url' => self::$config->get('url') . '/node_modules',
             'page_title' => $this->_model->getPageTitle()
         ];
     }
