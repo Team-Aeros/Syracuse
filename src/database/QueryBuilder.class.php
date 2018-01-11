@@ -34,6 +34,8 @@ class QueryBuilder {
     private $_params;
     private $_query;
 
+    private $_values;
+
     public function __construct(Connection $connection, string $action, string $table) {
         $this->_connection = $connection;
         $this->_action = $action;
@@ -106,6 +108,35 @@ class QueryBuilder {
         return $this;
     }
 
+    public function insert(array $values) : int {
+        $fields = [];
+
+        foreach (array_keys($values) as $field)
+            $fields[] = '`' . $field . '`';
+
+        $this->_query .= sprintf('INSERT INTO %s (%s) VALUES (', $this->_connection->getPrefix() . $this->_table, implode(', ', $fields));
+        $valueCount = count($values);
+
+        $counter = 0;
+        foreach ($values as $key => $value) {
+            if (is_numeric($value))
+                $this->_query .= sprintf('`%s` = %s', $key, (string) $value);
+            else
+                $this->_query .= sprintf('`%s` = \'%s\'', $key, $value);
+
+            if ($counter < $valueCount - 1)
+                $this->_query .= ', ';
+
+            $counter++;
+        }
+
+        $this->_query .= ');';
+
+        echo $this->_query;
+
+        return $this->_connection->executeQuery($this->_query, $this->_params, $this->_errors);
+    }
+
     private function generateQuery() : void {
         switch ($this->_action) {
             case 'retrieve':
@@ -145,7 +176,7 @@ class QueryBuilder {
             return [];
         }
 
-        $returnCode = $this->_connection->executeQuery($this->_query, $this->_params, $this->_errors, $results);
+        $returnCode = $this->_connection->executeQuery($this->_query, $this->_params, $this->_errors, true, $results);
 
         return $results ?? ['error' => $returnCode];
     }

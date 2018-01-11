@@ -49,7 +49,13 @@ class Syracuse {
             ->orderBy('country', 'ASC')
             ->getAll();
 
+        $returnCode = Database::interact('insert', 'station')->insert([
+            'name' => 'Nieuw station',
+            'country' => 'Nederland'
+        ], false);
+
         print_r($results);
+        echo 'Return code: ', $returnCode;
 
         // NOTE: Template and language loading should be done BEFORE this constant
         define('LOADED_TEMPLATE_AND_LANG', true);

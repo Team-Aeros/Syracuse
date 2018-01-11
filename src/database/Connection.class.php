@@ -48,7 +48,7 @@ class Connection {
         return $this->_prefix;
     }
 
-    public function executeQuery(string $query, array $params, array &$errors, array &$results = []) : int {
+    public function executeQuery(string $query, array $params, array &$errors, bool $hasResults = true, array &$results = []) : int {
         try {
             $preparedQuery = $this->_pdoConnection->prepare($query);
 
@@ -56,7 +56,9 @@ class Connection {
                 $preparedQuery->bindValue(':' . $key, $value);
 
             $preparedQuery->execute();
-            $results = $preparedQuery->fetchAll();
+
+            if ($hasResults)
+                $results = $preparedQuery->fetchAll();
         }
 
         catch (PDOException $e) {
