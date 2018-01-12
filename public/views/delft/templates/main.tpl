@@ -21,7 +21,7 @@
                     padding: 25px 50px 25px 50px;
                     height: 100px;
                     width: 100px;
-                    margin-right: 400px;">
+                    margin-right: 33%;">
         <h2>Top 10 rain list</h2>
         <p>A fuck ton.</p>
     </div>
@@ -41,7 +41,8 @@
                     background-color: brown;
                     padding: 25px 50px 25px 50px;
                     height: 100px;
-                    width: 100px;">
+                    width: 100px;
+                    margin-left: 33%;">
         <h2>Graph</h2>
         <p>Temperature</p>
     </div>
