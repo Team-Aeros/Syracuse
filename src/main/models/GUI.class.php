@@ -22,8 +22,10 @@ class GUI extends ModelHeader {
     private $_pageTitle;
     private $_data;
 
+
     public function __construct() {
         $this->_data = new Dwoo\Data();
+        $this->loadSettings();
     }
 
     public function setData(array $data) : void {
