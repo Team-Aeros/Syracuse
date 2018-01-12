@@ -3,3 +3,4 @@
 vendor
 node_modules
 Config.php
+cache/
