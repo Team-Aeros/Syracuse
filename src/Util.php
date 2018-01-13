@@ -26,15 +26,7 @@ function dumpAndDie(array $elements) : void {
 
 function _translate(string $identifier, ?string ...$parameters) : string {
     $lang = Registry::retrieve('lang');
-    $parsed = explode('.', $identifier);
-
-    if (count($parsed) !== 2)
-        return 'Invalid language string format.';
-
-    if ($lang->hasLoadedFile($parsed[0]))
-        $lang->loadFile($parsed[0]);
-
-    $langString = $lang->read($parsed[0], $parsed[1]);
+    $langString = $lang->read($identifier);
 
     return !empty($parameters) ? sprintf($langString, $parameters) : $langString;
 }

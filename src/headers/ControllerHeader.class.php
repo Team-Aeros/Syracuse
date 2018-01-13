@@ -17,9 +17,9 @@ use Syracuse\src\core\models\Registry;
 
 abstract class ControllerHeader {
 
-    protected $config;
+    protected static $config;
 
     protected function loadSettings() : void {
-        $this->config = Registry::retrieve('config');
+        self::$config = Registry::retrieve('config');
     }
 }

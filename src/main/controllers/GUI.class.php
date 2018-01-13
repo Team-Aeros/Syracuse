@@ -16,6 +16,7 @@ namespace Syracuse\src\main\controllers;
 use Syracuse\src\headers\ControllerHeader;
 use Syracuse\src\main\models\GUI as Model;
 use Twig_Environment;
+use Twig_Function;
 use Twig_Loader_Filesystem;
 
 class GUI extends ControllerHeader {
@@ -32,27 +33,39 @@ class GUI extends ControllerHeader {
         $this->_defaultData = [];
 
         $this->loadSettings();
-        $this->setTemplateDir($this->config->get('path') . '/public/views/' . $this->config->get('theme') . '/templates');
+        $this->setTemplateDir(self::$config->get('path') . '/public/views/' . self::$config->get('theme') . '/templates');
 
         $this->_loader = new Twig_Loader_Filesystem($this->_model->getTemplateDir());
-        $this->_twig = new Twig_Environment($this->_loader, ['cache' => $this->config->get('path') . '/cache']);
+        $this->_twig = new Twig_Environment($this->_loader, [
+            'cache' => self::$config->get('path') . '/cache',
+            'debug' => SYRACUSE_DEBUG
+        ]);
 
         $this->setDefaultData();
+
+        $this->_twig->addFunction(new Twig_Function('_translate', function(string $identifier, string ...$params) {
+            return _translate($identifier, ...$params);
+        }));
     }
 
     public function displayMainTemplate() : void {
-        $template = $this->_twig->load('main.tpl');
-
-        echo $template->render($this->_defaultData);
+        echo $this->_twig->load('main.tpl')->render($this->_defaultData);
     }
+
+    public function displayTemplate(string $template, array $data) : void {
+        echo $this->_twig->load($template . '.tpl')->render($this->_defaultData + $data);
+    }
+
 
     private function setDefaultData() : void {
         $this->_defaultData = [
             'template_dir' => $this->_model->getTemplateDir(),
-            'image_url' => $this->config->get('url') . '/public/views/' . $this->config->get('theme') . '/images',
-            'stylesheet_url' => $this->config->get('url') . '/public/views/' . $this->config->get('theme') . '/css',
-            'base_url' => $this->config->get('url'),
-            'scripturl' => $this->config->get('url') . '/public/scripts'
+            'image_url' => self::$config->get('url') . '/public/views/' . self::$config->get('theme') . '/images',
+            'stylesheet_url' => self::$config->get('url') . '/public/views/' . self::$config->get('theme') . '/css',
+            'base_url' => self::$config->get('url'),
+            'script_url' => self::$config->get('url') . '/public/scripts',
+            'node_url' => self::$config->get('url') . '/node_modules',
+            'page_title' => $this->_model->getPageTitle()
         ];
     }
 

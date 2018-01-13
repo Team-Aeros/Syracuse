@@ -13,36 +13,19 @@
 
 namespace Syracuse\src\main\models;
 
-use Dwoo;
 use Syracuse\src\headers\ModelHeader;
 
 class GUI extends ModelHeader {
 
     private $_templateDir;
     private $_pageTitle;
-    private $_data;
-
-
-    public function __construct() {
-        $this->_data = new Dwoo\Data();
-        $this->loadSettings();
-    }
-
-    public function setData(array $data) : void {
-        foreach ($data as $key => $value)
-            $this->_data->assign($key, $value);
-    }
 
     public function getPageTitle() : string {
-        return $this->_pageTitle;
+        return $this->_pageTitle ?? _translate('dashboard');
     }
 
     public function getTemplateDir() : string {
         return $this->_templateDir;
-    }
-
-    public function getData() : Dwoo\Data {
-        return $this->_data;
     }
 
     public function setPageTitle(string $pageTitle) : void {

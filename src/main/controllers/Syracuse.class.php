@@ -43,6 +43,7 @@ class Syracuse {
 
         $this->_config->import($settings);
 
+        Registry::store('lang', new Language());
         $this->_gui = new GUI();
 
         // NOTE: Template and language loading should be done BEFORE this constant is set
