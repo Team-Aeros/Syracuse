@@ -39,7 +39,6 @@ br.clear {
 
 /* Headers and footers */
 #header {
-    alignment: top|center;
     background: linear-gradient(-180deg, #d3d3d3, #cccccc);
     padding: 25px 50px 25px 50px;
     border-bottom: 1px solid #aaaaaa;
