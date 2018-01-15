@@ -6,6 +6,8 @@
         <script type="text/javascript" src="{{ node_url }}/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="{{ script_url }}/ajax.js"></script>
 
+        <link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/main.css" />
+
         <script type="text/javascript">
             // URLs and paths
             const script_url = '{{ script_url }}';
@@ -16,36 +18,34 @@
     </head>
 
     <body>
-    <header id = header
-            class = "header">
-        <button
-                type="button"
-                class = "logout">
-            Log out</button>
-        <h1 align="center">PGH</h1>
-    </header>
-    <div id = container>
-        <div id = top10List
-             class = "topList">
-            <h2>Top 10 rain list</h2>
-            <p>A fuck ton.</p>
-        </div>
+      <header id="header">
+          <button
+              type="button"
+                class="float_right">Log out</button>
+          <h1 align="center">Just leaving this here for testing purposes</h1>
+      </header>
 
-        <div id = map
-             class = "map">
-            <h2>Map of Caribean</h2>
-            <p> no map :(</p>
-        </div>
+      <div id="container">
+          <div id="list_1" class="top10List widget">
+              <h2>Top 10 rain list</h2>
+              <p>A fuck ton.</p>
+          </div>
 
-        <div id = graph
-             class = "graph">
-            <h2>Graph</h2>
-            <p>Temperature</p>
-        </div>
-    </div>
-    <footer id = footer
-            class = "footer">
-        <p>Aeros Development</p>
-    </footer>
+          <div id="map" class="widget">
+              <h2>Map of Caribbean</h2>
+              <p> no map :(</p>
+          </div>
+
+          <div id="list_2" class="widget top10List">
+              <h2>Graph</h2>
+              <p>Temperature</p>
+          </div>
+
+          <br class="clear" />
+      </div>
+
+      <footer id="footer">
+          <p>Aeros Development</p>
+
     </body>
 </html>
