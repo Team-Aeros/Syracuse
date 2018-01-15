@@ -73,6 +73,11 @@ br.clear {
     width: 50%;
 }
 
+/* Error pages */
+#error_page {
+    padding: 25px;
+}
+
 /* Widgets */
 #container {
     display: flex;

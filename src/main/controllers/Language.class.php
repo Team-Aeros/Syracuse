@@ -13,10 +13,10 @@
 
 namespace Syracuse\src\main\controllers;
 
-use Syracuse\src\headers\ControllerHeader;
+use Syracuse\src\headers\Controller;
 use Syracuse\src\main\models\Language as Model;
 
-class Language extends ControllerHeader {
+class Language extends Controller {
 
     private $_language;
     private $_strings;

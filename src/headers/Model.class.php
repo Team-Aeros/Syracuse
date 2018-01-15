@@ -15,7 +15,7 @@ namespace Syracuse\src\headers;
 
 use Syracuse\src\core\models\Registry;
 
-abstract class ControllerHeader {
+abstract class Model {
 
     protected static $config;
 

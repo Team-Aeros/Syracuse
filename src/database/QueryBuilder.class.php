@@ -263,6 +263,15 @@ class QueryBuilder {
         return $results ?? [];
     }
 
+    public function getSingle() : array {
+        $results = $this->getAll();
+
+        foreach ($results as $result)
+            return $result;
+
+        return [];
+    }
+
     public function getReturnCode() : int {
         return empty($this->_errors) ? ReturnCode::SUCCESS : ReturnCode::DATABASE_ERROR;
     }
