@@ -15,11 +15,15 @@ namespace Syracuse\src\headers;
 
 use Syracuse\src\core\models\Registry;
 
-abstract class ControllerHeader {
+abstract class Model {
 
     protected static $config;
 
     protected function loadSettings() : void {
         self::$config = Registry::retrieve('config');
+    }
+
+    public function getData() : array {
+        return [];
     }
 }

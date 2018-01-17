@@ -13,13 +13,13 @@
 
 namespace Syracuse\src\main\controllers;
 
-use Syracuse\src\headers\ControllerHeader;
+use Syracuse\src\headers\Controller;
 use Syracuse\src\main\models\GUI as Model;
 use Twig_Environment;
 use Twig_Function;
 use Twig_Loader_Filesystem;
 
-class GUI extends ControllerHeader {
+class GUI extends Controller {
 
     private $_model;
     private $_twig;
@@ -48,14 +48,9 @@ class GUI extends ControllerHeader {
         }));
     }
 
-    public function displayMainTemplate() : void {
-        echo $this->_twig->load('main.tpl')->render($this->_defaultData);
-    }
-
-    public function displayTemplate(string $template, array $data) : void {
+    public function displayTemplate(string $template, array $data = []) : void {
         echo $this->_twig->load($template . '.tpl')->render($this->_defaultData + $data);
     }
-
 
     private function setDefaultData() : void {
         $this->_defaultData = [

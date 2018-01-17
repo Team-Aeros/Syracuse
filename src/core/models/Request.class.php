@@ -11,7 +11,7 @@
  * @license     MIT
  */
 
-namespace Syracuse\src\core;
+namespace Syracuse\src\core\models;
 
 class Request {
 
