@@ -13,13 +13,9 @@
 
 namespace Syracuse\src\headers;
 
-use Syracuse\src\core\models\Registry;
+interface Module {
 
-abstract class ModelHeader {
-
-    protected static $config;
-
-    protected function loadSettings() : void {
-        self::$config = Registry::retrieve('config');
-    }
+    public function __construct(string $moduleName, array $parameters);
+    public function execute() : int;
+    public function display() : void;
 }

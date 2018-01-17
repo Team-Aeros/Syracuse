@@ -14,9 +14,9 @@
 namespace Syracuse\src\main\models;
 
 use Syracuse\src\database\Database;
-use Syracuse\src\headers\ModelHeader;
+use Syracuse\src\headers\Model;
 
-class Language extends ModelHeader {
+class Language extends Model {
 
     private $_id;
     private $_name;
