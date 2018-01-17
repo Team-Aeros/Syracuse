@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Syracuse</title>
-    <link rel="stylesheet" type="text/css" href="http://localhost/syracuse/public/views/delft/css/styling.css">
+    <link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/main.css">
 </head>
 <body class="body">
 <div id = container

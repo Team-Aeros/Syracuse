@@ -14,6 +14,13 @@ use Syracuse\src\headers\ModelHeader;
 
 class Auth extends ModelHeader {
 
+    public function __construct() {
+        if(session_status() == PHP_SESSION_NONE) {
+            session_start();
+            $_SESSION['logged_in'] = False;
+        }
+    }
+
     private function getName(){
         $names = Database::interact('retrieve', 'accounts')
             ->fields('name')
@@ -73,11 +80,11 @@ class Auth extends ModelHeader {
             #REMOVE !!!!!!!!!!!!!!!!!!!
 
             if($this->checkCred()) {
-                return True;
+                $_SESSION['logged_in'] = True;
+                header("Location: http://localhost/syracuse/");
             }
             else {
                 $this->errorMsg();
-                return False;
             }
 
         }
