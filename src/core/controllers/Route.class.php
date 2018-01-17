@@ -30,6 +30,7 @@ class Route {
     public function __construct() {
         $this->_dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $routeCollector) {
             $routeCollector->addRoute('GET', '/help', 'help');
+            $routeCollector->addRoute(['POST', 'GET'], '/login', 'login');
 
             $routeCollector->addRoute('GET', '/', 'main');
         });
@@ -64,17 +65,11 @@ class Route {
     }
 
     public function getRouteInfo() : array {
-        switch ($this->_routeInfo[0]) {
-            case FastRoute\Dispatcher::NOT_FOUND:
-            case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-                earlyExit('Could not load module.', 'Error code ' . $this->_routeInfo[0]);
-                break;
-            case FastRoute\Dispatcher::FOUND:
-                $routeInfo = [
-                    'module_name' => $this->_routeInfo[1],
-                    'parameters' => $this->_routeInfo[2]
-                ];
-                break;
+        if ($this->_routeInfo[0] == FastRoute\Dispatcher::FOUND) {
+            $routeInfo = [
+                'module_name' => $this->_routeInfo[1],
+                'parameters' => $this->_routeInfo[2]
+            ];
         }
 
         return $routeInfo ?? [];

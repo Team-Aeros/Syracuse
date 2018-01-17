@@ -22,4 +22,8 @@ abstract class Model {
     protected function loadSettings() : void {
         self::$config = Registry::retrieve('config');
     }
+
+    public function getData() : array {
+        return [];
+    }
 }

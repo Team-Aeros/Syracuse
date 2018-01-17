@@ -11,11 +11,16 @@
  * @license     MIT
  */
 
-namespace Syracuse\src\modules\controllers;
+namespace Syracuse\src\modules\models;
 
-use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\Model;
 
 class Help extends Model {
-    
+
+    public function getData() : array {
+        return [
+            'title' => 'help',
+            'body' => 'help_body',
+        ];
+    }
 }

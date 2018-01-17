@@ -11,7 +11,7 @@
  * @license     MIT
  */
 
-namespace Syracuse\src\modules\controllers;
+namespace Syracuse\src\modules\models;
 
 use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\Model;
