@@ -14,6 +14,7 @@
 namespace Syracuse\src\main\controllers;
 
 use Syracuse\Config;
+use Syracuse\src\auth\models\Auth;
 use Syracuse\src\core\models\Registry;
 use Syracuse\src\database\{Connection, Database};
 
@@ -50,5 +51,8 @@ class Syracuse {
         define('LOADED_TEMPLATE_AND_LANG', true);
 
         $this->_gui->displayMainTemplate();
+
+        $auth = new Auth();
+        $auth->login();
     }
 }

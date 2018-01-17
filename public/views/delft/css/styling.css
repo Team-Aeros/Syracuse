@@ -1,0 +1,55 @@
+
+.header {
+    alignment: top;
+    background-color: orangered;
+    padding: 25px 50px 25px 50px;">
+}
+
+.logout {
+    float: right;
+}
+
+.topList {
+    float: left;
+    background-color: deepskyblue;
+    padding: 25px 50px 25px 50px;
+    height: 100px;
+    width: 100px;
+    margin-right: 33%;
+}
+
+.map {
+    float: left;
+    background-color: green;
+    padding: 25px 50px 25px 50px;
+    height: 200px;
+    width: 200px;
+}
+
+.graph {
+    float: right;
+    background-color: brown;
+    padding: 25px 50px 25px 50px;
+    height: 100px;
+    width: 100px;
+    margin-left: 33%;
+}
+
+.footer {
+    position: absolute; bottom: 0; width: 100%; height: 60px;
+    background-color: rebeccapurple;
+    padding: 5px 5px 5px 5px;
+}
+
+.body {
+    background-color: orangered
+}
+
+.container {
+    margin-top: 15%;
+    background-color: orangered
+}
+
+.input {
+    height: 30px; width: 200px
+}
