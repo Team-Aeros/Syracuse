@@ -52,7 +52,6 @@ class Syracuse {
 
         $this->_gui->displayMainTemplate();
 
-        $auth = new Auth();
-        $auth->login();
+
     }
 }

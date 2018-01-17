@@ -68,8 +68,8 @@ class Auth extends ModelHeader {
     }
         public function login() {
             #REMOVE !!!!!!!!!!!!!!!!!!!
-            $_POST['username'] = 'admin';
-            $_POST['password'] = "1234";
+            #$_POST['username'] = 'admin';
+            #$_POST['password'] = "1234";
             #REMOVE !!!!!!!!!!!!!!!!!!!
 
             if($this->checkCred()) {
