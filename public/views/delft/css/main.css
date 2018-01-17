@@ -73,6 +73,26 @@ br.clear {
     width: 50%;
 }
 
+/* Error pages */
+#error_page {
+    padding: 25px;
+}
+
+/* The help page */
+#help_page {
+    padding: 25px;
+    width: 50%;
+    margin: auto;
+}
+
+#help_page h1 {
+    margin-top: 40px;
+}
+
+#help_page h1:first-child {
+    margin-top: 0;
+}
+
 /* Widgets */
 #container {
     display: flex;

@@ -13,9 +13,9 @@
 
 namespace Syracuse\src\main\models;
 
-use Syracuse\src\headers\ModelHeader;
+use Syracuse\src\headers\Model;
 
-class GUI extends ModelHeader {
+class GUI extends Model {
 
     private $_templateDir;
     private $_pageTitle;

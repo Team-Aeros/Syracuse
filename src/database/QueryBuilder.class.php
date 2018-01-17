@@ -34,6 +34,12 @@ class QueryBuilder {
     private $_params;
     private $_query;
 
+    /**
+     * Creates a new instance of the query builder. This method is called automatically by the Database class.
+     * @param Connection $connection The database connection
+     * @param string $action The desired action, i.e. delete, update, retrieve or insert
+     * @param string $table The name of thet able you want to interact with
+     */
     public function __construct(Connection $connection, string $action, string $table) {
         $this->_connection = $connection;
         $this->_action = $action;
@@ -45,12 +51,24 @@ class QueryBuilder {
         $this->_params = [];
     }
 
+    /**
+     * What fields should be loaded? Leave empty to load all fields (not recommended, though).
+     * @param \string[] ...$fields The fields you need
+     * @return QueryBuilder
+     */
     public function fields(string ...$fields) : self {
         $this->_fields = $fields ?? [];
 
         return $this;
     }
 
+    /**
+     * This method is used for adding simple 'where' clauses. Each array element requires two child elements, the
+     * first one being the key and the second one being the value. If you need more sophisticated conditions, such
+     * as 'between' and 'is equal to or higher than', have a look at the whereCustom() method instead.
+     * @param \array[] ...$conditions The conditions in the format described above
+     * @return QueryBuilder
+     */
     public function where(array ...$conditions) : self {
         foreach ($conditions as $condition)
             $this->_conditions[] = sprintf('`%s` = \'%s\'', $condition[0], $condition[1]);
@@ -59,8 +77,9 @@ class QueryBuilder {
     }
 
     /**
-     * Allows the developer to specify custom conditions.
-     * @param string|\string[] ...$conditions
+     * Allows the developer to specify custom conditions. Conditions need to be in the following format:
+     * ['key = :value']
+     * @param string|\string[] ...$conditions The conditions
      * @return QueryBuilder
      */
     public function whereCustom(string ...$conditions) : self {
@@ -69,24 +88,46 @@ class QueryBuilder {
         return $this;
     }
 
+    /**
+     * Orders a table by a single column.
+     * @param string $fieldName The column you want to use for sorting the table
+     * @param string $direction The sorting direction. Should be 'ASC' or 'DESC'. Please don't mess this up.
+     * @return QueryBuilder
+     */
     public function orderBy(string $fieldName, string $direction) : self {
         $this->_order = $fieldName . ' ' . $direction;
 
         return $this;
     }
 
+    /**
+     * Orders a table by multiple columns. Each value should be in the following format: 'fieldname ASC' or 'fieldname DESC'
+     * @param \string[] ...$fields The columns you want to sort on.
+     * @return QueryBuilder
+     */
     public function orderByMultiple(string ...$fields) : self {
         $this->_order = $fields;
 
         return $this;
     }
 
+    /**
+     * Is there a maximum number of records that should be returned?
+     * @param int $max The maximum number of records
+     * @return QueryBuilder
+     */
     public function max(int $max) : self {
         $this->_limitMax = $max;
 
         return $this;
     }
 
+    /**
+     * This method allows you to return records X to X.
+     * @param int $min When to start returning records
+     * @param int $max When to stop returning records
+     * @return QueryBuilder
+     */
     public function boundaries(int $min, int $max) : self {
         $this->_limitMin = $min;
         $this->_limitMax = $max;
@@ -94,18 +135,36 @@ class QueryBuilder {
         return $this;
     }
 
+    /**
+     * Adds a jion to the query. Note: the join value should be added manually.
+     * @param string $join The join, e.g. 'LEFT JOIN cake c ON (r.cake_id = c.id)'
+     * @return QueryBuilder
+     */
     public function join(string $join) : self {
         $this->_joins[] = $join;
 
         return $this;
     }
 
+    /**
+     * Replaces the query with a custom one. Obviously, this will overwrite the existing query (if there is one).
+     * @param string $query The raw query.
+     * @return QueryBuilder
+     */
     public function raw(string $query) : self {
         $this->_query = $query;
 
         return $this;
     }
 
+    /**
+     * Placeholders (e.g. :value, :id) can be added here. Keep in mind you do not have to add the colons yourself,
+     * as this will be done automatically. Example: array placeholders = ['id' => 5, 'name' => 'John Doe']. It is
+     * STRONGLY recommended to use this method for adding user input to queries, since it is so much safer and takes
+     * care of SQL injections automatically.
+     * @param array $placeholders
+     * @return QueryBuilder
+     */
     public function placeholders(array $placeholders) : self {
         $this->_params = $placeholders;
 
@@ -202,6 +261,15 @@ class QueryBuilder {
         $this->_connection->executeQuery($this->_query, $this->_params, true, $results);
 
         return $results ?? [];
+    }
+
+    public function getSingle() : array {
+        $results = $this->getAll();
+
+        foreach ($results as $result)
+            return $result;
+
+        return [];
     }
 
     public function getReturnCode() : int {
