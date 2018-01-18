@@ -20,8 +20,6 @@
 
     <body>
       <header id="header">
-          <button
-              type="button"
-                class="float_right">Log out</button>
+              <input type="submit" name="submit" value="Log out" class="float_right">
           <h1 align="center">Just leaving this here for testing purposes</h1>
       </header>

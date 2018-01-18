@@ -26,7 +26,7 @@ class ModuleLoader extends Controller {
      * @jelmer Wanneer er een loginmodule is, moet je deze constante even op 'login' zetten. Dan wordt de loginmodule
      * standaard geladen, tenzij er om een andere module wordt gevraagd (zie ook Syracuse.class.php).
      */
-    private const DEFAULT_MODULE = 'main';
+    private const DEFAULT_MODULE = 'login';
 
     private static $_modules = [
         'main' => 'Main',
