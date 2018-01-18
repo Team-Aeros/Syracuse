@@ -51,8 +51,8 @@ class Syracuse {
          * @jelmer: Wanneer je een methode hebt die kijkt of de gebruiker is ingelogd, vervang 'false' dan met de oproep
          * naar die methode. De tweede conditie kun je gewoon laten staan.
          */
-        $page = $this->_route->getRouteInfo()['module_name'];
-        if (true && $page != 'login' && $page != 'help') {
+        $page = $this->_route->getRouteInfo()['module_name'] ?? 'main';
+        if (false && $page != 'login' && $page != 'help') {
             header('Location: ' . $this->_config->get('url') . '/index.php/login');
             die;
         }
@@ -71,7 +71,8 @@ class Syracuse {
 
         $returnCode = $module->execute();
 
-        $this->_gui->displayTemplate('header');
+        if (empty($this->_route->getRouteInfo()['parameters']['ajax_request']))
+            $this->_gui->displayTemplate('header');
 
         if ($returnCode !== ReturnCode::SUCCESS) {
             switch ($returnCode) {
@@ -100,6 +101,7 @@ class Syracuse {
         else
             $module->display();
 
-        $this->_gui->displayTemplate('footer');
+        if (empty($this->_route->getRouteInfo()['parameters']['ajax_request']))
+            $this->_gui->displayTemplate('footer');
     }
 }

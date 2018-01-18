@@ -9,19 +9,21 @@
  * @license     MIT
  */
 
-function perform_request(ajax_url, data_to_send, handler) {
+function perform_request(ajax_url, data_to_send, handler, get_or_post = 'GET', data_type = 'html') {
     $.ajax({
         data: data_to_send,
-        dataType: 'json',
-        url: script_url + '/index.php' + ajax_url,
-        method: 'GET',
+        dataType: data_type,
+        url: base_url + ajax_url,
+        method: get_or_post,
         success: handler,
         error: function() {
-            alert(could_not_receive_json_data);
+            alert(could_not_load_module);
         }
     });
 }
 
-function load_module() {
-
+function load_module(element, url) {
+    request = perform_request(url, {}, function(message, data, response) {
+        $(element).html(response.responseText);
+    });
 }
