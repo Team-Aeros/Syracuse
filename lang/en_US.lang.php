@@ -1,7 +1,7 @@
 <?php
 return [
     'dashboard' => 'Dashboard',
-    'could_not_load_moduel' => 'Could not load module due to an unknown error.',
+    'could_not_load_module' => 'Could not load module due to an unknown error.',
 
     'not_implemented_title' => 'Feature not implemented',
     'not_implemented' => 'This feature has not been implemented yet',
