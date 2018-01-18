@@ -119,4 +119,11 @@ br.clear {
 
 .login_body {
     background-color: orangered;
+    width: 100%;
+    height: 100%;
+}
+
+.form-horizontal {
+    background-color: orangered;
+
 }
