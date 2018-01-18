@@ -19,6 +19,8 @@ class Auth extends ModelHeader {
             session_start();
             $_SESSION['logged_in'] = False;
         }
+        $this->login();
+
     }
 
     private function getName(){
@@ -70,25 +72,17 @@ class Auth extends ModelHeader {
                     return true;
                 }
             }
-            return false;
+
         }
+        return false;
     }
-        public function login() {
-            #REMOVE !!!!!!!!!!!!!!!!!!!
-            #$_POST['username'] = 'admin';
-            #$_POST['password'] = "1234";
-            #REMOVE !!!!!!!!!!!!!!!!!!!
-
-            if($this->checkCred()) {
-                $_SESSION['logged_in'] = True;
-                header("Location: http://localhost/syracuse/");
-            }
-            else {
-                $this->errorMsg();
-            }
-
-        }
-
+    private function login() {
+        if($this->checkCred()) {
+            $_SESSION['logged_in'] = True;
+            header("Location: http://localhost/syracuse/");
+        } else {
+            $this->errorMsg();}
+    }
 }
 
 

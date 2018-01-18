@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Syracuse</title>
-    <link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/main.css">
-</head>
-<body class="body">
+
 <div id = container
      class="container"
      align="center">
@@ -23,7 +17,6 @@
         <input class="btn btn-success" type="submit" value="Log in">
     </form>
 </div>
-</body>
-</html>
+
 
 

@@ -20,7 +20,5 @@
 
       <footer id="footer">
           <p>Aeros Development</p>
-
-    </body>
-</html>
+      </footer>
 
