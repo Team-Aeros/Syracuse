@@ -1,27 +1,33 @@
 <?php
 /**
- * Created by me.
- * User: Jelmer
- * Date: 15-Jan-18
- * Time: 09:56
+ * Syracuse
+ *
+ * @version     1.0 Beta 1
+ * @author      Aeros Development
+ * @copyright   2017-2018 Syracuse
+ * @since       1.0 Beta 1
+ *
+ * @license     MIT
  */
 
 namespace Syracuse\src\auth\models;
 
 use Syracuse\src\database\Database;
-use Syracuse\src\headers\ControllerHeader;
-use Syracuse\src\headers\ModelHeader;
+use Syracuse\src\headers\Model;
 
-class Auth extends ModelHeader {
+class Auth extends Model {
+
 
     public function __construct() {
         if(session_status() == PHP_SESSION_NONE) {
             session_start();
-            $_SESSION['logged_in'] = False;
         }
-        $this->login();
+        $_SESSION['logged_in'] = False;
 
+        if (!empty($_POST))
+            $this->login();
     }
+
 
     private function getName(){
         $names = Database::interact('retrieve', 'accounts')
@@ -79,7 +85,6 @@ class Auth extends ModelHeader {
     private function login() {
         if($this->checkCred()) {
             $_SESSION['logged_in'] = True;
-            header("Location: http://localhost/syracuse/");
         } else {
             $this->errorMsg();}
     }

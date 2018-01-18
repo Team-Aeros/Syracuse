@@ -116,3 +116,7 @@ br.clear {
 .top10List {
     padding: 25px 50px 25px 50px;
 }
+
+.login_body {
+    background-color: orangered;
+}
