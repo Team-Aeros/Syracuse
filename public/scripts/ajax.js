@@ -21,3 +21,7 @@ function perform_request(ajax_url, data_to_send, handler) {
         }
     });
 }
+
+function load_module() {
+
+}
