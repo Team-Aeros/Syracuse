@@ -14,6 +14,7 @@
 namespace Syracuse\src\main\controllers;
 
 use Syracuse\Config;
+use Syracuse\src\auth\models\Auth;
 use Syracuse\src\core\controllers\Route;
 use Syracuse\src\core\models\Registry;
 use Syracuse\src\core\models\ReturnCode;
@@ -52,7 +53,7 @@ class Syracuse {
          * naar die methode. De tweede conditie kun je gewoon laten staan.
          */
         $page = $this->_route->getRouteInfo()['module_name'];
-        if (true && $page != 'login' && $page != 'help') {
+        if ($_SESSION['logged_in'] && $page != 'login' && $page != 'help') {
             header('Location: ' . $this->_config->get('url') . '/index.php/login');
             die;
         }

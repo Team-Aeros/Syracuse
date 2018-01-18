@@ -15,4 +15,10 @@
           </div>
 
           <br class="clear" />
+
       </div>
+
+      <footer id="footer">
+          <p>Aeros Development</p>
+      </footer>
+
