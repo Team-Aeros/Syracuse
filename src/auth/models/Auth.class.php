@@ -16,7 +16,7 @@ use Syracuse\src\database\Database;
 use Syracuse\src\headers\Model;
 
 class Auth extends Model {
-
+    private $errors;
 
     public function __construct() {
         if(session_status() == PHP_SESSION_NONE) {
@@ -26,6 +26,8 @@ class Auth extends Model {
 
         if (!empty($_POST))
             $this->login();
+
+        $this->errors = array();
     }
 
     /*
@@ -83,7 +85,15 @@ class Auth extends Model {
     }
 
     private function errorMsg() {
-        echo "Username or password was incorrect.";
+        if(empty($this->errors)) {
+            $this->errors[0] = "Username or password was incorrect";
+        } else {
+            echo count($this->errors);
+        }
+    }
+
+    public function getErrors() {
+        return $this->errors;
     }
 
     /*
@@ -99,7 +109,6 @@ class Auth extends Model {
                     return true;
                 }
             }
-
         }
         return false;
     }

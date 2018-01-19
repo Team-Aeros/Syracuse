@@ -2,6 +2,8 @@
      class="login_body"
      align="center">
 
+    <!-- display error if there are errors in Auth->getErrors() -->
+
     <form class="form-horizontal" action="{{ base_url }}/index.php/login"  method="POST">
         <div class="form-group">
             <input class="input" type="text" placeholder="Username" name="username" size="20">
