@@ -34,13 +34,13 @@ class TemplateManager {
         $max = count($content);
 
         for ($i = 0; $i < $max; $i++) {
-            if ($content[$i] == '{' && $i < $max && $content[$i + 1] == '{') {
+            if ($content[$i] == '{' && $i < ($max - 1) && $content[$i + 1] == '{') {
                 $j = $i;
 
                 while ($j < $max) {
                     $j++;
 
-                    if ($content[$j] . $content[$j + 1] != '}}') {
+                    if ($j < ($max - 1) && $content[$j] . $content[$j + 1] != '}}') {
                         $currentOperation = trim($currentOperation);
 
                         if (preg_match('/^[a-zA-Z_]*$/', $currentOperation, $match)) {
