@@ -42,8 +42,10 @@ class ModuleLoader extends Controller {
     }
 
     public function load() : void {
-        if (!self::moduleExists($this->_moduleName))
+        if (!self::moduleExists($this->_moduleName) && empty($this->_routeParams['ajax_request']))
             $this->_moduleName = self::DEFAULT_MODULE;
+        else if (!self::moduleExists($this->_moduleName))
+            earlyExit('Could not load module.', 'To prevent recursion, the script was halted.');
 
         $module = 'Syracuse\src\modules\controllers\\' . self::$_modules[$this->_moduleName];
 

@@ -74,7 +74,8 @@ class Syracuse {
 
         $returnCode = $module->execute();
 
-        $this->_gui->displayTemplate('header');
+        if (empty($this->_route->getRouteInfo()['parameters']['ajax_request']))
+            $this->_gui->displayTemplate('header');
 
         if ($returnCode !== ReturnCode::SUCCESS) {
             switch ($returnCode) {
@@ -103,6 +104,7 @@ class Syracuse {
         else
             $module->display();
 
-        $this->_gui->displayTemplate('footer');
+        if (empty($this->_route->getRouteInfo()['parameters']['ajax_request']))
+            $this->_gui->displayTemplate('footer');
     }
 }
