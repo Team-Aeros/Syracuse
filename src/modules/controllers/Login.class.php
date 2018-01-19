@@ -26,12 +26,17 @@ class Login extends Controller implements Module {
     public function __construct(string $moduleName, array $parameters) {
         $this->_moduleName = $moduleName;
         $this->_parameters = $parameters;
+
         $this->loadGui();
+        $this->loadAuthenticationSystem();
 
         $this->_model = new Model();
     }
 
     public function execute() : int {
+        if (self::$auth->isLoggedIn())
+            $this->redirectTo('/');
+
         return ReturnCode::SUCCESS;
     }
 
