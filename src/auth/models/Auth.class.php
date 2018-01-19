@@ -28,7 +28,10 @@ class Auth extends Model {
             $this->login();
     }
 
-
+    /*
+     * Retrieves the username from the database
+     * returns String name
+     */
     private function getName(){
         $names = Database::interact('retrieve', 'accounts')
             ->fields('name')
@@ -37,6 +40,11 @@ class Auth extends Model {
         return $array['name'];
     }
 
+    /*
+     * Retrieves the password that belongs to the username
+     * Parameter $name = username
+     * returns String password
+     */
     private function getPass($name) {
         $db_name = $name;
         $pass = Database::interact('retrieve', 'accounts')
@@ -47,6 +55,10 @@ class Auth extends Model {
         return $array['pass'];
     }
 
+    /*
+     * Retrieves the salt from the database
+     * returns Array salt
+     */
     private function getSalt() {
         $salt = Database::interact('retrieve', 'setting')
             ->fields('identifier', 'val')
@@ -59,6 +71,12 @@ class Auth extends Model {
 
     }
 
+    /*
+     * Hashes the entered password using bcrypt
+     * Parameter $salt = Array salt
+     * Parameter $pass = String password
+     * returns String hashed password
+     */
     private function hashPass($salt, $pass) {
         $hashPass = password_hash($pass, PASSWORD_BCRYPT, $salt);
         return $hashPass;
@@ -68,7 +86,10 @@ class Auth extends Model {
         echo "Username or password was incorrect.";
     }
 
-
+    /*
+     * Checks the entered credentials with the database
+     * Returns true if correct, false if not
+     */
     private function checkCred() {
         if (!empty($_POST['username'] && !empty($_POST['password']))) {
             $db_name = $this->getName();
@@ -82,6 +103,11 @@ class Auth extends Model {
         }
         return false;
     }
+
+    /*
+     * Sets session logged_in value to true if credentials match, gives error msg if not
+     *
+     */
     private function login() {
         if($this->checkCred()) {
             $_SESSION['logged_in'] = True;
