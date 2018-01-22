@@ -15,14 +15,11 @@ namespace Syracuse\src\main\controllers;
 
 use Syracuse\src\headers\Controller;
 use Syracuse\src\main\models\GUI as Model;
-use Twig_Environment;
-use Twig_Function;
-use Twig_Loader_Filesystem;
 
 class GUI extends Controller {
 
     private $_model;
-    private $_twig;
+    private $_templateManager;
     private $_loader;
 
     private $_defaultData;
@@ -35,21 +32,15 @@ class GUI extends Controller {
         $this->loadSettings();
         $this->setTemplateDir(self::$config->get('path') . '/public/views/' . self::$config->get('theme') . '/templates');
 
-        $this->_loader = new Twig_Loader_Filesystem($this->_model->getTemplateDir());
-        $this->_twig = new Twig_Environment($this->_loader, [
-            'cache' => self::$config->get('path') . '/cache',
-            'debug' => SYRACUSE_DEBUG
-        ]);
+        $this->_templateManager = new TemplateManager();
+        $this->_templateManager->setTemplateDir($this->_model->getTemplateDir());
+        $this->_templateManager->setCacheDir(self::$config->get('path') . '/cache');
 
         $this->setDefaultData();
-
-        $this->_twig->addFunction(new Twig_Function('_translate', function(string $identifier, string ...$params) {
-            return _translate($identifier, ...$params);
-        }));
     }
 
     public function displayTemplate(string $template, array $data = []) : void {
-        echo $this->_twig->load($template . '.tpl')->render($this->_defaultData + $data);
+        $this->_templateManager->getTemplate($template, $this->_defaultData + $data);
     }
 
     private function setDefaultData() : void {
@@ -60,7 +51,8 @@ class GUI extends Controller {
             'base_url' => self::$config->get('url'),
             'script_url' => self::$config->get('url') . '/public/scripts',
             'node_url' => self::$config->get('url') . '/node_modules',
-            'page_title' => $this->_model->getPageTitle()
+            'page_title' => $this->_model->getPageTitle(),
+            'translate' => '_translate'
         ];
     }
 
