@@ -46,6 +46,10 @@ class GUI extends Controller {
         $this->_twig->addFunction(new Twig_Function('_translate', function(string $identifier, string ...$params) {
             return _translate($identifier, ...$params);
         }));
+
+        $this->_twig->addFunction(new Twig_Function('count', function(array $arr) {
+            return count($arr);
+        }));
     }
 
     public function displayTemplate(string $template, array $data = []) : void {

@@ -10,6 +10,6 @@
  * @license     MIT
  */
 
-if(!empty($_POST['submit'] == 'Log out')) {
+if(!empty($_POST['logout'] == 'Log out')) {
     $_SESSION['logged_in'] = False;
 }
