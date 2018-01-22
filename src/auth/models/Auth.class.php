@@ -101,6 +101,11 @@ class Auth extends Model {
         return $_SESSION['logged_in'] ?? false;
     }
 
+    public function logOut() {
+        $_SESSION['logged_in'] = false;
+        header("Location: http://localhost/Syracuse/");
+    }
+
 
     private function login() {
         if ($this->checkCred()) {

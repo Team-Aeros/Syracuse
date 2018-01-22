@@ -29,6 +29,7 @@ class ModuleLoader extends Controller {
     private static $_modules = [
         'main' => 'Main',
         'login' => 'Login',
+        'logout' => 'Main',
         'help' => 'Help'
     ];
 
@@ -47,10 +48,10 @@ class ModuleLoader extends Controller {
 
         $module = 'Syracuse\src\modules\controllers\\' . self::$_modules[$this->_moduleName];
 
-        if (!file_exists(self::$config->get('path') . '/src/modules/controllers/' . ucfirst($this->_moduleName) . '.class.php'))
+        if (!file_exists(self::$config->get('path') . '/src/modules/controllers/' . self::$_modules[$this->_moduleName] . '.class.php'))
             earlyExit('Could not load module.', 'The ' . $this->_moduleName . ' module controller could not be found.');
 
-        $this->_module = new $module(self::$_modules[$this->_moduleName], $this->_routeParams);
+        $this->_module = new $module($this->_moduleName, $this->_routeParams);
     }
 
     public function getModule() : Controller {
