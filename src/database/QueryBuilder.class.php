@@ -171,6 +171,11 @@ class QueryBuilder {
         return $this;
     }
 
+    /**
+     * Inserts a single record into the database.
+     * @param array $values An associative array ('field' => 'value') containing the desired values
+     * @return int An error code
+     */
     public function insert(array $values) : int {
         $fields = [];
 
@@ -184,6 +189,11 @@ class QueryBuilder {
         return $this->_connection->executeQuery($this->_query, $this->_params);
     }
 
+    /**
+     * Generates a list of values used for inserting rows
+     * @param array $values An associative array ('field' => 'value') containing the desired values
+     * @return void
+     */
     private function setValues(array $values) : void {
         $valueCount = count($values);
 
@@ -201,6 +211,11 @@ class QueryBuilder {
         }
     }
 
+    /**
+     * Generates the actual query
+     * @param array $values An associative array ('field' => 'value') containing the desired values
+     * @return void
+     */
     private function generateQuery(?array $values = []) : void {
         switch ($this->_action) {
             case 'retrieve':
@@ -236,6 +251,11 @@ class QueryBuilder {
             $this->_query .= ' LIMIT ' . (!empty($this->_limitMin) ? $this->_limitMin . ', ' : '') . $this->_limitMax;
     }
 
+    /**
+     * Updates one or more database records
+     * @param array $values An associative array ('field' => 'value') containing the desired values
+     * @return int An error code
+     */
     public function update(array $values) : int {
         if (empty($this->_query))
             $this->generateQuery($values);
@@ -243,6 +263,10 @@ class QueryBuilder {
         return $this->_connection->executeQuery($this->_query, $this->_params, false);
     }
 
+    /**
+     * Returns an array of one or more records that meet the conditions.
+     * @return array The results
+     */
     public function getAll() : array {
         if (empty($this->_query))
             $this->generateQuery();
@@ -263,6 +287,12 @@ class QueryBuilder {
         return $results ?? [];
     }
 
+    /**
+     * Returns a single row from a table, based on the conditions. If there are multiple records that meet these
+     * conditions, only the first one is returned. Note: since there is only one row, the array returned by this
+     * method can be used directly, without having to loop over it.
+     * @return array The record that meets the conditions
+     */
     public function getSingle() : array {
         $results = $this->getAll();
 
@@ -272,14 +302,26 @@ class QueryBuilder {
         return [];
     }
 
+    /**
+     * Checks if there were any errors. If so, an error code is returned. Not sure when this should be used, but
+     * you might find this useful.
+     * @return int The return code
+     */
     public function getReturnCode() : int {
         return empty($this->_errors) ? ReturnCode::SUCCESS : ReturnCode::DATABASE_ERROR;
     }
 
+    /**
+     * @return $this->_errors
+     */
     public function getErrors() : array {
         return $this->_errors;
     }
 
+    /**
+     * Converts the query to a string.
+     * @return string The query (in string format)
+     */
     public function __toString() : string {
         return $this->_query;
     }

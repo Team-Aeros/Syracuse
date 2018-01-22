@@ -11,9 +11,10 @@
         <script type="text/javascript">
             // URLs and paths
             const script_url = '{{ script_url }}';
+            const base_url = '{{ base_url }}';
 
             // Language strings should go below here
-            const could_not_receive_json_data = '{{ _translate('could_not_receive_json_data') }}';
+            const could_not_load_module = '{{ _translate('could_not_load_module') }}';
         </script>
     </head>
 

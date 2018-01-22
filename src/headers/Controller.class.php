@@ -20,6 +20,7 @@ abstract class Controller {
 
     protected static $config;
     protected static $gui;
+    protected static $auth;
 
     protected function loadSettings() : void {
         self::$config = Registry::retrieve('config');
@@ -27,5 +28,16 @@ abstract class Controller {
 
     protected function loadGui() : void {
         self::$gui = Registry::retrieve('gui');
+    }
+
+    protected function loadAuthenticationSystem() : void {
+        self::$auth = Registry::retrieve('auth');
+    }
+
+    protected function redirectTo(string $module) : void {
+        if (empty(self::$config))
+            $this->loadSettings();
+
+        header('Location: ' . self::$config->get('url') . '/index.php' . $module);
     }
 }
