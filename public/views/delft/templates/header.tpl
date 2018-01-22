@@ -21,7 +21,7 @@
     <body>
       <header id="header">
           {% if is_logged_in %}
-            <a class="float_right" href="{{ base_url }}/index.php/logout">Logout</a>
+            <a class="button" href="{{ base_url }}/index.php/logout">Logout</a>
           {% endif %}
 
           <h1 align="center">Just leaving this here for testing purposes</h1>
