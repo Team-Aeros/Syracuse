@@ -18,4 +18,10 @@ use Syracuse\src\headers\Model;
 
 class Login extends Model {
 
+    public function login(array &$errors) : void {
+        // I'm an error
+        if(!empty($_POST)) {
+            $errors['email'] = 'invalid_username';
+        }
+    }
 }

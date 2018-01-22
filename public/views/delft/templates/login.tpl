@@ -2,8 +2,6 @@
      class="login_body"
      align="center">
 
-    <!-- display error if there are errors in Auth->getErrors() -->
-
     <form class="form-horizontal" action="{{ base_url }}/index.php/login"  method="POST">
         <div class="form-group">
             <input class="input" type="text" placeholder="E-mail" name="email" size="20">
@@ -14,7 +12,9 @@
         <br>
         <input type="submit" value="Log in">
     </form>
-
+    {% if errors is not empty and count(errors) > 0 %}
+        <p>{{ errors[count(errors) - 1] }}</p>
+    {% endif %}
 </div>
 
 

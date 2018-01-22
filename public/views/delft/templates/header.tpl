@@ -19,8 +19,8 @@
 
     <body>
       <header id="header">
-          <form action="{{ base_url }}/index.php/logout" method="post">
+          <!--<form action="{{ base_url }}/index.php/logout" method="post">
               <input type="submit" name="logout" value="Log out" class="float_right">
-          </form>
+          </form>-->
           <h1 align="center">Just leaving this here for testing purposes</h1>
       </header>

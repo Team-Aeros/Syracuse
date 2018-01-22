@@ -30,7 +30,7 @@ class Route {
     public function __construct() {
         $this->_dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $routeCollector) {
             $routeCollector->addRoute('GET', '/help', 'help');
-            $routeCollector->addRoute('GET', '/logout', 'logout');
+            $routeCollector->addRoute(['POST','GET'], '/logout', 'logout');
             $routeCollector->addRoute(['POST', 'GET'], '/login', 'login');
 
             $routeCollector->addRoute('GET', '/', 'main');
