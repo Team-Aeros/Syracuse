@@ -47,11 +47,10 @@ class Syracuse {
             ->getAll();
 
         $this->_config->import($settings);
-        $auth = new Auth();
-
+        $auth = Registry::store('auth', new Auth());
 
         $page = $this->_route->getRouteInfo()['module_name'] ?? 'main';
-        if ($_SESSION['logged_in'] && $page != 'login' && $page != 'help') {
+        if (!$auth->isLoggedIn() && $page != 'login' && $page != 'help') {
             header('Location: ' . $this->_config->get('url') . '/index.php/login');
             die;
         }
@@ -70,7 +69,8 @@ class Syracuse {
 
         $returnCode = $module->execute();
 
-        $this->_gui->displayTemplate('header');
+        if (empty($this->_route->getRouteInfo()['parameters']['ajax_request']))
+            $this->_gui->displayTemplate('header');
 
         if ($returnCode !== ReturnCode::SUCCESS) {
             switch ($returnCode) {
@@ -99,6 +99,7 @@ class Syracuse {
         else
             $module->display();
 
-        $this->_gui->displayTemplate('footer');
+        if (empty($this->_route->getRouteInfo()['parameters']['ajax_request']))
+            $this->_gui->displayTemplate('footer');
     }
 }

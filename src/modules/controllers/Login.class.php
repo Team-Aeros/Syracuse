@@ -27,7 +27,9 @@ class Login extends Controller implements Module {
     public function __construct(string $moduleName, array $parameters) {
         $this->_moduleName = $moduleName;
         $this->_parameters = $parameters;
+
         $this->loadGui();
+        $this->loadAuthenticationSystem();
 
         $this->_errors = [];
 
@@ -36,6 +38,9 @@ class Login extends Controller implements Module {
 
     public function execute() : int {
         $this->_model->login($this->_errors);
+        if (self::$auth->isLoggedIn())
+            $this->redirectTo('/');
+
         return ReturnCode::SUCCESS;
     }
 

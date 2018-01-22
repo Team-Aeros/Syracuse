@@ -18,11 +18,6 @@ use Syracuse\src\headers\Model;
 class Auth extends Model {
 
     public function __construct() {
-        if(session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-        $_SESSION['logged_in'] = False;
-
         if (!empty($_POST))
             $this->login();
 
@@ -101,13 +96,18 @@ class Auth extends Model {
         return false;
     }
 
-    /*
-     * Sets session logged_in value to true if credentials match, gives error msg if not
-     *
-     */
+
+    public function isLoggedIn() : bool {
+        return $_SESSION['logged_in'] ?? false;
+    }
+
+
     private function login() {
         if ($this->checkCred()) {
             $_SESSION['logged_in'] = true;
         }
     }
 }
+
+
+
