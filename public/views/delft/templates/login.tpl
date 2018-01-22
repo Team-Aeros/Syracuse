@@ -6,7 +6,7 @@
 
     <form class="form-horizontal" action="{{ base_url }}/index.php/login"  method="POST">
         <div class="form-group">
-            <input class="input" type="text" placeholder="Username" name="username" size="20">
+            <input class="input" type="text" placeholder="E-mail" name="email" size="20">
         </div>
         <div class="form-group">
             <input class="input" type="password" placeholder="Password" name="password" size="20">

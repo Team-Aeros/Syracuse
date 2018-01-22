@@ -86,7 +86,7 @@ class Auth extends Model {
 
     private function errorMsg() {
         if(empty($this->errors)) {
-            $this->errors[0] = "Username or password was incorrect";
+            $this->errors[0] = "E-mail or password was incorrect";
         } else {
             echo count($this->errors);
         }
@@ -101,9 +101,9 @@ class Auth extends Model {
      * Returns true if correct, false if not
      */
     private function checkCred() {
-        if (!empty($_POST['username'] && !empty($_POST['password']))) {
+        if (!empty($_POST['email'] && !empty($_POST['password']))) {
             $db_name = $this->getName();
-            if ($_POST['username'] === $db_name) {
+            if ($_POST['email'] === $db_name) {
                 $db_pass = $this->getPass($db_name);
                 if ($this->hashPass($this->getSalt(), $_POST['password']) === $db_pass) {
                     return true;
