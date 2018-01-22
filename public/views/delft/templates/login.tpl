@@ -16,6 +16,3 @@
         <p>{{ errors[count(errors) - 1] }}</p>
     {% endif %}
 </div>
-
-
-
