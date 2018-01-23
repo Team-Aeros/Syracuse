@@ -41,3 +41,18 @@
 [1516702786] (PHP error): A non-numeric value encountered in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 188
 [1516702786] (PHP error): array_slice() expects parameter 1 to be array, string given in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 188
 [1516702795] (PHP error): array_slice() expects parameter 1 to be array, string given in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 188
+[1516708046] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708465] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708476] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708496] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708666] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708667] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708667] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708667] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708667] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708667] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708668] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516708668] (PHP error): Use of undefined constant is_logged_in - assumed 'is_logged_in' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516710033] (PHP error): Undefined index: _logged_in in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516710041] (PHP error): Undefined index: logged_in in /srv/http/Syracuse/cache/header.cached.php on line 36
+[1516710045] (PHP error): Undefined index: s_logged_in in /srv/http/Syracuse/cache/header.cached.php on line 36
