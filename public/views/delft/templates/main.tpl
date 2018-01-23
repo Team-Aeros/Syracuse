@@ -10,6 +10,11 @@
                 <p> no map :(</p>
             </div>
 
+            <div id="graph" class="widget">
+                <H2>Graph of selected weather station temperature</H2>
+                <p> no graph :(</p>
+            </div>
+
           <br class="clear" />
 
       </div>

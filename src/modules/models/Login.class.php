@@ -21,7 +21,7 @@ class Login extends Model {
     public function login(array &$errors) : void {
         // I'm an error
         if(!empty($_POST)) {
-            $errors['email'] = 'invalid_username';
+            $errors['cred'] = '******E-mail or password incorrect******';
         }
     }
 }
