@@ -32,7 +32,7 @@ class Route {
             $routeCollector->addRoute(['POST', 'GET'], '/help/ajax/{ajax_request}', 'help');
 
             $routeCollector->addRoute('GET', '/help', 'help');
-            $routeCollector->addRoute(['POST','GET'], '/logout', 'logout');
+            $routeCollector->addRoute('GET', '/logout', 'logout');
             $routeCollector->addRoute(['POST', 'GET'], '/login', 'login');
 
             $routeCollector->addRoute('GET', '/', 'main');

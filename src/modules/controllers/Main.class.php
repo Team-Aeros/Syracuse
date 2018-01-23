@@ -24,9 +24,16 @@ class Main extends Controller implements Module {
     private $_model;
 
     public function __construct(string $moduleName, array $parameters) {
+        if ($moduleName == 'logout') {
+            $this->loadAuthenticationSystem();
+            self::$auth->logOut();
+            exit;
+        }
         $this->_moduleName = $moduleName;
         $this->_parameters = $parameters;
         $this->loadGui();
+
+
 
         $this->_model = new Model();
     }

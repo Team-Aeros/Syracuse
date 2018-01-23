@@ -30,6 +30,7 @@ class GUI extends Controller {
         $this->_defaultData = [];
 
         $this->loadSettings();
+        $this->loadAuthenticationSystem();
         $this->setTemplateDir(self::$config->get('path') . '/public/views/' . self::$config->get('theme') . '/templates');
 
         $this->_templateManager = new TemplateManager();
@@ -52,7 +53,7 @@ class GUI extends Controller {
             'script_url' => self::$config->get('url') . '/public/scripts',
             'node_url' => self::$config->get('url') . '/node_modules',
             'page_title' => $this->_model->getPageTitle(),
-            'translate' => '_translate'
+            'is_logged_in' => self::$auth->isLoggedIn()
         ];
     }
 
