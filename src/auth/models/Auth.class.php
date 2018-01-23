@@ -60,6 +60,7 @@ class Auth extends Model {
 
     private function errorMsg() {
         echo "Username or password was incorrect.";
+        logError('authentication', 'Invalid username or password', __FILE__, __LINE__);
     }
 
     private function checkCred() {

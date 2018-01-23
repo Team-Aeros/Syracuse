@@ -39,6 +39,7 @@ class Connection {
         }
 
         catch (PDOException $e) {
+            logError('database', sprintf('An error occurred while connecting to the database (%s)', $e->getMessage()), __FILE__, __LINE__);
             earlyExit('Could not connect to the database.', $e->getMessage());
         }
 
@@ -63,6 +64,7 @@ class Connection {
         }
 
         catch (PDOException $e) {
+            logError('database', sprintf('An error occurred while trying to execute a query (%s)', $e->getMessage()), __FILE__, __LINE__);
             (new Error('Could not execute query.', $e->getMessage()))->trigger();
         }
 

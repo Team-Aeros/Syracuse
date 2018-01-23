@@ -1,0 +1,8 @@
+[1516696155] (database error): An error occurred while trying to execute a query (SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected) in /srv/http/Syracuse/src/database/Connection.class.php on line 67
+[1516696156] (database error): An error occurred while trying to execute a query (SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected) in /srv/http/Syracuse/src/database/Connection.class.php on line 67
+[1516698405] (PHP error): Use of undefined constant body - assumed 'body' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/help.cached.php on line 16
+[1516698405] (PHP error): Use of undefined constant STRING_NOT_FOUND - assumed 'STRING_NOT_FOUND' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/src/main/controllers/Language.class.php on line 35
+[1516698695] (PHP error): Use of undefined constant title - assumed 'title' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/help.cached.php on line 15
+[1516698695] (PHP error): Use of undefined constant STRING_NOT_FOUND - assumed 'STRING_NOT_FOUND' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/src/main/controllers/Language.class.php on line 35
+[1516698695] (PHP error): Use of undefined constant body - assumed 'body' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/cache/help.cached.php on line 16
+[1516698695] (PHP error): Use of undefined constant STRING_NOT_FOUND - assumed 'STRING_NOT_FOUND' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/src/main/controllers/Language.class.php on line 35

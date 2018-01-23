@@ -274,11 +274,16 @@ class QueryBuilder {
         $results = [];
 
         if ($this->_action != 'retrieve') {
-            $this->_errors[] = 'Invalid action. You can only invoke the getAll() method on an object with query type \'retrieve\'';
+            $error = 'Invalid action. You can only invoke the getAll() method on an object with query type \'retrieve\'';
+            $this->_errors[] = $error;
+            logError('database', $error, __FILE__, __LINE__);
+
             return [];
         }
         else if (empty($this->_query)) {
             $this->_errors[] = 'Could not generate query.';
+            logError('database', 'Could not generate query (query was empty)', __FILE__, __LINE__);
+
             return [];
         }
 

@@ -87,10 +87,22 @@ class TemplateManager {
                                     break;
                             }
 
-                            $buffer .= sprintf('%s;', $match[0]);
+                            $arguments = [];
+                            foreach (explode(',', $match[2]) as $argument) {
+                                if (preg_match('/^\'[a-zA-Z].+\'$/', $argument) || is_numeric($argument))
+                                    $arguments[] = $argument;
+                                else
+                                    $arguments[] = sprintf('$this->_params[\'%s\']', $argument);
+                            }
+
+                            // A really cheap hack, I know, I know
+                            if ($match[1][0] == '_')
+                                $match[1] = 'echo ' . $match[1];
+
+                            $buffer .= sprintf('%s;', $match[1] . '(' . implode(', ', $arguments) . ')');
                             $lastOperation = self::OPERATION_FUNCTION_CALL;
                         }
-                        // Passing text to variables
+                        // Filters
                         else if (preg_match('/^([a-zA-Z_]*)\|([a-zA-Z_]*)$/', $currentOperation, $match)) {
                             $this->throwErrorIfNoMatch($match);
 
@@ -106,7 +118,7 @@ class TemplateManager {
                                     break;
                             }
 
-                            $buffer .= sprintf('%s($this->_params[\'%s\']);', $match[2], $match[1]);
+                            $buffer .= sprintf('echo %s($this->_params[\'%s\']);', $match[2], $match[1]);
                             $lastOperation = self::OPERATION_FUNCTION_CALL;
                         }
                         else
