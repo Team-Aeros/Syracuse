@@ -70,10 +70,13 @@ function _translate(string $identifier, ?string ...$parameters) : string {
  * @return void
  */
 function logError(string $type, string $message, string $filename, int $line, bool $printAnyway = true) : void {
+    if (!SYRACUSE_DEBUG)
+        return;
+
     $file = fopen(__DIR__ . '/../log.txt', 'a');
 
     if (!$file) {
-        if (SYRACUSE_DEBUG && $printAnyway)
+        if ($printAnyway)
             printf('Could not add error message to log. Requested by %s on line %u', $message, $filename, $line);
 
         return;
