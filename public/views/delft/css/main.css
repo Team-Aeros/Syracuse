@@ -40,6 +40,12 @@ html, body {
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
+    margin-left: 5px;
+}
+
+.switchBtn {
+    float: right;
+    margin-left: 5px;
 }
 
 br.clear {
@@ -113,26 +119,22 @@ br.clear {
 
 .subcontainer {
     background-color: orangered;
-    width: 50%;
+    width: 100%;
     height: 100%;
     display: flex;
 
 }
 
 
-.widgetleft {
+.widget{
     flex: 1;
     margin: 15px 0 15px 15px;
     background: #fff;
 }
 
-.widgetright {
-    margin: 15px 15px 15px 15px;
-    background: #fff;
-    height: 50%;
-
+.currentStation {
+    width: 170px;
 }
-
 
 #map {
     padding: 25px 50px 25px 50px;
