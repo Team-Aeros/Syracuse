@@ -218,8 +218,7 @@ class TemplateManager {
 
         $done = false;
         while ($j < ($max - 1) && !$done) {
-            if (($content[$j] . $content[$j + 1]) != '{%') {
-
+            if (($content[$j] . $content[$j + 1]) != '{%' && ($content[$j] . $content[$j + 1]) != '{{') {
                 switch ($lastOperation) {
                     case self::OPERATION_NONE:
                     case self::OPERATION_LOOP:
@@ -227,9 +226,32 @@ class TemplateManager {
                         $blockEnclosed .= ' echo \'';
                         $lastOperation = self::OPERATION_HARDCODED_STRING;
                         break;
+                    case self::OPERATION_VARIABLE_CALL:
+                        $blockEnclosed .= ', \'';
+                        $lastOperation = self::OPERATION_HARDCODED_STRING;
+                        break;
                 }
 
                 $blockEnclosed .= $content[$j];
+            }
+            else if (($content[$j] . $content[$j + 1]) == '{{') {
+                $innerStatement = '';
+
+                $k = $j + 2;
+                $foundStatement = false;
+                while ($k < ($max - 1) && !$foundStatement) {
+                    if (($content[$k] . $content[$k + 1]) == '}}') {
+                        $foundStatement = true;
+                        $innerStatement .= '}}';
+                    }
+                    else
+                        $innerStatement .= $content[$k];
+
+                    $k++;
+                }
+
+                $j += $this->compileStatement(0, $blockEnclosed, $innerStatement, strlen($innerStatement), $lastOperation, true) + 2;
+                $lastOperation = self::OPERATION_VARIABLE_CALL;
             }
             else {
                 $subOperation = '';
@@ -258,6 +280,8 @@ class TemplateManager {
                                 case 'else':
                                     $blockEnclosed .= '} else { ';
                                     break;
+                                default:
+                                    throw new Exception(sprintf('Unknown sub operation %s', $subOperation));
                             }
                         }
                         else {
