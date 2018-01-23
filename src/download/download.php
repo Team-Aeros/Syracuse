@@ -7,6 +7,6 @@
  */
 
 /*
- * Query the Database for the rain, windspeed and temperature data from current + 6 days prior from the weatherstation that is selected in the map
+ * ask the server for the rain, windspeed and temperature data from current + 6 days prior for the weatherstation that is selected in the map
  */
 header("Location: http://localhost/Syracuse/index.php/");
