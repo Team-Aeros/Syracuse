@@ -1,0 +1,43 @@
+[1516701229] (PHP error): Undefined variable: max in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701229] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701229] (PHP error): Undefined variable: content in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701229] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701229] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701229] (PHP error): Undefined variable: content in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701229] (PHP error): Undefined variable: content in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 177
+[1516701229] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 177
+[1516701229] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 178
+[1516701229] (PHP error): Undefined variable: max in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701229] (PHP error): Undefined variable: lastOperation in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 182
+[1516701229] (PHP error): Undefined variable: lastOperation in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 185
+[1516701251] (PHP error): Undefined variable: max in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701251] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701251] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701251] (PHP error): String offset cast occurred in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701251] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701251] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 177
+[1516701251] (PHP error): String offset cast occurred in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 177
+[1516701251] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 178
+[1516701251] (PHP error): Undefined variable: max in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701251] (PHP error): Undefined variable: lastOperation in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 182
+[1516701251] (PHP error): Undefined variable: lastOperation in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 185
+[1516701274] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701274] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701274] (PHP error): String offset cast occurred in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701274] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701274] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 177
+[1516701274] (PHP error): String offset cast occurred in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 177
+[1516701274] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 178
+[1516701274] (PHP error): Undefined variable: lastOperation in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 182
+[1516701274] (PHP error): Undefined variable: lastOperation in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 185
+[1516701303] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701303] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701303] (PHP error): String offset cast occurred in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701303] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 176
+[1516701303] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 177
+[1516701303] (PHP error): String offset cast occurred in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 177
+[1516701303] (PHP error): Undefined variable: j in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 178
+[1516702451] (PHP error): Array to string conversion in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 188
+[1516702786] (PHP error): A non-numeric value encountered in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 188
+[1516702786] (PHP error): array_slice() expects parameter 1 to be array, string given in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 188
+[1516702795] (PHP error): array_slice() expects parameter 1 to be array, string given in /srv/http/Syracuse/src/main/controllers/TemplateManager.class.php on line 188

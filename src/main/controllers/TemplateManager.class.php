@@ -25,6 +25,10 @@ class TemplateManager {
     private const OPERATION_VARIABLE_CALL = 0x02;
     private const OPERATION_FUNCTION_CALL = 0x03;
     private const OPERATION_LOOP = 0x04;
+    private const OPERATION_IF_ELSE = 0x05;
+
+    private $_blocks = [];
+    private $_blockId = 0;
 
     public function __construct() {
         $this->_templateDir = __DIR__;
@@ -62,6 +66,7 @@ class TemplateManager {
                             switch ($lastOperation) {
                                 case self::OPERATION_NONE:
                                 case self::OPERATION_LOOP:
+                                case self::OPERATION_IF_ELSE:
                                     $buffer .= ' echo ';
                                     break;
                                 case self::OPERATION_HARDCODED_STRING:
@@ -134,10 +139,17 @@ class TemplateManager {
                     $j++;
                 }
             }
+            // If-statements and loops
+            else if ($i < ($max - 1) && ($content[$i] . $content[$i + 1]) == '{%') {
+                $j = $i + 2;
+                $i = $this->compileBlock($j, $buffer, $content, $max, $lastOperation);
+            }
             else {
                 switch ($lastOperation) {
                     case self::OPERATION_NONE:
                     case self::OPERATION_FUNCTION_CALL:
+                    case self::OPERATION_IF_ELSE:
+                    case self::OPERATION_LOOP:
                         $buffer .= 'echo \'';
                         break;
                     case self::OPERATION_VARIABLE_CALL:
@@ -155,10 +167,98 @@ class TemplateManager {
 
         fclose($file);
         
-        if (!empty($currentOperation))
+        if (!empty($currentOperation) || !empty($this->_blocks))
             throw new Exception(sprintf('Unexpected end of template: %s.', $templateName));
 
         return $buffer;
+    }
+
+    private function compileBlock(int $start, string &$buffer, string $content, int $max, string &$lastOperation) : int {
+        $currentOperation = '';
+        $j = $start;
+        
+        while ($j < ($max - 1) && ($content[$j] . $content[$j + 1]) != '%}') {
+            $currentOperation .= $content[$j];
+            $j++;
+        }
+
+        // The first keyword should be the type of statement (i.e. if, else, while, for)
+        $statements = explode(' ', trim($currentOperation));
+        $statement = $statements[0];
+
+        $this->_blocks[$blockId = $this->_blockId++] = $statement;
+
+        $blockOpening = $statement . ' (' . implode(array_slice($statements, 1)) . ') {';
+        $blockEnclosed = '';
+        $blockEnding = '';
+
+        $j += 2;
+        $done = false;
+        while ($j < ($max - 1) && !$done) {
+            if (($content[$j] . $content[$j + 1]) != '{%')
+                $blockEnclosed .= $content[$j];
+            else {
+                $subOperation = '';
+
+                while ($j < ($max - 1) && !$done) {
+                    if (($content[$j] . $content[$j + 1]) != '%}' && ($content[$j] . $content[$j + 1] != '{%'))
+                        $subOperation .= $content[$j];
+                    else if (($content[$j] . $content[$j + 1] == '%}')) {
+                        $subOperation = trim($subOperation);
+
+                        if (substr($subOperation, 0, 3) == 'end' || substr($subOperation, 0, 4) == 'else') {
+                            $subOperation = trim(substr($subOperation, 0, 6));
+
+                            switch ($subOperation) {
+                                case 'end' . $statement:
+                                    $blockEnding = '}';
+                                    unset($this->_blocks[$blockId]);
+                                    $done = true;
+                                    break;
+                                case 'else':
+                                    $blockEnclosed .= '} else { ';
+                                    break;
+                            }
+                        }
+                        else
+                            $j = $this->compileBlock($j + 2, $buffer, $content, $max, $lastOperation) - 1;
+                    }
+                    else
+                        $j++;
+
+                    $j++;
+                }
+
+                $j += 2;
+            }
+
+            $j++;
+        }
+
+        switch ($lastOperation) {
+            case self::OPERATION_VARIABLE_CALL:
+                $buffer .= '; ';
+                break;
+            case self::OPERATION_HARDCODED_STRING:
+                $buffer .= '\'; ';
+                break;
+        }
+
+        $buffer .= $blockOpening . $blockEnclosed . $blockEnding;
+        
+        switch ($statement) {
+            case 'if':
+            case 'else':
+            case 'elseif':
+                $lastOperation = self::OPERATION_IF_ELSE;
+                break;
+            case 'while':
+            case 'for':
+            default:
+                $lastOperation = self::OPERATION_LOOP;
+        }
+
+        return $j + 2;
     }
 
     public function getTemplate(string $templateName, array $data) : void {
