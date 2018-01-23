@@ -50,10 +50,6 @@ class Syracuse {
         $this->_config->import($settings);
         $auth = Registry::store('auth', new Auth());
 
-        /**
-         * @jelmer: Wanneer je een methode hebt die kijkt of de gebruiker is ingelogd, vervang 'false' dan met de oproep
-         * naar die methode. De tweede conditie kun je gewoon laten staan.
-         */
         $page = $this->_route->getRouteInfo()['module_name'] ?? 'main';
         if (!$auth->isLoggedIn() && $page != 'login' && $page != 'help') {
             header('Location: ' . $this->_config->get('url') . '/index.php/login');

@@ -15,13 +15,14 @@ namespace Syracuse\src\modules\controllers;
 
 use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\{Controller, Module};
-use Syracuse\src\modules\models\Help as Model;
+use Syracuse\src\modules\models\Login as Model;
 
 class Login extends Controller implements Module {
 
     private $_moduleName;
     private $_parameters;
     private $_model;
+    private $_errors;
 
     public function __construct(string $moduleName, array $parameters) {
         $this->_moduleName = $moduleName;
@@ -30,10 +31,13 @@ class Login extends Controller implements Module {
         $this->loadGui();
         $this->loadAuthenticationSystem();
 
+        $this->_errors = [];
+
         $this->_model = new Model();
     }
 
     public function execute() : int {
+        $this->_model->login($this->_errors);
         if (self::$auth->isLoggedIn())
             $this->redirectTo('/');
 
@@ -41,6 +45,6 @@ class Login extends Controller implements Module {
     }
 
     public function display() : void {
-        self::$gui->displayTemplate('login', $this->_model->getData());
+        self::$gui->displayTemplate('login', $this->_model->getData() +  ['errors' => $this->_errors]);
     }
 }
