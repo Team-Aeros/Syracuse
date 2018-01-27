@@ -13,6 +13,6 @@
         <input type="submit" value="Log in">
     </form>
     {% if errors is not empty %}
-        <p>{{ errors['cred'] }}</p>
+        <p>{{ errors.cred }}</p>
     {% endif %}
 </div>

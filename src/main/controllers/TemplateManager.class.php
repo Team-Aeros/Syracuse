@@ -166,8 +166,38 @@ class TemplateManager {
                     $buffer .= sprintf('echo %s($this->_params[\'%s\']);', $match[2], $match[1]);
                     $lastOperation = self::OPERATION_FUNCTION_CALL;
                 }
+                // 'X is not empty' (should only be present in if-statements)
+                else if (preg_match('/^([a-zA-Z_]*) \Qis not empty\E$/', $currentOperation, $match)) {
+                    $this->throwErrorIfNoMatch($match);
+                    $buffer .= '!empty($this->_params[\'' . $match[1] . '\'])';
+                }
+                // 'X is empty'
+                else if (preg_match('/^([a-zA-Z_]*) \Qis empty\E$/', $currentOperation, $match)) {
+                    $this->throwErrorIfNoMatch($match);
+                    $buffer .= 'empty($this->_params[\'' . $match[1] . '\'])';
+                }
+                else if (preg_match('/^([a-zA-Z_]*)\.([a-zA-Z]*)$/', $currentOperation, $match)) {
+                    $this->throwErrorIfNoMatch($match);
+
+                    switch ($lastOperation) {
+                        case self::OPERATION_NONE:
+                        case self::OPERATION_LOOP:
+                        case self::OPERATION_IF_ELSE:
+                            if (!$returnOnly)
+                                $buffer .= ' echo ';
+                            break;
+                        case self::OPERATION_HARDCODED_STRING:
+                            $buffer .= '\', ';
+                            break;
+                        default:
+                            $buffer .= ', ';
+                    }
+
+                    $buffer .= sprintf('$this->_params[\'%s\'][\'%s\']', $match[1], $match[2]);
+                    $lastOperation = self::OPERATION_VARIABLE_CALL;
+                }
                 else
-                    throw new Exception(sprintf('Invalid syntax at position %u', $j));
+                    throw new Exception(sprintf('Invalid syntax at position %u. Operation: %s', $j, $currentOperation));
 
                 $currentOperation = '';
                 $done = true;
@@ -198,7 +228,7 @@ class TemplateManager {
         $this->_blocks[$blockId = $this->_blockId++] = $statement;
 
         $condition = '';
-        $statementConditions = implode(array_slice($statements, 1)) . ' }}';
+        $statementConditions = trim(substr($currentOperation, strlen($statement) + 1)) . ' }}';
         $lastOperation = self::OPERATION_NONE;
 
         switch ($statement) {
@@ -271,18 +301,17 @@ class TemplateManager {
                         if (substr($subOperation, 0, 3) == 'end' || substr($subOperation, 0, 4) == 'else') {
                             $subOperation = trim(substr($subOperation, 0, 6));
 
-                            switch ($subOperation) {
-                                case 'end' . $statement:
-                                    $blockEnding = '}';
-                                    unset($this->_blocks[$blockId]);
-                                    $done = true;
-                                    break;
-                                case 'else':
-                                    $blockEnclosed .= '} else { ';
-                                    break;
-                                default:
-                                    throw new Exception(sprintf('Unknown sub operation %s', $subOperation));
+                            if ($subOperation == 'end' . $statement) {
+                                $blockEnding = '}';
+                                unset($this->_blocks[$blockId]);
+                                $done = true;
                             }
+                            else if ($subOperation == 'else') {
+                                $blockEnclosed .= '} else { ';
+                                $j += 2;
+                            }
+                            else
+                                throw new Exception(sprintf('Unknown sub operation %s', $subOperation));
                         }
                         else {
                             $j = $this->compileBlock($j + 2, $blockEnclosed, $content, $max, $lastOperation) - 1;
@@ -294,13 +323,16 @@ class TemplateManager {
                     else
                         $j++;
 
-                    $j++;
+                    if (!$done)
+                        $j++;
                 }
 
-                $j += 2;
+                if (!$done)
+                    $j += 2;
             }
 
-            $j++;
+            if (!$done)
+                $j++;
         }
 
         switch ($lastOperation) {
