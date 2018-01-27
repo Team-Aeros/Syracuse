@@ -33,6 +33,7 @@ class Route {
 
             $routeCollector->addRoute('GET', '/help', 'help');
             $routeCollector->addRoute('GET', '/logout', 'logout');
+            $routeCollector->addRoute('GET', '/download', 'download');
             $routeCollector->addRoute(['POST', 'GET'], '/login', 'login');
 
             $routeCollector->addRoute('GET', '/', 'main');

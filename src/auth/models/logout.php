@@ -13,7 +13,6 @@
 if($_GET['btnLogOut']) {
     $_SESSION['logged_in'] = False;
 }
-echo "TEST";
 header("Location: http://localhost/Syracuse/");
 
 exit;
