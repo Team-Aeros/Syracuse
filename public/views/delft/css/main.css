@@ -40,6 +40,12 @@ html, body {
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
+    margin-left: 5px;
+}
+
+.switchBtn {
+    float: right;
+    margin-left: 5px;
 }
 
 br.clear {
@@ -106,23 +112,36 @@ br.clear {
 #container {
     display: flex;
     width: 100%;
-    height: 300px;
-    margin: auto;
+    height: 540px;
     box-sizing: border-box;
-    padding: 0 15px 0 0;
 }
 
-.widget {
+.subcontainer {
+    background-color: orangered;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+}
+
+
+.widget{
     flex: 1;
-    margin: 15px 0 15px 15px;
+    margin: 15px 15px 15px 15px;
     background: #fff;
+}
+
+.currentStation {
+    width: 170px;
 }
 
 #map {
     padding: 25px 50px 25px 50px;
+
 }
 
-.top10List {
+.textBlock {
     padding: 25px 50px 25px 50px;
 }
 
