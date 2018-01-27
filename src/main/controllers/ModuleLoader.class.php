@@ -22,9 +22,7 @@ class ModuleLoader extends Controller {
     private $_routeParams;
     private $_module;
 
-
-    private const DEFAULT_MODULE = 'login';
-
+    private const DEFAULT_MODULE = 'main';
 
     private static $_modules = [
         'main' => 'Main',
