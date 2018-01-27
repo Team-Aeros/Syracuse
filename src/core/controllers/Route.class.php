@@ -17,8 +17,6 @@ use FastRoute;
 
 
 /**
- * This class is used for loading the current route. Credits go to nikic at github.com, since this class
- * is based on his example usage code: https://github.com/nikic/FastRoute
  * @package Syracuse\src\database
  */
 class Route {
@@ -45,7 +43,6 @@ class Route {
     private function setRequestUri() : void {
         $this->_uri = $_SERVER['REQUEST_URI'];
 
-        // Subdirectories are a little more difficult, as Fastroute does not support them by default
         $subDirectories = explode('/', parse_url($this->_uri, PHP_URL_PATH));
         $location = '';
 
