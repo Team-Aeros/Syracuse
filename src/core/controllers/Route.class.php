@@ -15,9 +15,8 @@ namespace Syracuse\src\core\controllers;
 
 use FastRoute;
 
+
 /**
- * This class is used for loading the current route. Credits go to nikic at github.com, since this class
- * is based on his example usage code: https://github.com/nikic/FastRoute
  * @package Syracuse\src\database
  */
 class Route {
@@ -28,16 +27,13 @@ class Route {
     private $_uri;
 
     public function __construct() {
-        $this->_dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $routeCollector) {
-            $routeCollector->addRoute(['POST', 'GET'], '/help/ajax/{ajax_request}', 'help');
+        $this->_dispatcher = new Router();
+        $this->_dispatcher->addRoute('GET', '/help', 'help');
+        $this->_dispatcher->addRoute('GET', '/logout', 'logout');
+        $this->_dispatcher->addRoute('GET', '/download', 'download');
+        $this->_dispatcher->addRoute(['POST', 'GET'], '/login', 'login');
 
-            $routeCollector->addRoute('GET', '/help', 'help');
-            $routeCollector->addRoute('GET', '/logout', 'logout');
-            $routeCollector->addRoute('GET', '/download', 'download');
-            $routeCollector->addRoute(['POST', 'GET'], '/login', 'login');
-
-            $routeCollector->addRoute('GET', '/', 'main');
-        });
+        $this->_dispatcher->addRoute('GET', '/help/ajax/{ajax_request}', 'help');
 
         $this->_requestMethod = $_SERVER['REQUEST_METHOD'];
         $this->setRequestUri();
@@ -47,7 +43,6 @@ class Route {
     private function setRequestUri() : void {
         $this->_uri = $_SERVER['REQUEST_URI'];
 
-        // Subdirectories are a little more difficult, as Fastroute does not support them by default
         $subDirectories = explode('/', parse_url($this->_uri, PHP_URL_PATH));
         $location = '';
 
@@ -65,11 +60,11 @@ class Route {
         if ($pos = strpos($this->_uri, '?') !== false)
             $this->_uri = substr($this->_uri, 0, $pos);
 
-        $this->_uri = rawurldecode(rtrim($this->_uri));
+        $this->_uri = rawurldecode(rtrim($this->_uri, ' /'));
     }
 
     public function getRouteInfo() : array {
-        if ($this->_routeInfo[0] == FastRoute\Dispatcher::FOUND) {
+        if ($this->_routeInfo[0] == Router::RETURN_FOUND) {
             $routeInfo = [
                 'module_name' => $this->_routeInfo[1],
                 'parameters' => $this->_routeInfo[2]
