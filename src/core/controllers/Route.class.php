@@ -15,6 +15,7 @@ namespace Syracuse\src\core\controllers;
 
 use FastRoute;
 
+
 /**
  * This class is used for loading the current route. Credits go to nikic at github.com, since this class
  * is based on his example usage code: https://github.com/nikic/FastRoute
@@ -28,6 +29,7 @@ class Route {
     private $_uri;
 
     public function __construct() {
+        /*
         $this->_dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $routeCollector) {
             $routeCollector->addRoute(['POST', 'GET'], '/help/ajax/{ajax_request}', 'help');
 
@@ -38,6 +40,14 @@ class Route {
 
             $routeCollector->addRoute('GET', '/', 'main');
         });
+        */
+        #/*
+        $this->_dispatcher = new Router();
+        $this->_dispatcher->addRoute('GET', '/help', 'help');
+        $this->_dispatcher->addRoute('GET', '/logout', 'logout');
+        $this->_dispatcher->addRoute('GET', '/download', 'download');
+        $this->_dispatcher->addRoute(['POST', 'GET'], '/login', 'login');
+        #*/
 
         $this->_requestMethod = $_SERVER['REQUEST_METHOD'];
         $this->setRequestUri();
