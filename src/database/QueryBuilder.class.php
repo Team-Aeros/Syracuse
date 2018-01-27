@@ -70,8 +70,12 @@ class QueryBuilder {
      * @return QueryBuilder
      */
     public function where(array ...$conditions) : self {
-        foreach ($conditions as $condition)
-            $this->_conditions[] = sprintf('`%s` = \'%s\'', $condition[0], $condition[1]);
+        foreach ($conditions as $condition) {
+            if ($condition[1][0] != ':')
+                $this->_conditions[] = sprintf('`%s` = \'%s\'', $condition[0], $condition[1]);
+            else
+                $this->_conditions[] = sprintf('`%s` = %s', $condition[0], $condition[1]);
+        }
 
         return $this;
     }
@@ -186,7 +190,7 @@ class QueryBuilder {
         $this->setValues($values);
         $this->_query .= ');';
 
-        return $this->_connection->executeQuery($this->_query, $this->_params);
+        return $this->_connection->executeQuery($this->_query, $this->_params, false);
     }
 
     /**
@@ -199,10 +203,10 @@ class QueryBuilder {
 
         $counter = 0;
         foreach ($values as $key => $value) {
-            if (is_numeric($value))
-                $this->_query .= sprintf('`%s` = %s', $key, (string) $value);
+            if (is_numeric($value) || $value[0] == ':')
+                $this->_query .= sprintf('%s', (string) $value);
             else
-                $this->_query .= sprintf('`%s` = \'%s\'', $key, $value);
+                $this->_query .= sprintf('\'%s\'', $value);
 
             if ($counter < $valueCount - 1)
                 $this->_query .= ', ';

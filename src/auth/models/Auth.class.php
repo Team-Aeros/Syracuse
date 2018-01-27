@@ -15,55 +15,18 @@ namespace Syracuse\src\auth\models;
 use Syracuse\src\database\Database;
 use Syracuse\src\headers\Model;
 
+/**
+ * If, in a hypothetical future scenario, support for multiple users is
+ * added, this class will still work, but a check needs to be
+ * added to see which user is currently logged in.
+ */
 class Auth extends Model {
 
     public function __construct() {
+        $this->loadSettings();
+
         if (!empty($_POST))
             $this->login();
-
-    }
-
-    /*
-     * Retrieves the username from the database
-     * returns String name
-     */
-    private function getName(){
-        $names = Database::interact('retrieve', 'accounts')
-            ->fields('name')
-            ->getAll();
-        $array = $names[0];
-        return $array['name'];
-    }
-
-    /*
-     * Retrieves the password that belongs to the username
-     * Parameter $name = username
-     * returns String password
-     */
-    private function getPass($name) {
-        $db_name = $name;
-        $pass = Database::interact('retrieve', 'accounts')
-            ->fields('pass')
-            ->where(['name', $db_name])
-            ->getAll();
-        $array = $pass[0];
-        return $array['pass'];
-    }
-
-    /*
-     * Retrieves the salt from the database
-     * returns Array salt
-     */
-    private function getSalt() {
-        $salt = Database::interact('retrieve', 'setting')
-            ->fields('identifier', 'val')
-            ->where(['identifier', 'salt'])
-            ->getAll();
-        $Array = $salt[0];
-        $saltArray = $Array['val'];
-        $saltArray2 = ['salt' => $saltArray];
-        return $saltArray2;
-
     }
 
     /*
@@ -73,7 +36,7 @@ class Auth extends Model {
      * returns String hashed password
      */
     private function hashPass($salt, $pass) {
-        $hashPass = password_hash($pass, PASSWORD_BCRYPT, $salt);
+        $hashPass = password_hash($pass, PASSWORD_BCRYPT, ['salt' => $salt]);
         return $hashPass;
     }
 
@@ -81,33 +44,47 @@ class Auth extends Model {
      * Checks the entered credentials with the database
      * Returns true if correct, false if not
      */
-    private function checkCred() {
-        if (!empty($_POST['email'] && !empty($_POST['password']))) {
-            $db_name = $this->getName();
-            if ($_POST['email'] === $db_name) {
-                $db_pass = $this->getPass($db_name);
-                if ($this->hashPass($this->getSalt(), $_POST['password']) === $db_pass) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    private function checkCred() : int {
+        if (empty($_POST['email']) || empty($_POST['password']))
+            return 0;
+
+        $user = Database::interact('retrieve', 'accounts')
+            ->fields('id', 'name', 'pass')
+            ->where(
+                ['name', ':email'],
+                ['pass', ':password']
+            )
+            ->placeholders([
+                'email' => $_POST['email'],
+                'password' => $this->hashPass(self::$config->get('salt'), $_POST['password'])
+            ])
+            ->getSingle();
+
+        if (empty($user))
+            return 0;
+
+        return $user['id'];
     }
 
 
     public function isLoggedIn() : bool {
-        return $_SESSION['logged_in'] ?? false;
+        if (empty($_SESSION['logged_in']))
+            return false;
+
+        return (new Token($_SESSION['logged_in']))->verify();
     }
 
     public function logOut() {
-        $_SESSION['logged_in'] = false;
-        header("Location: http://localhost/Syracuse/");
+        $_SESSION['logged_in'] = null;
+        header('Location: ' . self::$config->get('url'));
     }
 
 
     private function login() {
-        if ($this->checkCred()) {
-            $_SESSION['logged_in'] = true;
+        if ($userId = $this->checkCred() > 0) {
+            $token = Token::generate($userId);
+
+            $_SESSION['logged_in'] = $token->getValue();
         }
     }
 }
