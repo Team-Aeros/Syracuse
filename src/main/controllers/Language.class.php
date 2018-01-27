@@ -21,6 +21,8 @@ class Language extends Controller {
     private $_language;
     private $_strings;
 
+    private const STRING_NOT_FOUND = 'Error: language string not found';
+
     public function __construct() {
         $this->loadSettings();
 
@@ -30,7 +32,10 @@ class Language extends Controller {
     }
 
     public function read(string $identifier, string ...$params) : string {
-        $str = $this->_strings[$identifier] ?? 'Error: language string not found>';
+        $str = $this->_strings[$identifier] ?? STRING_NOT_FOUND;
+
+        if ($str == self::STRING_NOT_FOUND)
+            logError('language', sprintf('Call to undefined language string %s', $identifier), __FILE__, __LINE__);
 
         return !empty($params) ? sprintf($str, ...$params) : $str;
     }
@@ -40,7 +45,9 @@ class Language extends Controller {
             $this->_strings = require_once($langFile);
         }
 
-        else
+        else {
+            logError('language', 'Could not load the language files (is the path correct?)', __FILE__, __LINE__);
             earlyExit('Could not load language files.');
+        }
     }
 }

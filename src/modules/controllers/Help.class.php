@@ -36,6 +36,6 @@ class Help extends Controller implements Module {
     }
 
     public function display() : void {
-        echo self::$gui->displayTemplate('help', $this->_model->getData());
+        self::$gui->displayTemplate('help', $this->_model->getData());
     }
 }

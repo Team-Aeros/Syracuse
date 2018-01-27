@@ -44,13 +44,23 @@ class ModuleLoader extends Controller {
     public function load() : void {
         if (!self::moduleExists($this->_moduleName) && empty($this->_routeParams['ajax_request']))
             $this->_moduleName = self::DEFAULT_MODULE;
-        else if (!self::moduleExists($this->_moduleName))
+        else if (!self::moduleExists($this->_moduleName)) {
+            /**
+             * Just in case this isn't obvious: when a module isn't found, the main module
+             * is loaded. Imagine if the main module was the one calling this non-existing
+             * module. An infinite loop would be created. For this reason, the script is
+             * stopped.
+             */
+            logError('module', sprintf('Could not find the %s module. Since this is an AJAX request, the script was halted.', $this->_moduleName));
             earlyExit('Could not load module.', 'To prevent recursion, the script was halted.');
+        }
 
         $module = 'Syracuse\src\modules\controllers\\' . self::$_modules[$this->_moduleName];
 
-        if (!file_exists(self::$config->get('path') . '/src/modules/controllers/' . self::$_modules[$this->_moduleName] . '.class.php'))
+        if (!file_exists(self::$config->get('path') . '/src/modules/controllers/' . self::$_modules[$this->_moduleName] . '.class.php')) {
+            logError('module', sprintf('Could not load the %s module, as its controller could not be found', $this->_moduleName), __FILE__, __LINE__);
             earlyExit('Could not load module.', 'The ' . $this->_moduleName . ' module controller could not be found.');
+        }
 
         $this->_module = new $module($this->_moduleName, $this->_routeParams);
     }
