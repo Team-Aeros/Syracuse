@@ -20,7 +20,7 @@
         </script>
     </head>
 
-    <body>
+    <body{% if on_login_page %} style="background-image: url(\'{{ image_url }}/mountains.jpg\')" {% endif %} >
       <header id="header">
           {% if is_logged_in %}
             <a class="button" href="{{ base_url }}/index.php/logout">Logout</a>
