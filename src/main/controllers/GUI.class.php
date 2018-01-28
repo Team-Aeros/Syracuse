@@ -13,6 +13,7 @@
 
 namespace Syracuse\src\main\controllers;
 
+use Syracuse\src\core\models\Registry;
 use Syracuse\src\headers\Controller;
 use Syracuse\src\main\models\GUI as Model;
 
@@ -53,7 +54,8 @@ class GUI extends Controller {
             'script_url' => self::$config->get('url') . '/public/scripts',
             'node_url' => self::$config->get('url') . '/node_modules',
             'page_title' => $this->_model->getPageTitle(),
-            'is_logged_in' => self::$auth->isLoggedIn()
+            'is_logged_in' => self::$auth->isLoggedIn(),
+            'on_login_page' => Registry::retrieve('route')->getRouteInfo()['module_name'] == 'login'
         ];
     }
 
