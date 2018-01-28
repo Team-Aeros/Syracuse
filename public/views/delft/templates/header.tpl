@@ -7,6 +7,7 @@
         <script type="text/javascript" src="{{ script_url }}/ajax.js"></script>
         <script type="text/javascript" src="{{ script_url }}/switch.js"></script>
 
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" /> 
         <link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/main.css" />
 
         <script type="text/javascript">
@@ -29,5 +30,5 @@
             <input type="button" class="switchBtn" id="rainBtn" value="Rain"/>
           {% endif %}
 
-          <h1 align="center">Just leaving this here for testing purposes</h1>
+          <h1 align="center">Pétrogaz</h1>
       </header>
