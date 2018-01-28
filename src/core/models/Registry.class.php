@@ -20,16 +20,22 @@ final class Registry {
     private function __construct() {}
 
     public static function store(string $identifier, $object) {
-        if (!empty(self::$_objects[$identifier]))
-            earlyExit('A registry error occurred', sprintf('Cannot store object in registry, as identifier \'%s\' is already in use', $identifier));
+        if (!empty(self::$_objects[$identifier])) {
+            $error = sprintf('Cannot store object in registry, as identifier \'%s\' is already in use', $identifier);
+            logError('core', $error, __FILE__, __LINE__);
+            earlyExit('A registry error occurred', $error);
+        }
 
         self::$_objects[$identifier] = $object;
         return self::$_objects[$identifier];
     }
 
     public static function retrieve(string $identifier) {
-        if (!isset(self::$_objects[$identifier]))
-            earlyExit('A registry error occurred', sprintf('Cannot retrieve object with identifier \'%s\' from registry. It does not exist', $identifier));
+        if (!isset(self::$_objects[$identifier])) {
+            $error = sprintf('Cannot retrieve object with identifier \'%s\' from registry. It does not exist', $identifier);
+            logError('core', $error, __FILE__, __LINE__);
+            earlyExit('A registry error occurred', $error);
+        }
 
         return self::$_objects[$identifier];
     }

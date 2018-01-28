@@ -29,16 +29,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `van_accounts` (
+  id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(5) NOT NULL,
   `pass` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB CHARACTER SET=utf8mb4;
 
 --
 -- Dumping data for table `van_accounts`
 --
 
-INSERT INTO `van_accounts` (`name`, `pass`) VALUES
-('j.w.knobbe@pl.hanze.nl', '$2y$10$be4JqE98LzxMcv789E12cOclp8ZftrZJZ1/2Y8akl7L6fhBIWvc6C');
+INSERT INTO `van_accounts` (`id`, `name`, `pass`) VALUES
+(1, 'j.w.knobbe@pl.hanze.nl', '$2y$10$be4JqE98LzxMcv789E12cOclp8ZftrZJZ1/2Y8akl7L6fhBIWvc6C');
 
 -- --------------------------------------------------------
 
@@ -51,7 +52,7 @@ CREATE TABLE `van_language` (
   `name` tinytext NOT NULL,
   `native` tinytext NOT NULL,
   `code` char(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB CHARACTER SET=utf8mb4;
 
 --
 -- Dumping data for table `van_language`
@@ -69,7 +70,7 @@ INSERT INTO `van_language` (`id`, `name`, `native`, `code`) VALUES
 CREATE TABLE `van_setting` (
   `identifier` tinytext NOT NULL,
   `val` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB CHARACTER SET=utf8mb4;
 
 --
 -- Dumping data for table `van_setting`
@@ -92,6 +93,21 @@ INSERT INTO `van_setting` (`identifier`, `val`) VALUES
 ALTER TABLE `van_language`
   ADD PRIMARY KEY (`id`);
 COMMIT;
+
+CREATE TABLE van_session (
+    id VARCHAR(32) NOT NULL PRIMARY KEY,
+    data TEXT(40) NOT NULL,
+    created_at BIGINT(20) NOT NULL
+);
+
+CREATE TABLE van_token (
+    id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    value CHAR(40) NOT NULL,
+    created_at BIGINT(20) NOT NULL,
+    length BIGINT DEFAULT 0,
+    user_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES van_accounts(id)
+) ENGINE=InnoDB CHARACTER SET=utf8mb4;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -49,3 +49,74 @@ function _translate(string $identifier, ?string ...$parameters) : string {
 
     return !empty($parameters) ? sprintf($langString, $parameters) : $langString;
 }
+
+/**
+ * Adds an entry to the log file.
+ * @param string $type The error type. Possible values:
+ *      - database
+ *      - php
+ *      - general
+ *      - template
+ *      - authentication
+ *      - language
+ *      - permissions
+ *      - record_not_found
+ *      - core
+ *      - module
+ * @param string $message The error message
+ * @param string $filename The filename where the error was thrown
+ * @param int $line The line where the error was thrown
+ * @param bool $printAnyway Whether or not to print the error to the screen even if a log entry could not be created
+ * @return void
+ */
+function logError(string $type, string $message, string $filename, int $line, bool $printAnyway = true) : void {
+    if (!SYRACUSE_DEBUG)
+        return;
+
+    $file = fopen(__DIR__ . '/../log.txt', 'a');
+
+    if (!$file) {
+        if ($printAnyway)
+            printf('Could not add error message to log. Requested by %s on line %u', $message, $filename, $line);
+
+        return;
+    }
+
+    switch ($type) {
+        case 'database':
+            $errorType = 'database error';
+            break;
+        case 'php':
+            $errorType = 'PHP error';
+            break;
+        case 'template':
+            $errorType = 'template error';
+            break;
+        case 'authentication':
+            $errorType = 'authentication error';
+            break;
+        case 'language':
+            $errorType = 'language';
+            break;
+        case 'permissions':
+            $errorType = 'access denied';
+            break;
+        case 'record_not_found':
+            $errorType = 'unknown record';
+            break;
+        case 'module':
+            $errorType = 'module error';
+            break;
+        case 'core':
+            $errorType = 'core error';
+            break;
+        case 'general':
+        default:
+            $errorType = 'general';
+    }
+
+    $textToWrite = sprintf('[%u] (%s): %s in %s on line %u', time(), $errorType, $message, $filename, $line) . "\n";
+
+    fwrite($file, $textToWrite);
+    fclose($file);
+}

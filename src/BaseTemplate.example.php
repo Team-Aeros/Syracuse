@@ -1,6 +1,8 @@
 <?php
 
-class Template_{data:tpl_name} {
+namespace Syracuse\template;
+
+class {data:tpl_name} {
 
     private $_params;
 
@@ -8,7 +10,11 @@ class Template_{data:tpl_name} {
         $this->_params = $params;
     }
 
+    public function show() : void {
+        {data:body};
+    }
+
     public function getUpdatedTime() : string {
-        return {data:tpl_last_updated};
+        return '{data:tpl_last_updated}';
     }
 }

@@ -45,6 +45,6 @@ class Login extends Controller implements Module {
     }
 
     public function display() : void {
-        echo self::$gui->displayTemplate('login', $this->_model->getData() +  ['errors' => $this->_errors]);
+        self::$gui->displayTemplate('login', $this->_model->getData() +  ['errors' => $this->_errors]);
     }
 }
