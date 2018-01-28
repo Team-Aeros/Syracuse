@@ -19,11 +19,24 @@ return [
     'general_error' => 'An error occurred, so the script has been terminated. Please try refreshing the page.',
 
     'help' => 'Help',
-    'help_body' => '
-        <p>Welcome to the help page. If you need any assistance with using Syracuse, this is where you need to be.</p>
-        
-        <h1>Logging in</h1>
-        <p>Before you can view the dashboard, you need to log in.</p>',
 
-    'this_is_the_login_page' => 'Before you can proceed, please enter your e-mail address and password in the fields on the right.'
+    'helpStart' => 'Welcome to the help page. If you need any assistance with using Syracuse, this is where you need to be.',
+    'subLogin' => 'Logging in',
+    'exLogin' => 'Before you can view the dashboard, you need to log in.',
+    'subData' => 'On this website you have acces to the following data:',
+    'exData1' => 'Top 10 list of weatherstations where it rained the most on the current day.',
+    'exData2' => 'When clicked on a station in this list you can see the min and max temperature of the current day and previous 6 days measured in Celsius, 
+        the amount of rainfall and the max wind speed measured in km/h of that weather station.',
+    'exData3'=> 'A map of all the weather stations in the Gulf of Mexico, when a weather stations is clicked a graph showing the temperature from the past hour wil be displayed.',
+    'subComp' => 'Aeros Development.',
+    'exComp' => 'This website was made by Aeros Development, a small company experienced in programming, designing interfaces and data handeling',
+
+
+    'download' => 'Download',
+    'logout' => 'Log out',
+    'selStat' => 'No station selected',
+    'rainListTitle' => 'Top 10 rain list',
+    'rainDataTitle' => 'Rain and wind speed of selected station',
+    'mapTitle' => 'Map of Caribbean',
+    'graphTitle' => 'Graph of selected weather station temperature'
 ];
