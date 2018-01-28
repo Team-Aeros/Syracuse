@@ -24,10 +24,8 @@
           {% if is_logged_in %}
             <a class="button" href="{{ base_url }}/index.php/logout">Logout</a>
             <a class="button" href="{{ base_url }}/index.php/download">Download</a>
-            <!--<a class="button" id="tempBtn">Temperature</a>-->
             <input type="button" class="switchBtn" id="tempBtn" value="Temperature"/>
             <input type="button" class="switchBtn" id="rainBtn" value="Rain"/>
           {% endif %}
-
-          <h1 align="center">Just leaving this here for testing purposes</h1>
+          <h1 id=PageTitle align="center">Petrozgaz</h1>
       </header>

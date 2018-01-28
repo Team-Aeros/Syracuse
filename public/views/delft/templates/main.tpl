@@ -2,7 +2,7 @@
 
         <div class="subcontainer" id="rain">
             <div id="list_1" class="textBlock widget">
-                <div class="currentStation id="currentStation">
+                <div class="currentStation" id="currentStation">
                 <P>No station selected</P>
             </div>
                 <h2>Top 10 rain list</h2>
