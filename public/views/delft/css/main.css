@@ -85,6 +85,19 @@ br.clear {
     font-size: 100%;
 }
 
+#footerText {
+    width: 30%;
+    float: left;
+}
+
+#helpLink {
+    width: 30%;
+    text-align: right;
+    float: right;
+    margin-top: 15px;
+    color: #ddffdd;
+}
+
 /* Boxes */
 .col-20 {
     width: 20%;

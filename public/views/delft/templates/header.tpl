@@ -22,8 +22,8 @@
     <body>
       <header id="header">
           {% if is_logged_in %}
-            <a class="button" href="{{ base_url }}/index.php/logout">Logout</a>
-            <a class="button" href="{{ base_url }}/index.php/download">Download</a>
+            <a class="button" href="{{ base_url }}/index.php/logout">{{ _translate('logout') }}</a>
+            <a class="button" href="{{ base_url }}/index.php/download">{{ _translate('download') }}</a>
             <input type="button" class="switchBtn" id="tempBtn" value="Temperature"/>
             <input type="button" class="switchBtn" id="rainBtn" value="Rain"/>
           {% endif %}
