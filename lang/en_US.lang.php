@@ -39,5 +39,8 @@ return [
     'mapTitle' => 'Map of Caribbean',
     'graphTitle' => 'Graph of selected weather station temperature',
 
-    'this_is_the_login_page' => 'Before you can proceed, please enter your e-mail address and password in the fields on the right.'
+    'this_is_the_login_page' => 'Before you can proceed, please enter your e-mail address and password in the fields on the right.',
+
+    'rain' => 'Rain',
+    'temperature' => 'Temperature'
 ];
