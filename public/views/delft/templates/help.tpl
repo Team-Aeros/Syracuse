@@ -1,5 +1,6 @@
         <div id="help_page" align="left">
             <h1>{{ _translate(title) }} </h1>
+
             <p>{{ _translate('helpStart') }}</p>
 
             <h1>{{ _translate('subLogin') }}</h1>
@@ -15,5 +16,3 @@
             <h1>{{ _translate('subComp') }}</h1>
             <p>{{ _translate('exComp') }}</p>
         </div>
-
-

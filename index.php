@@ -16,6 +16,7 @@ const SOFTWARE_VERSION = '1.0 Beta 1';
 const SYRACUSE_DEBUG = true;
 
 ob_start();
+ini_set('session.cookie_lifetime', 10 * 365 * 24 * 60 * 60);
 session_start();
 
 if (version_compare(phpversion(), MIN_PHP_VERSION, '<'))

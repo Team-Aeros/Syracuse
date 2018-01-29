@@ -59,13 +59,16 @@ class Language extends Model {
     }
 
     public static function loadByCode(string $code) : ?self {
-        $result = Database::interact('retrieve', 'language')
+        $language = Database::interact('retrieve', 'language')
             ->where('code', $code)
-            ->getAll();
+            ->max(1)
+            ->getSingle();
 
-        foreach ($result as $record)
-            return new self($record['id']);
+        if (empty($language['id'])) {
+            logError('language', sprintf('Could not load language by code \'%s\'', $code), __FILE__, __LINE__);
+            return null;
+        }
 
-        return null;
+        return new self($language['id']);
     }
 }

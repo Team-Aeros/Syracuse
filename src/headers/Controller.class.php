@@ -39,5 +39,6 @@ abstract class Controller {
             $this->loadSettings();
 
         header('Location: ' . self::$config->get('url') . '/index.php' . $module);
+        die;
     }
 }
