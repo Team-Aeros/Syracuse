@@ -1,0 +1,3 @@
+[1517226081] (PHP error): Use of undefined constant STRING_NOT_FOUND - assumed 'STRING_NOT_FOUND' (this will throw an Error in a future version of PHP) in /srv/http/Syracuse/src/main/controllers/Language.class.php on line 35
+[1517226152] (language): Call to undefined language string this_is_the_login_page in /srv/http/Syracuse/src/main/controllers/Language.class.php on line 38
+[1517226163] (language): Call to undefined language string this_is_the_login_page in /srv/http/Syracuse/src/main/controllers/Language.class.php on line 40

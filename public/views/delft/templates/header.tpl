@@ -23,12 +23,12 @@
     <body{% if on_login_page %} style="background-image: url(\'{{ image_url }}/mountains.jpg\')" {% endif %} >
       <header id="header">
           {% if is_logged_in %}
-            <a class="button" href="{{ base_url }}/index.php/logout">Logout</a>
-            <a class="button" href="{{ base_url }}/index.php/download">Download</a>
-            <!--<a class="button" id="tempBtn">Temperature</a>-->
+            <a class="button" href="{{ base_url }}/index.php/logout">{{ _translate('logout') }}</a>
+            <a class="button" href="{{ base_url }}/index.php/download">{{ _translate('download') }}</a>
             <input type="button" class="switchBtn" id="tempBtn" value="Temperature"/>
             <input type="button" class="switchBtn" id="rainBtn" value="Rain"/>
           {% endif %}
 
-          <h1 align="center">Pétrogaz</h1>
+          <h1 id=PageTitle align="center">Pétrogaz</h1>
+
       </header>
