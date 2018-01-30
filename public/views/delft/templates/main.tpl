@@ -1,10 +1,10 @@
-        <div id="container">
+    <div id="container">
 
         <div class="subcontainer" id="rain">
             <div id="list_1" class="textBlock widget">
                 <div class="currentStation" id="currentStation">
-                <P>{{ _translate('selStat') }}</P>
-            </div>
+                    <P>{{ _translate('selStat') }}</P>
+                </div>
                 <h2>{{ _translate('rainListTitle') }}</h2>
                 <p>No rain :)</p> <!--placeholder-->
             </div>
@@ -17,8 +17,8 @@
 
         <div class="subcontainer" id="temp">
             <div id="map" class="widget">
-                <div class="currentStation id="currentStation">
-                <P>{{ _translate('selStat') }}</P>
+                <div class="currentStation" id="currentStation">
+                    <P>{{ _translate('selStat') }}</P>
                 </div>
                 <h2>{{ _translate('mapTitle') }}</h2>
                 <p> no map :(</p> <!--placeholder-->
@@ -29,6 +29,7 @@
                 <p> no graph :(</p>
             </div>
         </div>
+
         <br class="clear" />
 
       </div>

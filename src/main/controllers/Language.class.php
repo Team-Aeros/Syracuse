@@ -32,7 +32,7 @@ class Language extends Controller {
     }
 
     public function read(string $identifier, string ...$params) : string {
-        $str = $this->_strings[$identifier] ?? STRING_NOT_FOUND;
+        $str = $this->_strings[$identifier] ?? self::STRING_NOT_FOUND;
 
         if ($str == self::STRING_NOT_FOUND)
             logError('language', sprintf('Call to undefined language string %s', $identifier), __FILE__, __LINE__);

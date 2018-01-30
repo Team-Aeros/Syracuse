@@ -1,11 +1,11 @@
 $(document).ready(function () {
     $("#temp").hide();
-    $("#tempBtn").click(function () {
-        $("#temp").show()
+    $("#button_temp").click(function () {
+        $("#temp").show();
         $("#rain").hide();
     });
-    $( "#rainBtn").click(function () {
-        $("#temp").hide()
+    $( "#button_rain").click(function () {
+        $("#temp").hide();
         $("#rain").show();
     });
 });

@@ -30,17 +30,6 @@ class Auth extends Model {
     }
 
     /*
-     * Hashes the entered password using bcrypt
-     * Parameter $salt = Array salt
-     * Parameter $pass = String password
-     * returns String hashed password
-     */
-    private function hashPass($salt, $pass) {
-        $hashPass = password_hash($pass, PASSWORD_BCRYPT, ['salt' => $salt]);
-        return $hashPass;
-    }
-
-    /*
      * Checks the entered credentials with the database
      * Returns true if correct, false if not
      */
@@ -51,16 +40,14 @@ class Auth extends Model {
         $user = Database::interact('retrieve', 'accounts')
             ->fields('id', 'name', 'pass')
             ->where(
-                ['name', ':email'],
-                ['pass', ':password']
+                ['name', ':email']
             )
             ->placeholders([
-                'email' => $_POST['email'],
-                'password' => $this->hashPass(self::$config->get('salt'), $_POST['password'])
+                'email' => $_POST['email']
             ])
             ->getSingle();
 
-        if (empty($user))
+        if (empty($user) || !password_verify($_POST['password'], $user['pass']))
             return 0;
 
         return $user['id'];

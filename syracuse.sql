@@ -39,7 +39,7 @@ CREATE TABLE `van_accounts` (
 --
 
 INSERT INTO `van_accounts` (`id`, `name`, `pass`) VALUES
-(1, 'j.w.knobbe@pl.hanze.nl', '$2y$10$be4JqE98LzxMcv789E12cOclp8ZftrZJZ1/2Y8akl7L6fhBIWvc6C');
+(1, 'j.w.knobbe@pl.hanze.nl', '$2y$10$cr1dI/PLvhM9UPq4.Q63buubK9u58m3gtdhtxiJ5aJsUOU6VXkTqu');
 
 -- --------------------------------------------------------
 

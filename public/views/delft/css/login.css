@@ -1,0 +1,61 @@
+/**
+ * Syracuse
+ *
+ * @version     1.0 Beta 1
+ * @author      Aeros Development
+ * @copyright   2017-2018 Syracuse
+ * @since       1.0 Beta 1
+ *
+ * @license     MIT
+ */
+
+body {
+    background-image: url('../images/mountains.jpg');
+}
+
+/* Headers and footers */
+#header {
+    background: linear-gradient(-180deg, #ccb9a1, #e0ccb3);
+    padding: 15px 20px 15px 20px;
+    height: 10%;
+    width: 100%;
+    border-bottom: 1px solid #aaaaaa;
+    opacity: 0.8;
+}
+
+#header h1, #header h1 a, h2 {
+    color: #bc7921;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+.login_body {
+    width: 100%;
+    background: #fff url('../images/logo.jpg') no-repeat right 20px top 10px;
+    background-size: 100px 77px;
+    padding: 20px 30px 20px 30px;
+    width: 50%;
+    margin: 75px auto;
+    border-radius: 10px;
+}
+
+.login_body .form-horizontal {
+    text-align: right;
+}
+
+.login_body h1 {
+    color: #3e6846;
+    letter-spacing: -2px;
+}
+
+#login_description {
+    padding: 8px;
+    border: 1px solid #efefef;
+    background: #f9f9f9;
+    color: #333333;
+    font-size: 90%;
+}
+
+.login_body .form-horizontal input {
+    width: 90%;
+}

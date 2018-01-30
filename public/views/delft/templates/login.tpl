@@ -15,7 +15,7 @@
     <div class="col-50 float_right">
         <form class="form-horizontal" action="{{ base_url }}/index.php/login"  method="POST">
             <div class="form-group">
-                <input class="input" type="text" placeholder="E-mail" name="email" size="25">
+                <input class="input" type="text" placeholder="E-mail" name="email" size="25" autofocus>
             </div>
             <div class="form-group">
                 <input class="input" type="password" placeholder="Password" name="password" size="25">

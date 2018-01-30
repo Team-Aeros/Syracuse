@@ -22,7 +22,6 @@ return [
 
     'helpStart' => 'Welcome to the help page. If you need any assistance with using Syracuse, this is where you need to be.',
     'subLogin' => 'Logging in',
-    'exLogin' => 'Before you can view the dashboard, you need to log in.',
     'subData' => 'On this website you have acces to the following data:',
     'exData1' => 'Top 10 list of weatherstations where it rained the most on the current day.',
     'exData2' => 'When clicked on a station in this list you can see the min and max temperature of the current day and previous 6 days measured in Celsius, 
@@ -38,5 +37,10 @@ return [
     'rainListTitle' => 'Top 10 rain list',
     'rainDataTitle' => 'Rain and wind speed of selected station',
     'mapTitle' => 'Map of Caribbean',
-    'graphTitle' => 'Graph of selected weather station temperature'
+    'graphTitle' => 'Graph of selected weather station temperature',
+
+    'this_is_the_login_page' => 'Before you can proceed, please enter your e-mail address and password in the fields on the right.',
+
+    'rain' => 'Rain',
+    'temperature' => 'Temperature'
 ];
