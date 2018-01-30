@@ -71,6 +71,7 @@ foreach ($dataLinks as $link) {
         echo json_last_error();
         exit;
     } else {
+        $tmpFile = array("station" => $json['station'], "date" => $json['date'], "time" => $json['time'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed'], "precipitation" => $json["precipitation"]);
         $jsonFiles[] = $json;
     }
 }
