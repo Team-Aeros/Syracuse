@@ -59,3 +59,10 @@
 [1517322165] (PHP error): Invalid argument supplied for foreach() in C:\xampp\htdocs\Syracuse\src\download\download.php on line 57
 [1517322165] (PHP error): Invalid argument supplied for foreach() in C:\xampp\htdocs\Syracuse\src\download\download.php on line 85
 [1517322165] (PHP error): Undefined variable: tmpFile in C:\xampp\htdocs\Syracuse\src\download\download.php on line 98
+[1517399323] (language): Call to undefined language string exLogin in C:\xampp\htdocs\Syracuse\src\main\controllers\Language.class.php on line 38
+[1517399349] (language): Call to undefined language string exLogin in C:\xampp\htdocs\Syracuse\src\main\controllers\Language.class.php on line 38
+[1517399384] (language): Call to undefined language string exLogin in C:\xampp\htdocs\Syracuse\src\main\controllers\Language.class.php on line 38
+[1517399468] (language): Call to undefined language string exLogin in C:\xampp\htdocs\Syracuse\src\main\controllers\Language.class.php on line 38
+[1517399489] (language): Call to undefined language string exLogin in C:\xampp\htdocs\Syracuse\src\main\controllers\Language.class.php on line 38
+[1517399496] (language): Call to undefined language string exLogin in C:\xampp\htdocs\Syracuse\src\main\controllers\Language.class.php on line 38
+[1517399528] (language): Call to undefined language string exLogin in C:\xampp\htdocs\Syracuse\src\main\controllers\Language.class.php on line 38
