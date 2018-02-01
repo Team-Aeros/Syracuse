@@ -30,11 +30,12 @@ class Main extends Controller implements Module {
             self::$auth->logOut();
             exit;
         }
+
         if ($moduleName == 'download') {
             $download = new DataReader();
-            $download->getDownload();
             exit;
         }
+
         $this->_moduleName = $moduleName;
         $this->_parameters = $parameters;
         $this->loadGui();
