@@ -9,7 +9,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" /> 
         <link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/main.css" />
-        {% if on_login_page %}<link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/login.css" />{% endif %} 
+        {% if on_login_page %}<link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/login.css" />{% endif %}
 
         <script type="text/javascript">
             // URLs and paths

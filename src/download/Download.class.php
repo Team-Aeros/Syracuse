@@ -9,7 +9,7 @@ class Download{
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
         $currentDate = date('m/d/Y ', time());
-        $start = "/Users/Jelmer/Documents/School/Jaar 2/2.2/projecten/testData/"; /*need to change ofcourse*/
+        $start = __DIR__ . '/../../../webdav';
         $stations = [];
         $valid_stations = [ "720268", "720273", "720296", "720303", "720381", "720391", "722010", "722011", "722012", "722014", "722015", "722016",
                             "722020", "722022", "722024", "722025", "722026", "722029", "722030", "722034", "722037", "722038", "722039", "722040",
@@ -36,6 +36,7 @@ class Download{
                             "789480", "789510", "789580", "789613", "789620", "789700", "789820", "789880", "789900", "800010", "800220", "800280",
                             "804020", "804030", "804050", "804070", "804100", "804120", "804130", "804150", "804160", "804190", "804214", "804250",
                             "804260", "804270", "804280", "804310", "804350", "804380", "804400", "804420", "804440", "804720"];
+
         $stationLinks = [];
         $dataLinks = [];
         $directories = glob($start . "/*", GLOB_ONLYDIR);
@@ -43,6 +44,7 @@ class Download{
             $dirParts = explode("/", $dir);
             $stations[] = $dirParts[10];
         }
+
         foreach ($stations as $station) {
             if (in_array($station, $valid_stations)) {
                 /*can insert an if to check if it is the selected station*/
@@ -63,6 +65,7 @@ class Download{
                 }
             }
         }
+
         foreach ($realFiles as $rFile) {
             $date = substr($rFile, 0, 10);
             $fileDateVals = explode("-", $date);
@@ -77,10 +80,6 @@ class Download{
                 $dataLinks[] = $stL . "/" . $rFile;
             }
         }
-
-
-
-
 
         $jsonFiles = [];
         foreach ($dataLinks as $link) {
@@ -98,10 +97,13 @@ class Download{
         }
         $downloadJson = json_encode($jsonFiles);
         $filename = date("d-M-Y", $maxLastDay) . "-" . date("d-M-Y", $currentDay);
+
         header("Content-type: application/json");
         header("Content-disposition: attachment; filename=$filename.json");
+
         echo $downloadJson;
     }
+
     /*[0] is month, [1] is day, [2] is year*/
     private function dateVals($dateString, $del) {
         $dateVals = explode($del, $dateString);
@@ -109,6 +111,7 @@ class Download{
         foreach ($dateVals as $val) {
             $returnArray[] = (int)$val;
         }
+
         return $returnArray;
     }
 }
