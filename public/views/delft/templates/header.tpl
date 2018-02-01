@@ -9,7 +9,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" /> 
         <link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/main.css" />
-        {% if on_login_page %}<link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/login.css" />{% endif %} 
+        {% if on_login_page %}<link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/login.css" />{% endif %}
 
         <script type="text/javascript">
             // URLs and paths
@@ -28,7 +28,7 @@
             {% if is_logged_in %}
                 <div class="float_right col33">
                     <a id="button_rain" class="button switchBtn">{{ echo _translate('rain') }}</a>
-                    <a id="button_temp" class="button switchBtn">{{ echo _translate('temperature') }}</a>
+                    <a id="button_temp" class="button switchBtn" onclick="initialize();">{{ echo _translate('temperature') }}</a>
                     <a id="button_download" class="button" href="{{ base_url }}/index.php/download">{{ echo _translate('download') }}</a>
                     <a id="button_logout" class="button" href="{{ base_url }}/index.php/logout">{{ echo _translate('logout') }}</a>
                 </div>

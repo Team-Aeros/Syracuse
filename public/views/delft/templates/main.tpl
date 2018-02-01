@@ -109,7 +109,7 @@ function bindInfoWindow(marker, map, infowindow, details) {
 
         
 		</script>
-	<body onload ="initialize()">	
+	<body>	
     <div id="container">
 
         <div class="subcontainer" id="rain">

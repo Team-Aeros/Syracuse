@@ -267,6 +267,13 @@ class QueryBuilder {
         return $this->_connection->executeQuery($this->_query, $this->_params, false);
     }
 
+    public function delete() : int {
+        if (empty($this->_query))
+            $this->generateQuery();
+
+        return $this->_connection->executeQuery($this->_query, $this->_params, false);
+    }
+
     /**
      * Returns an array of one or more records that meet the conditions.
      * @return array The results
