@@ -27,6 +27,9 @@ class Auth extends Model {
 
         if (!empty($_POST))
             $this->login();
+
+        if (rand(0, 50) == 1)
+            Token::cleanUp();
     }
 
     /*
