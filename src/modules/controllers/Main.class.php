@@ -16,7 +16,7 @@ namespace Syracuse\src\modules\controllers;
 use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\{Controller, Module};
 use Syracuse\src\modules\models\Main as Model;
-use Syracuse\src\download\Download as Download;
+use Syracuse\src\download\DataReader as DataReader ;
 
 class Main extends Controller implements Module {
 
@@ -31,7 +31,7 @@ class Main extends Controller implements Module {
             exit;
         }
         if ($moduleName == 'download') {
-            $download = new Download();
+            $download = new DataReader();
             $download->getDownload();
             exit;
         }
