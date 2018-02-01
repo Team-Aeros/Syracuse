@@ -125,12 +125,12 @@ function bindInfoWindow(marker, map, infowindow, details) {
         <div class="subcontainer" id="rain">
             <div id="list_1" class="textBlock widget">
                 <h2>{{ _translate('rainListTitle') }}</h2>
-                <p>No rain :)</p>
+                <img src="https://images.sampletemplates.com/wp-content/uploads/2015/11/16055712/Temperature-Conversion-Chart-PDF.jpg" alt="" />
             </div>
 
             <div id="listData" class="textBlock widget">
                 <H2>{{ _translate('rainDataTitle') }}</H2>
-                <P> no data :(</P>
+                <img src="http://images.ccohs.ca/oshanswers/Chart025.gif" alt="" />
             </div>
         </div>
 

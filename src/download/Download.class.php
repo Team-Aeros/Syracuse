@@ -16,7 +16,7 @@ class Download extends Controller {
         $this->loadSettings();
         $start = self::$config->get('path') . '/../webdav/';
 
-        $stations = [];
+        $stations = ['720268'];
         $valid_stations = [ "720268", "720273", "720296", "720303", "720381", "720391", "722010", "722011", "722012", "722014", "722015", "722016",
                             "722020", "722022", "722024", "722025", "722026", "722029", "722030", "722034", "722037", "722038", "722039", "722040",
                             "722041", "722045", "722049", "722050", "722053", "722055", "722056", "722057", "722060", "722064", "722065", "722066",
@@ -54,6 +54,10 @@ class Download extends Controller {
             if (in_array($station, $valid_stations)) {
                 /*can insert an if to check if it is the selected station*/
                 $stationLinks[] = $start . $station;
+            }
+            else {
+                echo 'Download failed (station id not found)';
+                die;
             }
         }
 
