@@ -1,0 +1,12 @@
+[1517481853] (PHP error): Undefined variable: realFiles in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 69
+[1517481853] (PHP error): Invalid argument supplied for foreach() in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 69
+[1517481853] (PHP error): Undefined variable: maxLastDay in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 99
+[1517481853] (PHP error): Undefined variable: currentDay in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 99
+[1517482769] (PHP error): Undefined variable: realFiles in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 71
+[1517482769] (PHP error): Invalid argument supplied for foreach() in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 71
+[1517482769] (PHP error): Undefined variable: maxLastDay in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 104
+[1517482769] (PHP error): Undefined variable: currentDay in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 104
+[1517482812] (PHP error): Undefined variable: realFiles in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 71
+[1517482812] (PHP error): Invalid argument supplied for foreach() in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 71
+[1517482853] (PHP error): Undefined variable: realFiles in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 70
+[1517482853] (PHP error): count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Syracuse\src\download\Download.class.php on line 70
