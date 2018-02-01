@@ -1,0 +1,19 @@
+{
+    "weatherstations" : [
+        {
+            "title": "TestStation",
+            "lat": 21.384504, 
+            "lng": -88.082407
+        },
+        {
+            "title": "Bangor ",
+            "lat": 21.762526, 
+            "lng": -82.984751
+        },
+        {
+            "title": "Cardiff Univerasity",
+            "lat": 29.095273, 
+            "lng": -89.074386
+        }
+    ]
+}
