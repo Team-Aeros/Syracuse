@@ -15,7 +15,7 @@
    	map = new google.maps.Map(document.getElementById("default"), 
 		myOptions);
 
-     $.getJSON('../../Syracuse/weatherstations.json', function(json1) {
+     $.getJSON('{{ base_url }}/weatherstations.json', function(json1) {
     $.each(json1.weatherstations, function (key, data) {
 
         var latLng = new google.maps.LatLng(data.lat, data.lng);
