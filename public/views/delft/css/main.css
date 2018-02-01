@@ -156,6 +156,7 @@ h2 {
 .widget{
     flex: 1;
     margin: 30px;
+    border-radius: 8px;
     background: #fff;
 }
 

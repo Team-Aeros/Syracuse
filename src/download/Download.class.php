@@ -5,11 +5,17 @@ loop through each map to find the folders that are max 6 days old
 get all the json files of those folders
 merge all the json files into 1 json file*/
 namespace Syracuse\src\download;
-class Download{
+
+use Syracuse\src\headers\Controller;
+
+class Download extends Controller {
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
         $currentDate = date('m/d/Y ', time());
-        $start = __DIR__ . '/../../../webdav';
+
+        $this->loadSettings();
+        $start = self::$config->get('path') . '/../webdav';
+
         $stations = [];
         $valid_stations = [ "720268", "720273", "720296", "720303", "720381", "720391", "722010", "722011", "722012", "722014", "722015", "722016",
                             "722020", "722022", "722024", "722025", "722026", "722029", "722030", "722034", "722037", "722038", "722039", "722040",
