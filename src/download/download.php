@@ -6,6 +6,7 @@ get all the json files of those folders
 merge all the json files into 1 json file*/
 namespace Syracuse\src\download;
 class Download{
+    #constructer  of the download class
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
         $currentDate = date('m/d/Y ', time());
