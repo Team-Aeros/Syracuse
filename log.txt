@@ -6,3 +6,618 @@
 [1517481920] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 75
 [1517481920] (PHP error): Undefined variable: maxLastDay in /srv/http/Syracuse/src/download/Download.class.php on line 105
 [1517481920] (PHP error): Undefined variable: currentDay in /srv/http/Syracuse/src/download/Download.class.php on line 105
+[1517482054] (PHP error): Undefined variable: realFiles in /srv/http/Syracuse/src/download/Download.class.php on line 75
+[1517482054] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 75
+[1517482054] (PHP error): Undefined variable: maxLastDay in /srv/http/Syracuse/src/download/Download.class.php on line 105
+[1517482054] (PHP error): Undefined variable: currentDay in /srv/http/Syracuse/src/download/Download.class.php on line 105
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483386] (PHP error): Undefined offset: 10 in /srv/http/Syracuse/src/download/Download.class.php on line 51
+[1517483518] (PHP error): Undefined variable: directies in /srv/http/Syracuse/src/download/Download.class.php on line 50
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483730] (PHP error): in_array() expects parameter 2 to be array, string given in /srv/http/Syracuse/src/download/Download.class.php on line 49
+[1517483764] (PHP error): scandir(/srv/http/Syracuse/../webdav722200): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483764] (PHP error): scandir(/srv/http/Syracuse/../webdav722202): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483764] (PHP error): scandir(/srv/http/Syracuse/../webdav766127): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483764] (PHP error): scandir(/srv/http/Syracuse/../webdav766340): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483764] (PHP error): scandir(/srv/http/Syracuse/../webdav766342): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483764] (PHP error): scandir(/srv/http/Syracuse/../webdav783460): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483764] (PHP error): scandir(/srv/http/Syracuse/../webdav783880): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483764] (PHP error): scandir(/srv/http/Syracuse/../webdav788970): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483764] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483764] (PHP error): Undefined variable: maxLastDay in /srv/http/Syracuse/src/download/Download.class.php on line 101
+[1517483764] (PHP error): Undefined variable: currentDay in /srv/http/Syracuse/src/download/Download.class.php on line 101
+[1517483813] (PHP error): scandir(/srv/http/Syracuse/../webdav722200): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483813] (PHP error): scandir(/srv/http/Syracuse/../webdav722202): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483813] (PHP error): scandir(/srv/http/Syracuse/../webdav766127): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483813] (PHP error): scandir(/srv/http/Syracuse/../webdav766340): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483813] (PHP error): scandir(/srv/http/Syracuse/../webdav766342): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483813] (PHP error): scandir(/srv/http/Syracuse/../webdav783460): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483813] (PHP error): scandir(/srv/http/Syracuse/../webdav783880): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483813] (PHP error): scandir(/srv/http/Syracuse/../webdav788970): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483813] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483813] (PHP error): Undefined variable: maxLastDay in /srv/http/Syracuse/src/download/Download.class.php on line 101
+[1517483813] (PHP error): Undefined variable: currentDay in /srv/http/Syracuse/src/download/Download.class.php on line 101
+[1517483844] (PHP error): scandir(/srv/http/Syracuse/../webdav722200): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483844] (PHP error): scandir(/srv/http/Syracuse/../webdav722202): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483844] (PHP error): scandir(/srv/http/Syracuse/../webdav766127): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483844] (PHP error): scandir(/srv/http/Syracuse/../webdav766340): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483844] (PHP error): scandir(/srv/http/Syracuse/../webdav766342): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483844] (PHP error): scandir(/srv/http/Syracuse/../webdav783460): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483844] (PHP error): scandir(/srv/http/Syracuse/../webdav783880): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483844] (PHP error): scandir(/srv/http/Syracuse/../webdav788970): failed to open dir: No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): scandir(): (errno 2): No such file or directory in /srv/http/Syracuse/src/download/Download.class.php on line 61
+[1517483844] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 64
+[1517483844] (PHP error): Undefined variable: maxLastDay in /srv/http/Syracuse/src/download/Download.class.php on line 101
+[1517483844] (PHP error): Undefined variable: currentDay in /srv/http/Syracuse/src/download/Download.class.php on line 101
+[1517483872] (PHP error): Undefined variable: maxLastDay in /srv/http/Syracuse/src/download/Download.class.php on line 101
+[1517483872] (PHP error): Undefined variable: currentDay in /srv/http/Syracuse/src/download/Download.class.php on line 101
+[1517483901] (PHP error): Undefined variable: maxLastDay in /srv/http/Syracuse/src/download/Download.class.php on line 101
+[1517483901] (PHP error): Undefined variable: currentDay in /srv/http/Syracuse/src/download/Download.class.php on line 101

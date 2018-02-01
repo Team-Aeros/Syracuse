@@ -14,7 +14,7 @@ class Download extends Controller {
         $currentDate = date('m/d/Y ', time());
 
         $this->loadSettings();
-        $start = self::$config->get('path') . '/../webdav';
+        $start = self::$config->get('path') . '/../webdav/';
 
         $stations = [];
         $valid_stations = [ "720268", "720273", "720296", "720303", "720381", "720391", "722010", "722011", "722012", "722014", "722015", "722016",
@@ -45,19 +45,15 @@ class Download extends Controller {
 
         $stationLinks = [];
         $dataLinks = [];
-        $directories = glob($start . "/*", GLOB_ONLYDIR);
-        foreach ($directories as $dir) {
-            $dirParts = explode("/", $dir);
-            $stations[] = $dirParts[10];
+        foreach (scandir($start) as $dir) {
+            if (is_dir($start . '/' . $dir) && !in_array($dir, ['index.php', '.', '..']))
+                $stations[] = $dir;
         }
 
         foreach ($stations as $station) {
             if (in_array($station, $valid_stations)) {
                 /*can insert an if to check if it is the selected station*/
                 $stationLinks[] = $start . $station;
-            } else {
-                echo "No vaild station id in data";
-                exit;
             }
         }
 
@@ -101,6 +97,7 @@ class Download extends Controller {
                 $jsonFiles[] = $tmpFile;
             }
         }
+
         $downloadJson = json_encode($jsonFiles);
         $filename = date("d-M-Y", $maxLastDay) . "-" . date("d-M-Y", $currentDay);
 

@@ -113,11 +113,8 @@ function bindInfoWindow(marker, map, infowindow, details) {
 
         <div class="subcontainer" id="rain">
             <div id="list_1" class="textBlock widget">
-                <div class="currentStation" id="currentStation">
-                    <P>{{ _translate('selStat') }}</P>
-                </div>
                 <h2>{{ _translate('rainListTitle') }}</h2>
-                <p>No rain :)</p> <!--placeholder-->
+                <p>No rain :)</p>
             </div>
 
             <div id="listData" class="textBlock widget">

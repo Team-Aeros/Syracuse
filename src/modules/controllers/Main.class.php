@@ -32,7 +32,6 @@ class Main extends Controller implements Module {
         }
         if ($moduleName == 'download') {
             $download = new Download();
-            $download->getDownload();
             exit;
         }
         $this->_moduleName = $moduleName;
