@@ -42,5 +42,6 @@ return [
     'this_is_the_login_page' => 'Before you can proceed, please enter your e-mail address and password in the fields on the right.',
 
     'rain' => 'Rain',
-    'temperature' => 'Temperature'
+    'temperature' => 'Temperature',
+    'exLogin' => 'Before you can view the dashboard, you need to log in.'
 ];

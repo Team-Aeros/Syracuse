@@ -3,6 +3,7 @@ $(document).ready(function () {
     $("#button_temp").click(function () {
         $("#temp").show();
         $("#rain").hide();
+        initialize();
     });
     $( "#button_rain").click(function () {
         $("#temp").hide();
