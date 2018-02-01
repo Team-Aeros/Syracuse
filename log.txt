@@ -1,8 +1,1 @@
-[1517481908] (PHP error): Undefined variable: realFiles in /srv/http/Syracuse/src/download/Download.class.php on line 75
-[1517481908] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 75
-[1517481908] (PHP error): Undefined variable: maxLastDay in /srv/http/Syracuse/src/download/Download.class.php on line 105
-[1517481908] (PHP error): Undefined variable: currentDay in /srv/http/Syracuse/src/download/Download.class.php on line 105
-[1517481920] (PHP error): Undefined variable: realFiles in /srv/http/Syracuse/src/download/Download.class.php on line 75
-[1517481920] (PHP error): Invalid argument supplied for foreach() in /srv/http/Syracuse/src/download/Download.class.php on line 75
-[1517481920] (PHP error): Undefined variable: maxLastDay in /srv/http/Syracuse/src/download/Download.class.php on line 105
-[1517481920] (PHP error): Undefined variable: currentDay in /srv/http/Syracuse/src/download/Download.class.php on line 105
+
