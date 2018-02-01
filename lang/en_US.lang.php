@@ -22,6 +22,7 @@ return [
 
     'helpStart' => 'Welcome to the help page. If you need any assistance with using Syracuse, this is where you need to be.',
     'subLogin' => 'Logging in',
+    'exLogin' => 'You can enter your e-mail address and password to log in if you have an account.',
     'subData' => 'On this website you have acces to the following data:',
     'exData1' => 'Top 10 list of weatherstations where it rained the most on the current day.',
     'exData2' => 'When clicked on a station in this list you can see the min and max temperature of the current day and previous 6 days measured in Celsius, 
