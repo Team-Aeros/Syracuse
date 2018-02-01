@@ -14,7 +14,7 @@ class DataReader extends Controller {
         $currentDate = date('m/d/Y ', time());
 
         $this->loadSettings();
-        $start = self::$config->get('path') . '/../webdav/';
+        $start = self::$config->get('path') . '/../webdav';
 
         $stations = [];
         $valid_stations = [ "720268", "720273", "720296", "720303", "720381", "720391", "722010", "722011", "722012", "722014", "722015", "722016",
@@ -46,11 +46,11 @@ class DataReader extends Controller {
         $stationLinks = [];
         $dateLinks = [];
         $dataLinks = [];
-        $directories = glob($start . "/*", GLOB_ONLYDIR);
-        foreach ($directories as $dir) {
-            $dirParts = explode("/", $dir);
-            $stations[] = $dirParts[9];
+        foreach (scandir($start) as $dir) {
+            if (is_dir($start . '/' . $dir) && !in_array($dir, ['index.php', '.', '..']))
+                $stations[] = $dir;
         }
+
         /*echo "<pre>";
         var_dump($stations);
         echo "</pre>";*/
