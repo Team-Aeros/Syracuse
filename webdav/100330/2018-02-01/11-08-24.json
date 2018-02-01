@@ -1,0 +1,23 @@
+{
+   "station":100330,
+   "date":"2018-02-01",
+   "time":"11:08:24",
+   "temperature":-0.9,
+   "dew_point":-4.0,
+   "station_pressure":1009.2,
+   "sea_level_pressure":1012.7,
+   "visibility":10.3,
+   "wind_speed":21.6,
+   "precipitation":0.01,
+   "snowfall":0.1,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":74.9,
+   "wind_direction":250
+}

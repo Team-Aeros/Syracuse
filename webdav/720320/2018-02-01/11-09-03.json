@@ -1,0 +1,23 @@
+{
+   "station":720320,
+   "date":"2018-02-01",
+   "time":"11:09:03",
+   "temperature":5.3,
+   "dew_point":-3.3,
+   "station_pressure":988.3,
+   "sea_level_pressure":966.9,
+   "visibility":13.8,
+   "wind_speed":15.3,
+   "precipitation":0.0,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"false",
+       "rained":"false",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":59.7,
+   "wind_direction":247
+}

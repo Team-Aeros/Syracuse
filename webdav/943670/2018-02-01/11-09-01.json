@@ -1,0 +1,23 @@
+{
+   "station":943670,
+   "date":"2018-02-01",
+   "time":"11:09:01",
+   "temperature":25.2,
+   "dew_point":20.9,
+   "station_pressure":1003.3,
+   "sea_level_pressure":1006.6,
+   "visibility":44.9,
+   "wind_speed":17.0,
+   "precipitation":0.1,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"false",
+       "rained":"true",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":84.0,
+   "wind_direction":281
+}

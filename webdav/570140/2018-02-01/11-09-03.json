@@ -1,0 +1,23 @@
+{
+   "station":570140,
+   "date":"2018-02-01",
+   "time":"11:09:03",
+   "temperature":-1.1,
+   "dew_point":-10.1,
+   "station_pressure":1039.7,
+   "sea_level_pressure":1030.6,
+   "visibility":15.0,
+   "wind_speed":5.9,
+   "precipitation":0.0,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"true",
+       "rained":"false",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":27.3,
+   "wind_direction":117
+}

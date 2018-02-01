@@ -1,0 +1,23 @@
+{
+   "station":471580,
+   "date":"2018-02-01",
+   "time":"11:08:46",
+   "temperature":-1.4,
+   "dew_point":-6.4,
+   "station_pressure":1010.3,
+   "sea_level_pressure":1010.9,
+   "visibility":10.0,
+   "wind_speed":9.0,
+   "precipitation":0.0,
+   "snowfall":0.4,
+   "flags":{
+       "froze":"true",
+       "rained":"false",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.0,
+   "wind_direction":113
+}

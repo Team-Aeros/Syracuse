@@ -1,0 +1,23 @@
+{
+   "station":114570,
+   "date":"2018-02-01",
+   "time":"11:08:24",
+   "temperature":-4.5,
+   "dew_point":-9.0,
+   "station_pressure":931.4,
+   "sea_level_pressure":932.6,
+   "visibility":27.9,
+   "wind_speed":14.2,
+   "precipitation":0.07,
+   "snowfall":16.8,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.0,
+   "wind_direction":228
+}

@@ -1,0 +1,23 @@
+{
+   "station":64000,
+   "date":"2018-02-01",
+   "time":"11:08:51",
+   "temperature":0.3,
+   "dew_point":-2.0,
+   "station_pressure":1011.1,
+   "sea_level_pressure":1017.4,
+   "visibility":8.1,
+   "wind_speed":19.6,
+   "precipitation":0.07,
+   "snowfall":0.1,
+   "flags":{
+       "froze":"false",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.0,
+   "wind_direction":72
+}

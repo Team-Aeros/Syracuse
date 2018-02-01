@@ -1,0 +1,23 @@
+{
+   "station":474060,
+   "date":"2018-02-01",
+   "time":"11:08:41",
+   "temperature":-8.6,
+   "dew_point":-12.7,
+   "station_pressure":1008.0,
+   "sea_level_pressure":1012.3,
+   "visibility":14.1,
+   "wind_speed":19.9,
+   "precipitation":0.15,
+   "snowfall":15.2,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":83.2,
+   "wind_direction":266
+}

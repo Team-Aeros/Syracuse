@@ -1,0 +1,23 @@
+{
+   "station":164200,
+   "date":"2018-02-01",
+   "time":"11:08:39",
+   "temperature":8.2,
+   "dew_point":2.6,
+   "station_pressure":1012.2,
+   "sea_level_pressure":1019.4,
+   "visibility":11.7,
+   "wind_speed":7.6,
+   "precipitation":0.08,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"false",
+       "rained":"true",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":76.7,
+   "wind_direction":20
+}

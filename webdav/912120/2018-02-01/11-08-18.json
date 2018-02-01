@@ -1,0 +1,23 @@
+{
+   "station":912120,
+   "date":"2018-02-01",
+   "time":"11:08:18",
+   "temperature":24.4,
+   "dew_point":19.5,
+   "station_pressure":1002.4,
+   "sea_level_pressure":1011.6,
+   "visibility":11.3,
+   "wind_speed":18.4,
+   "precipitation":0.19,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"false",
+       "rained":"true",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":84.5,
+   "wind_direction":39
+}

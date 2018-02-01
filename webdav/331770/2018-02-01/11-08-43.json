@@ -1,0 +1,23 @@
+{
+   "station":331770,
+   "date":"2018-02-01",
+   "time":"11:08:43",
+   "temperature":-4.2,
+   "dew_point":-6.7,
+   "station_pressure":1003.9,
+   "sea_level_pressure":1020.3,
+   "visibility":12.0,
+   "wind_speed":12.2,
+   "precipitation":0.06,
+   "snowfall":2.3,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.4,
+   "wind_direction":183
+}

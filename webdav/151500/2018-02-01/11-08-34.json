@@ -1,0 +1,23 @@
+{
+   "station":151500,
+   "date":"2018-02-01",
+   "time":"11:08:34",
+   "temperature":-2.6,
+   "dew_point":-6.4,
+   "station_pressure":991.9,
+   "sea_level_pressure":1015.7,
+   "visibility":8.6,
+   "wind_speed":9.7,
+   "precipitation":0.02,
+   "snowfall":2.6,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.3,
+   "wind_direction":200
+}

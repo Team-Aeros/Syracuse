@@ -1,0 +1,23 @@
+{
+   "station":131825,
+   "date":"2018-02-01",
+   "time":"11:08:57",
+   "temperature":0.0,
+   "dew_point":-6.2,
+   "station_pressure":1063.4,
+   "sea_level_pressure":1024.1,
+   "visibility":8.6,
+   "wind_speed":7.4,
+   "precipitation":0.0,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"false",
+       "rained":"false",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":33.6,
+   "wind_direction":135
+}

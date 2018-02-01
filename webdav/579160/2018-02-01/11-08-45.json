@@ -1,0 +1,23 @@
+{
+   "station":579160,
+   "date":"2018-02-01",
+   "time":"11:08:45",
+   "temperature":2.7,
+   "dew_point":1.8,
+   "station_pressure":1027.3,
+   "sea_level_pressure":1025.6,
+   "visibility":11.9,
+   "wind_speed":0.5,
+   "precipitation":0.39,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"false",
+       "rained":"true",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.1,
+   "wind_direction":48
+}

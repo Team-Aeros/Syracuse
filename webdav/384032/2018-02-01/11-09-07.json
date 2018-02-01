@@ -1,0 +1,23 @@
+{
+   "station":384032,
+   "date":"2018-02-01",
+   "time":"11:09:07",
+   "temperature":-5.8,
+   "dew_point":-8.2,
+   "station_pressure":998.2,
+   "sea_level_pressure":986.3,
+   "visibility":10.4,
+   "wind_speed":14.5,
+   "precipitation":0.0,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"true",
+       "rained":"false",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":56.5,
+   "wind_direction":36
+}
