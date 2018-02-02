@@ -5,13 +5,10 @@ loop through each map to find the folders that are max 6 days old
 get all the json files of those folders
 merge all the json files into 1 json file*/
 namespace Syracuse\src\download;
-/*
- * When on server the following variables need to be changed
- * line .. $start needs to be the folder path to the webdav on the server
- * line .. The index in $dirParts (now 9) needs to be changed to the index that corresponds with the station nummer in the path
- *
- */
-class DataReader{
+
+use Syracuse\src\headers\Controller;
+
+class DataReader extends Controller {
     private $dataLinks;
     private $valid_caribbeanStations;
     private $valid_gulfStations;
@@ -19,8 +16,11 @@ class DataReader{
     private $maxLastDay;
     private $currentDay;
     public function __construct() {
-        $currentDate = $this->getCurrentDate('Europe/Amsterdam');
-        $start = "C:/Users/Jelmer/Documents/School/Jaar 2/2.2/Projecten/webdav";
+        date_default_timezone_set('Europe/Amsterdam');
+        $currentDate = date('m/d/Y ', time());
+
+        $this->loadSettings();
+        $start = self::$config->get('path') . '/../webdav';
         $this->valid_caribbeanStations =["765905", "765906", "766491", "766493", "782550", "782623", "782640",
             "783460", "783550", "783670", "783830", "783840", "783880", "783970", "784390", "784570",
             "784580", "784600", "784785", "784790", "784840", "784850", "784860", "785140", "785145",
@@ -36,17 +36,16 @@ class DataReader{
             "765494", "765905", "765906", "766127", "766440", "766443", "766491", "766493", "766870",
             "766910", "766913", "766920", "766950", "782240", "782290", "783250", "783284"];
         $valid_stations = array_merge($this->valid_caribbeanStations, $this->valid_gulfStations);
-        $this->dataLinks = [];
+
         $stations = [];
         $stationLinks = [];
         $dateLinks = [];
+       $this->dataLinks = [];
 
-        $directories = glob($start . "/*", GLOB_ONLYDIR);
-        foreach ($directories as $dir) {
-            $dirParts = explode("/", $dir);
-            $stations[] = $dirParts[9];
+        foreach (scandir($start) as $dir) {
+            if (is_dir($start . '/' . $dir) && !in_array($dir, ['index.php', '.', '..']))
+                $stations[] = $dir;
         }
-
 
         foreach ($stations as $station) {
             if (in_array($station, $valid_stations)) {

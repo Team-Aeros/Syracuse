@@ -160,6 +160,10 @@ h2 {
     background: #fff;
 }
 
+.widget img {
+    height: 80%;
+}
+
 .widget:last-child {
     margin-left: 0px;
 }
