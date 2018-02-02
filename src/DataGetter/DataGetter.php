@@ -81,5 +81,20 @@ class DataGetter {
         return array($top10Rain, $temperature);
     }
 
+    public function getDataForStation($station) {
+        foreach ($this->goodLinks as $dataLink) {
+            $linkparts = explode("/", $dataLink);
+            #var_dump($linkparts);
+            $json = file_get_contents($dataLink);
+            $file = json_decode($json, true);
+            if ($file['date'] = $this->currentDate - 1) {
+                $fileData = ["station" => $file['station'], "date" => $file['date'], "time" => $file['time'],
+                    "temperature" => $file['temperature'], "wind_speed" => $file['wind_speed'], "rain" => $file['precipitation']];
+                if (in_array($linkparts[9], $this->dataReader->getCaribStations())) {
+                    return array($fileData['station'], $fileData['wind_speed'], $fileData['temperature'], $fileData['rain']);
+                }
+            }
+    }
+
 
 }
