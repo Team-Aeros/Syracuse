@@ -25,6 +25,7 @@ class Main extends Controller implements Module {
     private $_model;
 
     public function __construct(string $moduleName, array $parameters) {
+        $dataReader = new DataReader();
         if ($moduleName == 'logout') {
             $this->loadAuthenticationSystem();
             self::$auth->logOut();
@@ -32,10 +33,12 @@ class Main extends Controller implements Module {
         }
 
         if ($moduleName == 'download') {
-            $download = new DataReader();
+            $dataReader->download();
             exit;
         }
-
+        /* call the update function of $dataReader every minute
+           this gives back an array where Top10Rain is [0] and the temperatures is [1]
+        */
         $this->_moduleName = $moduleName;
         $this->_parameters = $parameters;
         $this->loadGui();
