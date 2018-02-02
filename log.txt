@@ -1,0 +1,4 @@
+[1517567822] (PHP error): Undefined variable: dataLinks in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 96
+[1517567822] (PHP error): Undefined variable: maxLastDay in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 70
+[1517567822] (PHP error): Undefined variable: currentDay in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 70
+[1517567941] (PHP error): Undefined variable: dataLinks in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 98
