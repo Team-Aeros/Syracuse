@@ -7,13 +7,18 @@
  */
 
 use Syracuse\src\download\DataReader as DataReader;
+/*
+ * Makes a data getter object,
+ * when update() is called it returns an array of the top10Rain of the last day for all the carribbean stations and
+ * the last temperature of the gulf stations. Top10Rain = [0], Temperature = [1]
+ */
 class DataGetter {
     private $goodLinks;
     private $currentDate;
     private $dataReader;
     public function __construct() {
         $this->gooddLinks = [];
-        $this->dataReader = new DataReader(1);
+        $this->dataReader = new DataReader();
         $dlinks = $this->dataReader->getDataLinks();
         $currentDate = "2018-02-01";#$dataReader->getCurrentDate('Europe/Amsterdam');
         $currentDateVals = explode("-",$currentDate);
