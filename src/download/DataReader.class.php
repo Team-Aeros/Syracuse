@@ -40,7 +40,7 @@ class DataReader extends Controller {
         $stations = [];
         $stationLinks = [];
         $dateLinks = [];
-       $this->dataLinks = [];
+        $this->dataLinks = [];
 
         foreach (scandir($start) as $dir) {
             if (is_dir($start . '/' . $dir) && !in_array($dir, ['index.php', '.', '..']))

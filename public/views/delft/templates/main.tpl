@@ -126,7 +126,6 @@ function content(elem) {
     var selStat = document.getElementById("selStat");
     selStat.innerHTML = "Selected station: " + elem.innerHTML;
 }
-
         
 		</script>
 	<body>	
