@@ -17,7 +17,6 @@ use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\{Controller, Module};
 use Syracuse\src\modules\models\Main as Model;
 use Syracuse\src\download\DataReader as DataReader ;
-use Syracuse\src\DataGetter\DataGetter as DataGetter;
 
 class Main extends Controller implements Module {
 

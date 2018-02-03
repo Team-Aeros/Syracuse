@@ -1,6 +1,15 @@
 <?php
 namespace Syracus\src\DataGetter;
 /* currently only for rain*/
+/*
+ * DONT FORGET
+ * DONT FORGET
+ * DONT FORGET
+ * lijn 59 data == currentdate terug zetten
+ * DONT FORGET
+ * DONT FORGET
+ * DONT FORGET
+ */
 class DataGetter {
     private $currentDate;
     private $path;
