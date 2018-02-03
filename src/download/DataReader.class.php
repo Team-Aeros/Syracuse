@@ -1,9 +1,13 @@
 <?php
-/*search main map for all valid station ID's
-make array with all valid station ID's folders
-loop through each map to find the folders that are max 6 days old
-get all the json files of those folders
-merge all the json files into 1 json file*/
+/*
+ * DONT FORGET
+ * DONT FORGET
+ * DONT FORGET
+ * lijn 98 header locatie aanpassen voor server
+ * DONT FORGET
+ * DONT FORGET
+ * DONT FORGET
+ */
 namespace Syracuse\src\download;
 
 use Syracuse\src\headers\Controller;
@@ -40,7 +44,7 @@ class DataReader extends Controller {
         $stations = [];
         $stationLinks = [];
         $dateLinks = [];
-       $this->dataLinks = [];
+        $this->dataLinks = [];
 
         foreach (scandir($start) as $dir) {
             if (is_dir($start . '/' . $dir) && !in_array($dir, ['index.php', '.', '..']))
@@ -70,9 +74,10 @@ class DataReader extends Controller {
 
             $dayOfFile = mktime(0, 0, 0, $fileDateVals[1], $fileDateVals[2], $fileDateVals[0]);
             $currentDateVals = $this->dateVals($currentDate, "/");
+            #var_dump($currentDateVals);
 
-            $this->maxLastDay = mktime(0, 0, 0, $currentDateVals[2], $currentDateVals[1] - 6, $currentDateVals[0]);
-            $this->currentDay = mktime(0, 0, 0, $currentDateVals[2], $currentDateVals[1], $currentDateVals[0]);
+            $this->maxLastDay = mktime(0, 0, 0, $currentDateVals[0], $currentDateVals[1] - 6, $currentDateVals[2]);
+            $this->currentDay = mktime(0, 0, 0, $currentDateVals[0], $currentDateVals[1], $currentDateVals[2]);
 
             if($dayOfFile >= $this->maxLastDay and $dayOfFile <= $this->currentDay) {
                 $files = scandir($link);

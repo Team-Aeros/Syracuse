@@ -114,8 +114,17 @@ function bindInfoWindow(marker, map, infowindow, details) {
 			}
 		});
     });
-}   
-
+}
+function content(elem) {
+    var tds = ['td1','td2','td3','td4','td5','td6','td7','td8','td9','td10'];
+    for (i=0; i < tds.length; i++) {
+        var td = document.getElementById(tds[i]);
+        td.style.backgroundColor = "white";
+    }
+    elem.style.backgroundColor = "#3e6846";
+    var selStat = document.getElementById("selStat");
+    selStat.innerHTML = "Selected station: " + elem.innerHTML;
+}
         
 		</script>
 	<body>	
@@ -123,13 +132,47 @@ function bindInfoWindow(marker, map, infowindow, details) {
 
         <div class="subcontainer" id="rain">
             <div id="list_1" class="textBlock widget">
+                <div class="currentStation" id="currentStation">
+                    <P id="selStat">{{ _translate('selStat') }}</P>
+                </div>
                 <h2>{{ _translate('rainListTitle') }}</h2>
-                <img src="https://images.sampletemplates.com/wp-content/uploads/2015/11/16055712/Temperature-Conversion-Chart-PDF.jpg" alt="" />
+                <table>
+                    <tr>
+                        <td id="td1" onclick="content(this)">1</td>
+                    </tr>
+                    <tr>
+                        <td id="td2" onclick="content(this)">2</td>
+                    </tr>
+                    <tr>
+                        <td id="td3" onclick="content(this)">3</td>
+                    </tr>
+                    <tr>
+                        <td id="td4" onclick="content(this)">4</td>
+                    </tr>
+                    <tr>
+                        <td id="td5" onclick="content(this)">5</td>
+                    </tr>
+                    <tr>
+                        <td id="td6" onclick="content(this)">6</td>
+                    </tr>
+                    <tr>
+                        <td id="td7" onclick="content(this)">7</td>
+                    </tr>
+                    <tr>
+                        <td id="td8" onclick="content(this)">8</td>
+                    </tr>
+                    <tr>
+                        <td id="td9" onclick="content(this)">9</td>
+                    </tr>
+                    <tr>
+                        <td id="td10" onclick="content(this)">10</td>
+                    </tr>
+                </table>
             </div>
 
             <div id="listData" class="textBlock widget">
                 <H2>{{ _translate('rainDataTitle') }}</H2>
-                <img src="http://images.ccohs.ca/oshanswers/Chart025.gif" alt="" />
+                <P> no data :(</P>
             </div>
         </div>
 
