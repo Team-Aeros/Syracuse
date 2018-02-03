@@ -6,6 +6,7 @@ namespace Syracus\src\DataGetter;
  * DONT FORGET
  * DONT FORGET
  * lijn 59 data == currentdate terug zetten
+ * lijn 41 path aanpassen
  * DONT FORGET
  * DONT FORGET
  * DONT FORGET

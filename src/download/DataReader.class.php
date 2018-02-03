@@ -1,9 +1,13 @@
 <?php
-/*search main map for all valid station ID's
-make array with all valid station ID's folders
-loop through each map to find the folders that are max 6 days old
-get all the json files of those folders
-merge all the json files into 1 json file*/
+/*
+ * DONT FORGET
+ * DONT FORGET
+ * DONT FORGET
+ * lijn 98 header locatie aanpassen voor server
+ * DONT FORGET
+ * DONT FORGET
+ * DONT FORGET
+ */
 namespace Syracuse\src\download;
 
 use Syracuse\src\headers\Controller;
