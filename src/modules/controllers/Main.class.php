@@ -32,6 +32,7 @@ class Main extends Controller implements Module {
             self::$auth->logOut();
             exit;
         }
+
         if ($moduleName == 'download') {
             $dataReader = new DataReader();
             $dataReader->download();
