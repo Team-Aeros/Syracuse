@@ -115,7 +115,43 @@ function bindInfoWindow(marker, map, infowindow, details) {
 			}
 		});
     });
-}   
+}
+function content(elem) {
+	    var td1 = document.getElementById("td1");
+	    td1.style.backgroundColor = "white";
+
+        var td2 = document.getElementById("td2");
+        td2.style.backgroundColor = "white";
+
+        var td3 = document.getElementById("td3");
+        td3.style.backgroundColor = "white";
+
+        var td4 = document.getElementById("td4");
+        td4.style.backgroundColor = "white";
+
+        var td5 = document.getElementById("td5");
+        td5.style.backgroundColor = "white";
+
+        var td6 = document.getElementById("td6");
+        td6.style.backgroundColor = "white";
+
+        var td7 = document.getElementById("td7");
+        td7.style.backgroundColor = "white";
+
+        var td8 = document.getElementById("td8");
+        td8.style.backgroundColor = "white";
+
+        var td9 = document.getElementById("td9");
+        td9.style.backgroundColor = "white";
+
+        var td10 = document.getElementById("td10");
+        td10.style.backgroundColor = "white";
+
+	    elem.style.backgroundColor = "#3e6846";
+
+	    var selStat = document.getElementById("selStat");
+	    selStat.innerHTML = "station selected: " + elem.innerHTML;
+}
 
         
 		</script>
@@ -125,10 +161,52 @@ function bindInfoWindow(marker, map, infowindow, details) {
         <div class="subcontainer" id="rain">
             <div id="list_1" class="textBlock widget">
                 <div class="currentStation" id="currentStation">
-                    <P>{{ _translate('selStat') }}</P>
+                    <P id="selStat">{{ _translate('selStat') }}</P>
                 </div>
                 <h2>{{ _translate('rainListTitle') }}</h2>
-                <p>No rain :)</p> <!--placeholder-->
+                <table id="top10TableList">
+                    <p>test</p>
+                    <tr>
+                        <td id="td1" onclick="content(this)">1</td>
+                        <td id="val1"></td>
+                    </tr>
+                    <tr>
+                        <td id="td2" onclick="content(this)">2</td>
+                        <td id="val2"></td>
+                    </tr>
+                    <tr>
+                        <td id="td3" onclick="content(this)">3</td>
+                        <td id="val3"></td>
+                    </tr>
+                    <tr>
+                        <td id="td4" onclick="content(this)">4</td>
+                        <td id="val4"></td>
+                    </tr>
+                    <tr>
+                        <td id="td5" onclick="content(this)">5</td>
+                        <td id="val5"></td>
+                    </tr>
+                    <tr>
+                        <td id="td6" onclick="content(this)">6</td>
+                        <td id="val6"></td>
+                    </tr>
+                    <tr>
+                        <td id="td7" onclick="content(this)">7</td>
+                        <td id="val7"></td>
+                    </tr>
+                    <tr>
+                        <td id="td8" onclick="content(this)">8</td>
+                        <td id="val8"></td>
+                    </tr>
+                    <tr>
+                        <td id="td9" onclick="content(this)">9</td>
+                        <td id="val9"></td>
+                    </tr>
+                    <tr>
+                        <td id="td10" onclick="content(this)">10</td>
+                        <td id="val10"></td>
+                    </tr>
+                </table>
             </div>
 
             <div id="listData" class="textBlock widget">

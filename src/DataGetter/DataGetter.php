@@ -6,6 +6,8 @@
  * Time: 11:33
  */
 
+
+namespace Syracuse\src\DataGetter;
 use Syracuse\src\download\DataReader as DataReader;
 /*
  * Makes a data getter object,
@@ -48,9 +50,7 @@ class DataGetter {
                     #update the top 10 rain
                     if (!empty($top10Rain)) {
                         foreach ($top10Rain as $key => $val) {
-                            /*echo "<br>";
-                            echo $key;
-                            echo "<br>";*/
+
                             if (!array_key_exists($fileData['station'], $top10Rain)) {
                                 $top10Rain[$fileData['station']] = $fileData["rain"];
                             } else if ($top10Rain[$key] < $val) {
@@ -91,10 +91,10 @@ class DataGetter {
                 $fileData = ["station" => $file['station'], "date" => $file['date'], "time" => $file['time'],
                     "temperature" => $file['temperature'], "wind_speed" => $file['wind_speed'], "rain" => $file['precipitation']];
                 if (in_array($linkparts[9], $this->dataReader->getCaribStations())) {
-                    return array($fileData['station'], $fileData['wind_speed'], $fileData['temperature'], $fileData['rain']);
+                    return [$fileData['station'], $fileData['wind_speed'], $fileData['temperature'], $fileData['rain']];
                 }
             }
+        }
     }
-
 
 }

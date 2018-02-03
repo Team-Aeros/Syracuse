@@ -17,32 +17,34 @@ use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\{Controller, Module};
 use Syracuse\src\modules\models\Main as Model;
 use Syracuse\src\download\DataReader as DataReader ;
+use Syracuse\src\DataGetter\DataGetter as DataGetter;
 
 class Main extends Controller implements Module {
 
     private $_moduleName;
     private $_parameters;
     private $_model;
+    private $_dataArray;
 
     public function __construct(string $moduleName, array $parameters) {
-        $dataReader = new DataReader();
         if ($moduleName == 'logout') {
             $this->loadAuthenticationSystem();
             self::$auth->logOut();
             exit;
         }
         if ($moduleName == 'download') {
+            $dataReader = new DataReader();
             $dataReader->download();
             exit;
         }
+        $dataGetter = new DataGetter();
+        $this->_dataArray = $dataGetter->update();
         /* call the update function of $dataReader every minute
            this gives back an array where Top10Rain is [0] and the temperatures is [1]
         */
         $this->_moduleName = $moduleName;
         $this->_parameters = $parameters;
         $this->loadGui();
-
-
 
         $this->_model = new Model();
     }
@@ -52,6 +54,6 @@ class Main extends Controller implements Module {
     }
 
     public function display() : void {
-        self::$gui->displayTemplate('main', $this->_model->getData());
+        self::$gui->displayTemplate('main', $this->_model->getData() + ['data' => $this->_dataArray]);
     }
 }
