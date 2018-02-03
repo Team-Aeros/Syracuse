@@ -1,7 +1,6 @@
 
 	<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7&key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&language=en"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
 
 	<script type="text/javascript">
 	
@@ -148,6 +147,6 @@ function bindInfoWindow(marker, map, infowindow, details) {
 
         <br class="clear" />
 
-      </div>
+      	</div>
 	</body>
 
