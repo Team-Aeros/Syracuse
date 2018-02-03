@@ -1,8 +1,10 @@
 <?php
+namespace Syracus\src\DataGetter;
 /* currently only for rain*/
 class DataGetter {
     private $currentDate;
     private $path;
+    private $jsonDataFiles;
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
         $this->currentDate = date('Y-m-d ', time());
@@ -27,13 +29,18 @@ class DataGetter {
 
         #I know needs to change :)
         $this->path = "C:/xampp/htdocs/webdav";
-        $rainDataLinks = $this->findDataLinksRain($valid_caribbeanStations);
-
-
-
-        echo "<pre>";
-        var_dump($rainDataLinks);
-        echo "</pre>";
+        $stationRainDataLinks = $this->findDataLinksRain($valid_caribbeanStations);
+        $dataFiles = [];
+        foreach ($stationRainDataLinks as $station) {
+            $mostRecentFile = file_get_contents($station[count($station)-1]);
+            $json = json_decode($mostRecentFile, true);
+            $file = ["station" => $json['station'], "precipitation" => $json['precipitation'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed']];
+            $dataFiles[] = $file;
+        }
+        $this->jsonDataFiles = json_encode($dataFiles);
+    }
+    public function getRainDataFiles() {
+        return $this->jsonDataFiles;
     }
     private function findDataLinksRain($valid_caribbeanStations) {
         $dataLinks = [];
@@ -42,10 +49,21 @@ class DataGetter {
             if (in_array($station, $valid_caribbeanStations)) { #ONLY CHECKS CARIB STATIONS BECAUSE ONLY READ RAIN THERE
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
-                    foreach (scandir($link) as $dateInLink)
-                        if(!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-01") {#$dateInLink == $this->currentDate) {
-                            $dataLinks[] = $link."/".$dateInLink;
+                    foreach (scandir($link) as $dateInLink) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-01") {#$dateInLink == $this->currentDate) {
+                            $link = $link . "/" . $dateInLink;
+                            foreach (scandir($link) as $fileInFolder) {
+                                if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
+                                    if (key_exists($station,$dataLinks)) {
+                                        $dataLinks[$station][] = $link."/".$fileInFolder;
+                                    }else {
+                                        $dataLinks[$station] =  [$link . "/" . $fileInFolder];
+                                    }
+
+                                }
+                            }
                         }
+                    }
                 }
             }
 
@@ -53,5 +71,3 @@ class DataGetter {
         return $dataLinks;
     }
 }
-
-$d = new DataGetter();
