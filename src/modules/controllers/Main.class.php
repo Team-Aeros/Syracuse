@@ -24,7 +24,6 @@ class Main extends Controller implements Module {
     private $_moduleName;
     private $_parameters;
     private $_model;
-    private $_dataArray;
 
     public function __construct(string $moduleName, array $parameters) {
         if ($moduleName == 'logout') {
@@ -38,8 +37,6 @@ class Main extends Controller implements Module {
             $dataReader->download();
             exit;
         }
-        $dataGetter = new DataGetter();
-        $this->_dataArray = $dataGetter->update();
         /* call the update function of $dataReader every minute
            this gives back an array where Top10Rain is [0] and the temperatures is [1]
         */
@@ -55,6 +52,6 @@ class Main extends Controller implements Module {
     }
 
     public function display() : void {
-        self::$gui->displayTemplate('main', $this->_model->getData() + ['data' => $this->_dataArray]);
+        self::$gui->displayTemplate('main', $this->_model->getData());
     }
 }
