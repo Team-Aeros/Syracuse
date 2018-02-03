@@ -23,3 +23,22 @@ The template loader will attempt to load ``help.tpl`` and sets the variables ret
 
 ## Differences between filters and functions
 Filters are expected to return something and have one parameter, as opposed to functions, which can have an unlimited number of parameters and aren't required to return something.
+
+## Foreach loops
+The syntax of foreach loops is similar to Python's. Example:
+
+```
+{% for item in items %}
+    This is a loop!
+{% endfor %}
+
+{% for key,value in myArray %}
+    This is another loop, but this time we have keys.<br />
+    Key = {{ key }}<br />
+    Value = {{ value }}
+{% endfor %}
+```
+
+In order to use external variables in foreach loops (since in foreach loops, only variables defined in the condition can be used directly), use the 'external' function:
+
+``{{ external('myAge') }}``
