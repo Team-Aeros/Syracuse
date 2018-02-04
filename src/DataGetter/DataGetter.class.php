@@ -14,7 +14,7 @@ use Syracuse\src\headers\Controller;
  * DONT FORGET
  */
 
-class DataGetter extends Controller{
+class DataGetter extends Controller {
     private $currentDate;
     private $path;
     private $valid_caribbeanStations;

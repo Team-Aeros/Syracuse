@@ -11,7 +11,7 @@ namespace Syracuse\src\modules\controllers;
 use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\{Controller, Module};
 use Syracuse\src\modules\models\Login as Model;
-use Syracuse\src\DataGetter\DataGetter as DataGetter;
+use Syracuse\src\DataGetter\DataGetter;
 
 class Update extends Controller implements Module {
 
