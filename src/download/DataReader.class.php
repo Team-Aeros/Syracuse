@@ -95,7 +95,7 @@ class DataReader extends Controller {
             $json = json_decode($file, true);
 
             if ($json == null) {
-                header("Location: http://localhost/Syracuse/");
+                header('Location: ' . self::$config->read('url'));
                 exit;
             } else {
                 $tmpFile = ["station" => $json['station'], "date" => $json['date'], "time" => $json['time'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed'], "precipitation" => $json["precipitation"]];

@@ -170,7 +170,7 @@ function content(elem) {
                 </table>
             </div>
             <script>
-                load_rain_data('/index.php/update/ajax/{ajax_request}');
+                load_rain_data('/index.php/update/ajax/top10');
             </script>
 
             <div id="listData" class="textBlock widget">
