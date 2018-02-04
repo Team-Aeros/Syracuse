@@ -7,12 +7,12 @@ This software is part of a school project Aeros Development is doing and serves 
 ### Requirements
 * PHP 7.1+
 * MySQL 5.5+ / MariaDB 10.0+ (preferred)
-* Composer and NPM (for installation)
+* NPM (for installation)
 
 ### Installation instructions
 * Clone the repository to your HTTP folder
 * Open a terminal
-* Enter the following commands: ``composer install`` and ``npm install``
+* Enter the following commands: ``npm install``
 * Run the .sql file (there will be an installation script later)
 
 ## Regarding pull requests
