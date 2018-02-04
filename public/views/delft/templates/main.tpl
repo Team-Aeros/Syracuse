@@ -123,8 +123,11 @@ function content(elem) {
     }
     elem.style.backgroundColor = "#3e6846";
     var selStat = document.getElementById("selStat");
-    var innerHTML = elem.innerHTML.split(":")
-    selStat.innerHTML = "Selected station: " + innerHTML[0];
+    var tdText = elem.innerHTML.split(":");
+    if(tdText[0] === "No more data") {
+        tdText[0] = "None";
+    }
+    selStat.innerHTML = "Selected station: " + "<br>" + tdText[0];
 }
         
 		</script>

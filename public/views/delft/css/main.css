@@ -179,6 +179,12 @@ h2 {
 .textBlock {
     padding: 25px 50px 25px 50px;
 }
+/* top 10 table list*/
+table { width: 50% }
+tbody tr:hover.selected td,
+tbody tr:hover td {
+    cursor: pointer;
+}
 
 /* Form elements */
 input[type="text"], input[type="password"] {

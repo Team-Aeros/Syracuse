@@ -38,5 +38,9 @@ function load_rain_data(url) {
             i++;
         });
     }, 'GET', 'json');
+    for (i=0; i < tds.length; i++) {
+        var td = document.getElementById(tds[i]);
+        td.innerHTML = "No more data";
+    }
 }
 
