@@ -1,0 +1,23 @@
+{
+   "station":400300,
+   "date":"2018-02-04",
+   "time":"12:32:25",
+   "temperature":-2.4,
+   "dew_point":-6.5,
+   "station_pressure":1034.7,
+   "sea_level_pressure":1024.6,
+   "visibility":16.0,
+   "wind_speed":1.9,
+   "precipitation":0.0,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"true",
+       "rained":"false",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":42.3,
+   "wind_direction":2
+}

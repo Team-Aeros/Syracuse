@@ -1,0 +1,23 @@
+{
+   "station":104270,
+   "date":"2018-02-04",
+   "time":"12:32:28",
+   "temperature":-1.8,
+   "dew_point":-4.4,
+   "station_pressure":978.0,
+   "sea_level_pressure":980.6,
+   "visibility":12.4,
+   "wind_speed":23.8,
+   "precipitation":0.2,
+   "snowfall":6.2,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.1,
+   "wind_direction":68
+}
