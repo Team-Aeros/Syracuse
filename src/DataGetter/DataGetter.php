@@ -1,6 +1,6 @@
 <?php
 namespace Syracus\src\DataGetter;
-/* currently only for rain*/
+use Syracuse\src\headers\Controller;
 /*
  * DONT FORGET
  * DONT FORGET
@@ -39,7 +39,6 @@ class DataGetter extends Controller{
 
 
         $this->path = self::$config->get('path') . '/../webdav';
-
     }
     public function getTempDataFiles() {
         $stationTempDataLinks = $this->findDataLinksTemp($this->valid_gulfStations);
