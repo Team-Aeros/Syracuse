@@ -123,7 +123,8 @@ function content(elem) {
     }
     elem.style.backgroundColor = "#3e6846";
     var selStat = document.getElementById("selStat");
-    selStat.innerHTML = "Selected station: " + elem.innerHTML;
+    var innerHTML = elem.innerHTML.split(":")
+    selStat.innerHTML = "Selected station: " + innerHTML[0];
 }
         
 		</script>
@@ -136,36 +137,36 @@ function content(elem) {
                     <P id="selStat">{{ _translate('selStat') }}</P>
                 </div>
                 <h2>{{ _translate('rainListTitle') }}</h2>
-                <table>
+                <table id="listTable">
                     <tr>
-                        <td id="td1" onclick="content(this)">1</td>
+                        <td id="td1" onclick="content(this)"></td>
                     </tr>
                     <tr>
-                        <td id="td2" onclick="content(this)">2</td>
+                        <td id="td2" onclick="content(this)"></td>
                     </tr>
                     <tr>
-                        <td id="td3" onclick="content(this)">3</td>
+                        <td id="td3" onclick="content(this)"></td>
                     </tr>
                     <tr>
-                        <td id="td4" onclick="content(this)">4</td>
+                        <td id="td4" onclick="content(this)"></td>
                     </tr>
                     <tr>
-                        <td id="td5" onclick="content(this)">5</td>
+                        <td id="td5" onclick="content(this)"></td>
                     </tr>
                     <tr>
-                        <td id="td6" onclick="content(this)">6</td>
+                        <td id="td6" onclick="content(this)"></td>
                     </tr>
                     <tr>
-                        <td id="td7" onclick="content(this)">7</td>
+                        <td id="td7" onclick="content(this)"></td>
                     </tr>
                     <tr>
-                        <td id="td8" onclick="content(this)">8</td>
+                        <td id="td8" onclick="content(this)"></td>
                     </tr>
                     <tr>
-                        <td id="td9" onclick="content(this)">9</td>
+                        <td id="td9" onclick="content(this)"></td>
                     </tr>
                     <tr>
-                        <td id="td10" onclick="content(this)">10</td>
+                        <td id="td10" onclick="content(this)"></td>
                     </tr>
                 </table>
             </div>

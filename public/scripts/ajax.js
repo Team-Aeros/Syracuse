@@ -34,7 +34,7 @@ function load_rain_data(url) {
         let i = 0;
         console.log(response.responseJSON);
         $.each(response.responseJSON, function() {
-            document.getElementById(tds[i]).innerHTML = (i + 1) + '. ' + this.station;
+            document.getElementById(tds[i]).innerHTML = this.station + ': ' + this.precipitation + " mm";
             i++;
         });
     }, 'GET', 'json');
