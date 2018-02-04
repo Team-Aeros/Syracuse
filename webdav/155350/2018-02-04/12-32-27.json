@@ -1,0 +1,23 @@
+{
+   "station":155350,
+   "date":"2018-02-04",
+   "time":"12:32:27",
+   "temperature":-2.0,
+   "dew_point":-5.0,
+   "station_pressure":1016.5,
+   "sea_level_pressure":1021.5,
+   "visibility":8.4,
+   "wind_speed":11.2,
+   "precipitation":0.1,
+   "snowfall":1.7,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":53.5,
+   "wind_direction":256
+}

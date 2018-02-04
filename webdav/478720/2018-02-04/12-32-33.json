@@ -1,0 +1,23 @@
+{
+   "station":478720,
+   "date":"2018-02-04",
+   "time":"12:32:33",
+   "temperature":12.9,
+   "dew_point":6.6,
+   "station_pressure":1002.8,
+   "sea_level_pressure":997.6,
+   "visibility":10.5,
+   "wind_speed":16.2,
+   "precipitation":0.0,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"false",
+       "rained":"false",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":54.3,
+   "wind_direction":201
+}

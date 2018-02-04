@@ -1,0 +1,23 @@
+{
+   "station":206740,
+   "date":"2018-02-04",
+   "time":"12:32:40",
+   "temperature":-21.3,
+   "dew_point":-23.7,
+   "station_pressure":1010.8,
+   "sea_level_pressure":1015.0,
+   "visibility":16.7,
+   "wind_speed":22.7,
+   "precipitation":0.1,
+   "snowfall":5.9,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.3,
+   "wind_direction":142
+}

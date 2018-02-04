@@ -1,0 +1,23 @@
+{
+   "station":236060,
+   "date":"2018-02-04",
+   "time":"12:32:33",
+   "temperature":-13.1,
+   "dew_point":-15.3,
+   "station_pressure":1011.3,
+   "sea_level_pressure":1011.6,
+   "visibility":11.9,
+   "wind_speed":13.4,
+   "precipitation":0.4,
+   "snowfall":16.7,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":80.2,
+   "wind_direction":112
+}

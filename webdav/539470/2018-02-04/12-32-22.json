@@ -1,0 +1,23 @@
+{
+   "station":539470,
+   "date":"2018-02-04",
+   "time":"12:32:22",
+   "temperature":-1.0,
+   "dew_point":-9.6,
+   "station_pressure":953.5,
+   "sea_level_pressure":1026.4,
+   "visibility":14.2,
+   "wind_speed":7.5,
+   "precipitation":0.1,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.0,
+   "wind_direction":120
+}

@@ -1,0 +1,23 @@
+{
+   "station":943330,
+   "date":"2018-02-04",
+   "time":"12:32:36",
+   "temperature":25.7,
+   "dew_point":15.7,
+   "station_pressure":988.3,
+   "sea_level_pressure":1005.8,
+   "visibility":50.0,
+   "wind_speed":12.9,
+   "precipitation":0.2,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"false",
+       "rained":"true",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.1,
+   "wind_direction":120
+}

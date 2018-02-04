@@ -1,0 +1,23 @@
+{
+   "station":442120,
+   "date":"2018-02-04",
+   "time":"12:32:33",
+   "temperature":-17.2,
+   "dew_point":-21.7,
+   "station_pressure":927.0,
+   "sea_level_pressure":1060.2,
+   "visibility":38.6,
+   "wind_speed":7.9,
+   "precipitation":0.0,
+   "snowfall":9.4,
+   "flags":{
+       "froze":"true",
+       "rained":"false",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.0,
+   "wind_direction":51
+}

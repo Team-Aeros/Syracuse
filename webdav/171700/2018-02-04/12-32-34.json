@@ -1,0 +1,23 @@
+{
+   "station":171700,
+   "date":"2018-02-04",
+   "time":"12:32:34",
+   "temperature":-7.8,
+   "dew_point":-11.1,
+   "station_pressure":944.0,
+   "sea_level_pressure":947.6,
+   "visibility":14.2,
+   "wind_speed":6.9,
+   "precipitation":0.2,
+   "snowfall":6.1,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.3,
+   "wind_direction":315
+}

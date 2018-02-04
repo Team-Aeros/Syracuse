@@ -19,7 +19,7 @@ class DataGetter extends Controller {
     private $jsonDataFiles;
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
-        $this->currentDate = date('Y-m-d ', time());
+        $this->currentDate = date('Y-m-d', time());
         $this->loadSettings();
         #for rain data
         $valid_caribbeanStations =["765905", "765906", "766491", "766493", "782550", "782623", "782640",

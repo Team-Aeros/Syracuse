@@ -1,0 +1,23 @@
+{
+   "station":246410,
+   "date":"2018-02-04",
+   "time":"12:32:40",
+   "temperature":-36.5,
+   "dew_point":-39.2,
+   "station_pressure":1022.3,
+   "sea_level_pressure":1022.6,
+   "visibility":26.8,
+   "wind_speed":5.4,
+   "precipitation":0.1,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.0,
+   "wind_direction":314
+}

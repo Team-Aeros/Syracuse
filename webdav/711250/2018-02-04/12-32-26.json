@@ -1,0 +1,23 @@
+{
+   "station":711250,
+   "date":"2018-02-04",
+   "time":"12:32:26",
+   "temperature":-12.1,
+   "dew_point":-16.1,
+   "station_pressure":960.6,
+   "sea_level_pressure":1022.0,
+   "visibility":20.8,
+   "wind_speed":11.9,
+   "precipitation":0.0,
+   "snowfall":10.4,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":82.2,
+   "wind_direction":299
+}
