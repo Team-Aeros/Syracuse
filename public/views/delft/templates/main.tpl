@@ -169,6 +169,9 @@ function content(elem) {
                     </tr>
                 </table>
             </div>
+            <script>
+                load_rain_data('/index.php/update/ajax/{ajax_request}');
+            </script>
 
             <div id="listData" class="textBlock widget">
                 <H2>{{ _translate('rainDataTitle') }}</H2>
