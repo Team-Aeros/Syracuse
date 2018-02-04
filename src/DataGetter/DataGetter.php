@@ -5,6 +5,7 @@ namespace Syracus\src\DataGetter;
  * DONT FORGET
  * DONT FORGET
  * DONT FORGET
+ * lijn 40 path veranderen
  * lijn 59 data == currentdate terug zetten
  * DONT FORGET
  * DONT FORGET
@@ -13,12 +14,13 @@ namespace Syracus\src\DataGetter;
 class DataGetter {
     private $currentDate;
     private $path;
-    private $jsonDataFiles;
+    private $valid_caribbeanStations;
+    private $valid_gulfStations;
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
-        $this->currentDate = date('Y-m-d ', time());
+        $this->currentDate = date('Y-m-d', time());
         #for rain data
-        $valid_caribbeanStations =["765905", "765906", "766491", "766493", "782550", "782623", "782640",
+        $this->valid_caribbeanStations =["765905", "765906", "766491", "766493", "782550", "782623", "782640",
             "783460", "783550", "783670", "783830", "783840", "783880", "783970", "784390", "784570",
             "784580", "784600", "784785", "784790", "784840", "784850", "784860", "785140", "785145",
             "785201", "785203", "785260", "785263", "785350", "785430", "785470", "787030", "787050",
@@ -26,7 +28,7 @@ class DataGetter {
             "789050", "789060", "789250", "789510", "789580", "789820", "789880", "789900", "800010",
             "804020", "804030", "804050"];
         #for temperature data
-        $valid_gulfStations = ["720273", "722010", "722014", "722015", "722016", "722034", "722038",
+        $this->valid_gulfStations = ["720273", "722010", "722014", "722015", "722016", "722034", "722038",
             "722041", "722064", "722104", "722106", "722108", "722110", "722115", "722116", "722159",
             "722200", "722209", "722320", "722351", "722406", "722408", "722420", "722422", "722423",
             "722427", "722435", "722436", "722500", "722505", "722510", "722515", "722516", "722524",
@@ -37,7 +39,32 @@ class DataGetter {
 
         #I know needs to change :)
         $this->path = "C:/xampp/htdocs/webdav";
-        $stationRainDataLinks = $this->findDataLinksRain($valid_caribbeanStations);
+
+    }
+    public function getTempDataFiles() {
+        $stationTempDataLinks = $this->findDataLinksTemp($this->valid_gulfStations);
+        $dataFiles = [];
+        foreach ($stationTempDataLinks as $station) {
+            /*echo "<pre>";
+            var_dump($station);
+            echo "</pre>";*/
+            $stationFiles = [];
+            foreach ($station as $link) {
+                $file = file_get_contents($link);
+                $json = json_decode($file, true);
+                $file = ['station' => $json['station'], 'time' => $json['time'],'temperature' => $json['temperature']];
+                if (key_exists($file['station'], $stationFiles)) {
+                    $stationFiles[$file['station']][] = $file['temperature'];
+                } else {
+                    $stationFiles[$file['station']] = [$file['temperature']];
+                }
+            }
+            $dataFiles[] = $stationFiles;
+        }
+        return $dataFiles;
+    }
+    public function getRainDataFiles() {
+        $stationRainDataLinks = $this->findDataLinksRain($this->valid_caribbeanStations);
         $dataFiles = [];
         foreach ($stationRainDataLinks as $station) {
             $mostRecentFile = file_get_contents($station[count($station)-1]);
@@ -45,11 +72,7 @@ class DataGetter {
             $file = ["station" => $json['station'], "precipitation" => $json['precipitation'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed']];
             $dataFiles[] = $file;
         }
-        $this->jsonDataFiles = $dataFiles;
-    }
-
-    public function getRainDataFiles() {
-        usort($this->jsonDataFiles, function ($a, $b) {
+        usort($dataFiles, function ($a, $b) {
             $result = 0;
             if ($b['precipitation'] > $a['precipitation']) {
                 $result = 1;
@@ -58,7 +81,7 @@ class DataGetter {
             }
             return $result;
         });
-        return $this->jsonDataFiles;
+        return $dataFiles;
     }
     private function findDataLinksRain($valid_caribbeanStations) {
         $dataLinks = [];
@@ -68,7 +91,7 @@ class DataGetter {
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-01") {#$dateInLink == $this->currentDate) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink ==  trim($this->currentDate)) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
@@ -77,7 +100,6 @@ class DataGetter {
                                     }else {
                                         $dataLinks[$station] =  [$link . "/" . $fileInFolder];
                                     }
-
                                 }
                             }
                         }
@@ -85,6 +107,46 @@ class DataGetter {
                 }
             }
 
+        }
+        return $dataLinks;
+    }
+
+    private function findDataLinksTemp($valid_gulfStations) {
+        $dataLinks = [];
+        foreach (scandir($this->path) as $station) {
+            if (in_array($station, $valid_gulfStations)) { #ONLY CHECKS GULF STATIONS BECAUSE ONLY READ TEMP THERE
+                if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
+                    $link = $this->path . '/' . $station;
+                    foreach (scandir($link) as $dateInLink) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == trim($this->currentDate)) {
+                            $link = $link . "/" . $dateInLink;
+                            foreach (scandir($link) as $fileInFolder) {
+                                if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
+                                    $arrayTime = explode("-",date("H-i-s", time()));
+                                    $currentTimeVals = [];
+                                    foreach ($arrayTime as $val) {
+                                        $currentTimeVals[] = (int) $val;
+                                    }
+                                    $pastHour = $currentTimeVals[0] - 1;
+
+                                    $fileArrayTime = explode("-",$fileInFolder);
+                                    $fileTimeVals = [];
+                                    foreach ($fileArrayTime as $val) {
+                                        $fileTimeVals[] = (int) $val;
+                                    }
+                                    if($fileTimeVals[0] >= $pastHour && $fileTimeVals[1] >= $currentTimeVals[1]) {
+                                        if (key_exists($station,$dataLinks)) {
+                                            $dataLinks[$station][] = $link."/".$fileInFolder;
+                                        }else {
+                                            $dataLinks[$station] =  [$link . "/" . $fileInFolder];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         return $dataLinks;
     }

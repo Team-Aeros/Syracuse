@@ -34,6 +34,6 @@ function load_rain_data(url) {
         for(i=0; i<response.responseJSON.data.length; i++) {
             document.getElementById(tds[index].innerHTML = response.responseJSON.data[index])
         }
-    });
+    }, 'GET', 'json');
 }
 

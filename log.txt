@@ -5,3 +5,12 @@
 [1517741781] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
 [1517741790] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
 [1517741834] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
+[1517741876] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
+[1517741878] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
+[1517742477] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
+[1517742667] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
+[1517742703] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
+[1517742713] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
+[1517742924] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
+[1517747322] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
+[1517747325] (module error): Could not load the update module, as its controller could not be found in C:\xampp\htdocs\Syracuse\src\main\controllers\ModuleLoader.class.php on line 60
