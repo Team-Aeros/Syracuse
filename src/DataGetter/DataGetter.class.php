@@ -1,5 +1,5 @@
 <?php
-namespace Syracus\src\DataGetter;
+namespace Syracuse\src\DataGetter;
 use Syracuse\src\headers\Controller;
 
 /*
