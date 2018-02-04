@@ -5,10 +5,14 @@
  * Date: 04-Feb-18
  * Time: 11:43
  */
+
+namespace Syracuse\src\modules\controllers;
+
 use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\{Controller, Module};
 use Syracuse\src\modules\models\Login as Model;
-use Syracus\src\DataGetter\DataGetter as DataGetter;
+use Syracuse\src\DataGetter\DataGetter;
+
 class Update extends Controller implements Module {
 
     private $_moduleName;
@@ -34,6 +38,12 @@ class Update extends Controller implements Module {
     }
 
     public function display() : void {
-        echo json_encode($this->_rainData);
+        switch ($this->_parameters['ajax_request'] ?? 'unknown') {
+            case 'top10':
+                echo json_encode($this->_rainData);
+                break;
+            default:
+                die(translated('unknown_ajax_request'));
+        }
     }
 }

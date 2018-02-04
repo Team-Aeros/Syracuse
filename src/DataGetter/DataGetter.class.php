@@ -1,26 +1,32 @@
 <?php
 namespace Syracuse\src\DataGetter;
 use Syracuse\src\headers\Controller;
+
 /*
  * DONT FORGET
  * DONT FORGET
  * DONT FORGET
+
  * lijn 40 path veranderen
  * lijn 59 data == currentdate terug zetten
  * DONT FORGET
  * DONT FORGET
  * DONT FORGET
  */
-class DataGetter extends Controller{
+
+class DataGetter extends Controller {
     private $currentDate;
     private $path;
     private $valid_caribbeanStations;
     private $valid_gulfStations;
+
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
         $this->currentDate = date('Y-m-d', time());
         $this->loadSettings();
+        $this->path = self::$config->get('path') . '/../webdav';
         #for rain data
+
         $this->valid_caribbeanStations =["765905", "765906", "766491", "766493", "782550", "782623", "782640",
             "783460", "783550", "783670", "783830", "783840", "783880", "783970", "784390", "784570",
             "784580", "784600", "784785", "784790", "784840", "784850", "784860", "785140", "785145",
@@ -29,6 +35,7 @@ class DataGetter extends Controller{
             "789050", "789060", "789250", "789510", "789580", "789820", "789880", "789900", "800010",
             "804020", "804030", "804050"];
         #for temperature data
+
         $this->valid_gulfStations = ["720273", "722010", "722014", "722015", "722016", "722034", "722038",
             "722041", "722064", "722104", "722106", "722108", "722110", "722115", "722116", "722159",
             "722200", "722209", "722320", "722351", "722406", "722408", "722420", "722422", "722423",
@@ -37,8 +44,6 @@ class DataGetter extends Controller{
             "765494", "765905", "765906", "766127", "766440", "766443", "766491", "766493", "766870",
             "766910", "766913", "766920", "766950", "782240", "782290", "783250", "783284"];
 
-
-        $this->path = self::$config->get('path') . '/../webdav';
     }
     public function getTempDataFiles() {
         $stationTempDataLinks = $this->findDataLinksTemp($this->valid_gulfStations);
@@ -82,6 +87,7 @@ class DataGetter extends Controller{
         });
         return $dataFiles;
     }
+             
     private function findDataLinksRain($valid_caribbeanStations) {
         $dataLinks = [];
         #get the paths to the valid stations
