@@ -34,6 +34,7 @@ class Route {
         $this->_dispatcher->addRoute(['POST', 'GET'], '/login', 'login');
 
         $this->_dispatcher->addRoute('GET', '/help/ajax/{ajax_request}', 'help');
+        $this->_dispatcher->addRoute('GET', '/update/ajax/{ajax_request}', 'update');
 
         $this->_requestMethod = $_SERVER['REQUEST_METHOD'];
         $this->setRequestUri();
