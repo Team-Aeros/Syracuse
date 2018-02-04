@@ -6,7 +6,6 @@ namespace Syracus\src\DataGetter;
  * DONT FORGET
  * DONT FORGET
  * lijn 59 data == currentdate terug zetten
- * lijn 41 path aanpassen
  * DONT FORGET
  * DONT FORGET
  * DONT FORGET
@@ -34,7 +33,6 @@ class DataGetter {
             "722527", "722543", "722555", "722682", "747880", "763993", "765480", "765491", "765493",
             "765494", "765905", "765906", "766127", "766440", "766443", "766491", "766493", "766870",
             "766910", "766913", "766920", "766950", "782240", "782290", "783250", "783284"];
-        $valid_stations = array_merge($valid_caribbeanStations, $valid_gulfStations);
 
 
         #I know needs to change :)
@@ -47,9 +45,19 @@ class DataGetter {
             $file = ["station" => $json['station'], "precipitation" => $json['precipitation'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed']];
             $dataFiles[] = $file;
         }
-        $this->jsonDataFiles = json_encode($dataFiles);
+        $this->jsonDataFiles = $dataFiles;
     }
+
     public function getRainDataFiles() {
+        usort($this->jsonDataFiles, function ($a, $b) {
+            $result = 0;
+            if ($b['precipitation'] > $a['precipitation']) {
+                $result = 1;
+            } elseif ($b['precipitation'] > $a['precipitation']) {
+                $result = -1;
+            }
+            return $result;
+        });
         return $this->jsonDataFiles;
     }
     private function findDataLinksRain($valid_caribbeanStations) {

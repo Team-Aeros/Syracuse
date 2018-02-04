@@ -29,7 +29,8 @@ class ModuleLoader extends Controller {
         'login' => 'Login',
         'logout' => 'Main',
         'help' => 'Help',
-        'download' => 'Main'
+        'download' => 'Main',
+        'update' => 'Update'
     ];
 
     public function __construct(Route $route) {
