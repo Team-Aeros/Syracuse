@@ -1,5 +1,5 @@
 <?php
-namespace Syracus\src\DataGetter;
+namespace Syracuse\src\DataGetter;
 /* currently only for rain*/
 /*
  * DONT FORGET
@@ -10,13 +10,17 @@ namespace Syracus\src\DataGetter;
  * DONT FORGET
  * DONT FORGET
  */
-class DataGetter {
+
+use Syracuse\src\headers\Controller;
+
+class DataGetter extends Controller {
     private $currentDate;
     private $path;
     private $jsonDataFiles;
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
         $this->currentDate = date('Y-m-d ', time());
+        $this->loadSettings();
         #for rain data
         $valid_caribbeanStations =["765905", "765906", "766491", "766493", "782550", "782623", "782640",
             "783460", "783550", "783670", "783830", "783840", "783880", "783970", "784390", "784570",
@@ -36,7 +40,7 @@ class DataGetter {
 
 
         #I know needs to change :)
-        $this->path = "C:/xampp/htdocs/webdav";
+        $this->path = self::$config->get('path') . '/../webdav';
         $stationRainDataLinks = $this->findDataLinksRain($valid_caribbeanStations);
         $dataFiles = [];
         foreach ($stationRainDataLinks as $station) {
@@ -68,7 +72,7 @@ class DataGetter {
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-01") {#$dateInLink == $this->currentDate) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == $this->currentDate) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
