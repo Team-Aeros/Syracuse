@@ -11,7 +11,7 @@ namespace Syracus\src\DataGetter;
  * DONT FORGET
  * DONT FORGET
  */
-class DataGetter {
+class DataGetter extends Controller{
     private $currentDate;
     private $path;
     private $valid_caribbeanStations;
@@ -19,6 +19,7 @@ class DataGetter {
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
         $this->currentDate = date('Y-m-d', time());
+        $this->loadSettings();
         #for rain data
         $this->valid_caribbeanStations =["765905", "765906", "766491", "766493", "782550", "782623", "782640",
             "783460", "783550", "783670", "783830", "783840", "783880", "783970", "784390", "784570",
@@ -37,8 +38,7 @@ class DataGetter {
             "766910", "766913", "766920", "766950", "782240", "782290", "783250", "783284"];
 
 
-        #I know needs to change :)
-        $this->path = "C:/xampp/htdocs/webdav";
+        $this->path = self::$config->get('path') . '/../webdav';
 
     }
     public function getTempDataFiles() {
