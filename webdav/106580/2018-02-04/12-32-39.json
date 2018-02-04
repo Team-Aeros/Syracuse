@@ -1,0 +1,23 @@
+{
+   "station":106580,
+   "date":"2018-02-04",
+   "time":"12:32:39",
+   "temperature":-1.7,
+   "dew_point":-5.4,
+   "station_pressure":1004.3,
+   "sea_level_pressure":1019.1,
+   "visibility":12.2,
+   "wind_speed":7.0,
+   "precipitation":0.1,
+   "snowfall":0.5,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.0,
+   "wind_direction":134
+}

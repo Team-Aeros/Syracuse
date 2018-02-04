@@ -1,0 +1,23 @@
+{
+   "station":126500,
+   "date":"2018-02-04",
+   "time":"12:32:35",
+   "temperature":-4.4,
+   "dew_point":-9.8,
+   "station_pressure":903.8,
+   "sea_level_pressure":904.5,
+   "visibility":25.3,
+   "wind_speed":31.8,
+   "precipitation":0.3,
+   "snowfall":45.8,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":77.1,
+   "wind_direction":258
+}

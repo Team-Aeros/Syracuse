@@ -1,0 +1,23 @@
+{
+   "station":204760,
+   "date":"2018-02-04",
+   "time":"12:32:39",
+   "temperature":-14.0,
+   "dew_point":-17.7,
+   "station_pressure":1018.8,
+   "sea_level_pressure":1014.0,
+   "visibility":19.9,
+   "wind_speed":25.7,
+   "precipitation":0.1,
+   "snowfall":5.0,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.1,
+   "wind_direction":190
+}

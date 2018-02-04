@@ -1,0 +1,23 @@
+{
+   "station":726230,
+   "date":"2018-02-04",
+   "time":"12:32:34",
+   "temperature":-9.1,
+   "dew_point":-12.5,
+   "station_pressure":989.5,
+   "sea_level_pressure":1025.0,
+   "visibility":17.4,
+   "wind_speed":14.7,
+   "precipitation":0.2,
+   "snowfall":21.4,
+   "flags":{
+       "froze":"true",
+       "rained":"true",
+       "snowed":"true",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":50.1,
+   "wind_direction":140
+}

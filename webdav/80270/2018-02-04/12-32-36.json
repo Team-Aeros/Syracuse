@@ -1,0 +1,23 @@
+{
+   "station":80270,
+   "date":"2018-02-04",
+   "time":"12:32:36",
+   "temperature":4.1,
+   "dew_point":-0.6,
+   "station_pressure":1004.5,
+   "sea_level_pressure":1022.3,
+   "visibility":14.4,
+   "wind_speed":17.8,
+   "precipitation":0.2,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"false",
+       "rained":"true",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":57.8,
+   "wind_direction":69
+}

@@ -1,0 +1,23 @@
+{
+   "station":488515,
+   "date":"2018-02-04",
+   "time":"12:32:25",
+   "temperature":13.4,
+   "dew_point":7.5,
+   "station_pressure":1016.5,
+   "sea_level_pressure":1018.6,
+   "visibility":9.5,
+   "wind_speed":11.2,
+   "precipitation":0.0,
+   "snowfall":0.0,
+   "flags":{
+       "froze":"false",
+       "rained":"false",
+       "snowed":"false",
+       "hailed":"false",
+       "thunder":"false",
+       "tornado":"false"
+   },
+   "clouds":54.8,
+   "wind_direction":303
+}
