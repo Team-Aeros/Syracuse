@@ -8,7 +8,7 @@
 use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\{Controller, Module};
 use Syracuse\src\modules\models\Login as Model;
-use Syracus\src\DataGetter\DataGetter as DatagGetter;
+use Syracus\src\DataGetter\DataGetter as DataGetter;
 class Update extends Controller implements Module {
 
     private $_moduleName;
@@ -20,7 +20,7 @@ class Update extends Controller implements Module {
         $this->_moduleName = $moduleName;
         $this->_parameters = $parameters;
 
-        $dataGetter = new DatagGetter();
+        $dataGetter = new DataGetter();
         $this->_rainData = $dataGetter->getRainDataFiles();
 
         $this->loadGui();
