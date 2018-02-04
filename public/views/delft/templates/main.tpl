@@ -4,7 +4,7 @@
 
 	<script type="text/javascript">
 	
-	var map;
+	let map;
 	function initialize() {
 
     var myOptions = {
