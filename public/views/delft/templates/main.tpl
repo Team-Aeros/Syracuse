@@ -1,7 +1,6 @@
 
 	<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7&key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&language=en"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-
 	<script type="text/javascript">
 	
 	let map;
@@ -117,71 +116,98 @@ function bindInfoWindow(marker, map, infowindow, details) {
 }
 function content(elem) {
     var tds = ['td1','td2','td3','td4','td5','td6','td7','td8','td9','td10'];
+    var tdVals = ['td1Val','td2Val','td3Val','td4Val','td5Val','td6Val','td7Val','td8Val','td9Val','td10Val'];
     for (i=0; i < tds.length; i++) {
         var td = document.getElementById(tds[i]);
+        var tdVal = document.getElementById(tdVals[i]);
         td.style.backgroundColor = "white";
+        td.style.color = "black";
+        tdVal.style.backgroundColor = "white";
     }
-    elem.style.backgroundColor = "#3e6846";
+    elem.style.backgroundColor = "#CDD8C5";
     var selStat = document.getElementById("selStat");
     var tdText = elem.innerHTML.split(":");
-    if(tdText[0] === "No more data") {
-        tdText[0] = "None";
-    }
-    selStat.innerHTML = "Selected station: " + "<br>" + tdText[0];
+    var stat = tdText[0];
+    display_rain_data('/index.php/update/ajax/top10', stat);
+
 }
         
 		</script>
 	<body>	
     <div id="container">
-
-        <div class="subcontainer" id="rain">
-            <div id="list_1" class="textBlock widget">
-                <div class="currentStation" id="currentStation">
-                    <P id="selStat">{{ _translate('selStat') }}</P>
+            <div class="subcontainer" id="rain">
+                <div id="list_1" class="textBlock widget">
+                    <h2>{{ _translate('rainListTitle') }}</h2>
+                    <table id="listTable">
+                        <tr>
+                            <td id="td1" class="tableRow" onclick="content(this)"></td>
+                            <td id="td1Val"></td>
+                        </tr>
+                        <tr>
+                            <td id="td2" class="tableRow" onclick="content(this)"></td>
+                            <td id="td2Val"></td>
+                        </tr>
+                        <tr>
+                            <td id="td3" class="tableRow" onclick="content(this)"></td>
+                            <td id="td3Val"></td>
+                        </tr>
+                        <tr>
+                            <td id="td4" class="tableRow" onclick="content(this)"></td>
+                            <td id="td4Val"></td>
+                        </tr>
+                        <tr>
+                            <td id="td5" class="tableRow" onclick="content(this)"></td>
+                            <td id="td5Val"></td>
+                        </tr>
+                        <tr>
+                            <td id="td6" class="tableRow" onclick="content(this)"></td>
+                            <td id="td6Val"></td>
+                        </tr>
+                        <tr>
+                            <td id="td7" class="tableRow" onclick="content(this)"></td>
+                            <td id="td7Val"></td>
+                        </tr>
+                        <tr>
+                            <td id="td8" class="tableRow" onclick="content(this)"></td>
+                            <td id="td8Val"></td>
+                        </tr>
+                        <tr>
+                            <td id="td9" class="tableRow" onclick="content(this)"></td>
+                            <td id="td9Val"></td>
+                        </tr>
+                        <tr>
+                            <td id="td10" class="tableRow" onclick="content(this)"></td>
+                            <td id="td10Val"></td>
+                        </tr>
+                    </table>
                 </div>
-                <h2>{{ _translate('rainListTitle') }}</h2>
-                <table id="listTable">
-                    <tr>
-                        <td id="td1" onclick="content(this)"></td>
-                    </tr>
-                    <tr>
-                        <td id="td2" onclick="content(this)"></td>
-                    </tr>
-                    <tr>
-                        <td id="td3" onclick="content(this)"></td>
-                    </tr>
-                    <tr>
-                        <td id="td4" onclick="content(this)"></td>
-                    </tr>
-                    <tr>
-                        <td id="td5" onclick="content(this)"></td>
-                    </tr>
-                    <tr>
-                        <td id="td6" onclick="content(this)"></td>
-                    </tr>
-                    <tr>
-                        <td id="td7" onclick="content(this)"></td>
-                    </tr>
-                    <tr>
-                        <td id="td8" onclick="content(this)"></td>
-                    </tr>
-                    <tr>
-                        <td id="td9" onclick="content(this)"></td>
-                    </tr>
-                    <tr>
-                        <td id="td10" onclick="content(this)"></td>
-                    </tr>
-                </table>
-            </div>
-            <script>
-                load_rain_data('/index.php/update/ajax/top10');
-            </script>
 
-            <div id="listData" class="textBlock widget">
-                <H2>{{ _translate('rainDataTitle') }}</H2>
-                <P> no data :(</P>
+                <div id="listData" class="textBlock widget">
+                    <H2>{{ _translate('rainDataTitle') }}</H2>
+                    <table id="rainDataVals">
+                        <tr>
+                            <td>Station: </td>
+                            <td id="station"></td>
+                        </tr>
+                        <tr>
+                            <td>Rain: </td>
+                            <td id="rainVal"></td>
+                        </tr>
+                        <tr>
+                            <td>Temperature: </td>
+                            <td id="tempVal"></td>
+                        </tr>
+                        <tr>
+                            <td>Wind speed: </td>
+                            <td id="wspeedVal"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-        </div>
+        <script>
+            load_rain_data('/index.php/update/ajax/top10');
+        </script>
+
 
         <div class="subcontainer" id="temp">
             <div id="map" class="widget">
@@ -189,9 +215,7 @@ function content(elem) {
             </div>
 
             <div id="graph" class="textBlock widget">
-
 				<canvas id="myChart"></canvas>
-
             </div>
         </div>
 

@@ -180,11 +180,28 @@ h2 {
     padding: 25px 50px 25px 50px;
 }
 /* top 10 table list*/
-table { width: 50% }
+table { width: 70% }
 tbody tr:hover.selected td,
 tbody tr:hover td {
     cursor: pointer;
 }
+
+.tableRow {
+    color: black;
+}
+
+#rainDataVals {
+    width: 100%;
+}
+
+#rainDataVals td:last-child {
+    text-align: right;
+}
+
+#rainDataVals td {
+    width: 50%;
+}
+
 
 /* Form elements */
 input[type="text"], input[type="password"] {

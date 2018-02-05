@@ -1,0 +1,18 @@
+[1517836134] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 74
+[1517836134] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 75
+[1517836134] (database error): An error occurred while trying to execute a query (SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'where clause') in C:\xampp\htdocs\Syracuse\src\database\Connection.class.php on line 67
+[1517836147] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 74
+[1517836147] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 75
+[1517836147] (database error): An error occurred while trying to execute a query (SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'where clause') in C:\xampp\htdocs\Syracuse\src\database\Connection.class.php on line 67
+[1517836198] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 74
+[1517836198] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 75
+[1517836198] (database error): An error occurred while trying to execute a query (SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'where clause') in C:\xampp\htdocs\Syracuse\src\database\Connection.class.php on line 67
+[1517836209] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 74
+[1517836209] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 75
+[1517836209] (database error): An error occurred while trying to execute a query (SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'where clause') in C:\xampp\htdocs\Syracuse\src\database\Connection.class.php on line 67
+[1517836240] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 74
+[1517836240] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 75
+[1517836240] (database error): An error occurred while trying to execute a query (SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'where clause') in C:\xampp\htdocs\Syracuse\src\database\Connection.class.php on line 67
+[1517836246] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 74
+[1517836246] (PHP error): Undefined offset: 1 in C:\xampp\htdocs\Syracuse\src\database\QueryBuilder.class.php on line 75
+[1517836246] (database error): An error occurred while trying to execute a query (SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'where clause') in C:\xampp\htdocs\Syracuse\src\database\Connection.class.php on line 67
