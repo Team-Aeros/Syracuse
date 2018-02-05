@@ -3,37 +3,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 	<script type="text/javascript">
 
-     var dataArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-        11, 12, 13, 14, 15, 16, 17, 18, 19,
-        20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
-        30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
-        40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
-        50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
-        60];
+        var dataArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+            11, 12, 13, 14, 15, 16, 17, 18, 19,
+            20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+            30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+            40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+            50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+            60];
 
-     function changeData() {
-         dataArray = [21, 22, 23,21, 22, 23,21, 22, 23, 20,
-             21, 22, 23,21, 22, 23,21, 22, 23, 20,
-             21, 22, 23,21, 22, 23,21, 22, 23, 20,
-             21, 22, 23,21, 22, 23,21, 22, 23, 20,
-             21, 22, 23,21, 22, 23,21, 22, 23, 20,
-             21, 22, 23,21, 22, 23,21, 22, 23, 20];
-     }
+    function changeData(array) {
+        dataArray = array;
+    }
 
 	let map;
 	function initialize() {
 
     var myOptions = {
-        center: new google.maps.LatLng(23.300153, -86.770968), 
+        center: new google.maps.LatLng(23.300153, -86.770968),
         zoom: 5,
         mapTypeId: google.maps.MapTypeId.ROADMAP
-		
+
     };
-   	map = new google.maps.Map(document.getElementById("default"), 
+   	map = new google.maps.Map(document.getElementById("default"),
 		myOptions);
 
      $.getJSON('{{ base_url }}/weatherstations.json', function(json1) {
-     $.each(json1.weatherstations, function (key, data) {
+    $.each(json1.weatherstations, function (key, data) {
 
         var latLng = new google.maps.LatLng(data.lat, data.lng);
 
@@ -42,11 +37,11 @@
             map: map,
             title: data.title
         });
-		 
+
         var details = data.title;
-		
+
 		var infowindow = new google.maps.InfoWindow();
-			
+
 		infowindow.setContent(details);
         infowindow.open(map,marker);
 
@@ -58,88 +53,27 @@
     });
 
 }
-function loadGraph() {
-     ctx = document.getElementById('myChart').getContext('2d');
-     myChart  = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
 
-        // The data for our dataset
-        data: {
 
-            responsive: true,
-            labels:
-                ["60 Minutes ago","","","","","","53 Minutes ago",
-                    "","","","","","47 Minutes ago",
-                    "","","","","","41 Minutes ago",
-                    "","","","","","35 Minutes ago",
-                    "","","","","","29 Minutes ago",
-                    "","","","","","23 Minutes ago",
-                    "","","","","","17 Minutes ago",
-                    "","","","","","11 Minutes ago",
-                    "","","","","","6 Minutes ago",
-                    "","","","","","Right Now"],
-            datasets: [{
-                label: naam,
-                backgroundColor: 'rgb(238, 127, 55)',
-                borderColor: 'rgb(43, 133, 59)',
-                display: true,
+        var intervalIK = window.setInterval(destroyGraph, 14990);
+        var intervalID = window.setInterval(loadGraph, 15000);
 
-                responsive: true,
 
-                fill: false,
-                data: dataArray
-
-            }]
-        },
-
-        // Configuration options go here
-
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    },
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Degrees in Celcius'
-                    }
-                }],
-                xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Minutes'
-
-                    }
-                }]
-
-            }
+        function destroyGraph() {
+            myChart.destroy();
         }
-    });
-}
-
-     var intervalIK = window.setInterval(destroyGraph, 14990);
-     var intervalID = window.setInterval(loadGraph, 15000);
 
 
-     function destroyGraph() {
-         myChart.destroy();
-     }
-
-function bindInfoWindow(marker, map, infowindow, details) {
-		google.maps.event.addListener(marker, 'click', function () {
-		map.setZoom(6);
-        map.setCenter(marker.getPosition());
-		infowindow.setContent(details);
-        infowindow.open(map, marker);
-		naam = details.substring(0,16);
-		loadGraph();
-
-    });
-}
+        function bindInfoWindow(marker, map, infowindow, details) {
+            google.maps.event.addListener(marker, 'click', function () {
+                map.setZoom(6);
+                map.setCenter(marker.getPosition());
+                infowindow.setContent(details);
+                infowindow.open(map, marker);
+                naam = details.substring(0,16);
+                loadGraph('/index.php/update/ajax/tempGraph', naam);
+            });
+        }
 
 function content(elem) {
     var tds = ['td1','td2','td3','td4','td5','td6','td7','td8','td9','td10'];
@@ -241,6 +175,7 @@ function content(elem) {
                 <div id="default" style="width:100%; height:100%"></div>
             </div>
             <button onclick="changeData()">Change me</button>
+
             <div id="graph" class="textBlock widget">
 				<canvas id="myChart"></canvas>
             </div>
