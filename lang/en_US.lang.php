@@ -46,5 +46,7 @@ return [
     'temperature' => 'Temperature',
     'exLogin' => 'Before you can view the dashboard, you need to log in.',
 
-    'unknown_ajax_request' => 'Unhandled AJAX request'
+    'unknown_ajax_request' => 'Unhandled AJAX request',
+
+    'unknown_station' => 'Unknown weather station'
 ];
