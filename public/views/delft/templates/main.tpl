@@ -210,6 +210,7 @@ function content(elem) {
             <div id="map" class="widget">
                 <div id="default" style="width:100%; height:100%"></div>
             </div>
+            <button onclick="changeData()">Change me</button>
             <div id="graph" class="textBlock widget">
 
 				<canvas id="myChart"></canvas>
