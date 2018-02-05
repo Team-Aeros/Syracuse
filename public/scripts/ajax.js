@@ -23,7 +23,7 @@ function perform_request(ajax_url, data_to_send, handler, get_or_post = 'GET', d
 }
 
 function load_module(element, url) {
-    request = perform_request(url, {}, function(message, data, response) {
+    let request = perform_request(url, {}, function(message, data, response) {
         $(element).html(response.responseText);
     });
 }
