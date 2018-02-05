@@ -228,7 +228,7 @@ class QueryBuilder {
             case 'delete':
                 $this->_query = 'DELETE FROM ';
                 break;
-            case 'update':
+            case 'Update.class.class':
                 $this->_query = 'UPDATE ';
                 break;
             default:
@@ -237,7 +237,7 @@ class QueryBuilder {
 
         $this->_query .= $this->_connection->getPrefix() . $this->_table;
 
-        if ($this->_action == 'update' && !empty($values)) {
+        if ($this->_action == 'Update.class.class' && !empty($values)) {
             $this->_query .= ' SET ';
             $this->setValues($values);
         }
