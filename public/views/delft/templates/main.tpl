@@ -94,7 +94,6 @@ function content(elem) {
 }
         
 		</script>
-	<body>	
     <div id="container">
             <div class="subcontainer" id="rain">
                 <div id="list_1" class="textBlock widget">
