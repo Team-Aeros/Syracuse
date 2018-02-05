@@ -16,6 +16,7 @@ namespace Syracuse\src\modules\controllers;
 use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\{Controller, Module};
 use Syracuse\src\modules\models\Main as Model;
+use Syracuse\src\download\DataReader as DataReader ;
 
 class Main extends Controller implements Module {
 
@@ -29,11 +30,18 @@ class Main extends Controller implements Module {
             self::$auth->logOut();
             exit;
         }
+
+        if ($moduleName == 'download') {
+            $dataReader = new DataReader();
+            $dataReader->download();
+            exit;
+        }
+        /* call the update function of $dataReader every minute
+           this gives back an array where Top10Rain is [0] and the temperatures is [1]
+        */
         $this->_moduleName = $moduleName;
         $this->_parameters = $parameters;
         $this->loadGui();
-
-
 
         $this->_model = new Model();
     }

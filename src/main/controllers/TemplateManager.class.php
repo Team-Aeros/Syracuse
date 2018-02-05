@@ -30,6 +30,8 @@ class TemplateManager {
     private $_blocks = [];
     private $_blockId = 0;
 
+    private $_inForeachLoop;
+
     public function __construct() {
         $this->_templateDir = __DIR__;
         $this->_cacheDir = __DIR__;
@@ -117,7 +119,34 @@ class TemplateManager {
                             $buffer .= ', ';
                     }
 
-                    $buffer .= sprintf('$this->_params[\'%s\']', $match[0]);
+                    if (!$this->_inForeachLoop)
+                        $buffer .= sprintf('$this->_params[\'%s\']', $match[0]);
+                    else
+                        $buffer .= '$' . $match[0];
+
+                    $lastOperation = self::OPERATION_VARIABLE_CALL;
+                }
+                // External variables in foreach loops
+                else if (preg_match('/^\Qexternal\E*\((.*)\)$/', $currentOperation, $match) && $this->_inForeachLoop) {
+                    $this->throwErrorIfNoMatch($match);
+
+                    switch ($lastOperation) {
+                        case self::OPERATION_NONE:
+                        case self::OPERATION_LOOP:
+                        case self::OPERATION_IF_ELSE:
+                        case self::OPERATION_FUNCTION_CALL:
+                            if (!$returnOnly)
+                                $buffer .= ' echo ';
+                            break;
+                        case self::OPERATION_HARDCODED_STRING:
+                            $buffer .= '\', ';
+                            break;
+                        default:
+                            $buffer .= ', ';
+                    }
+
+                    $buffer .= sprintf('$this->_params[%s]', $match[1]);
+
                     $lastOperation = self::OPERATION_VARIABLE_CALL;
                 }
                 // Functions
@@ -195,8 +224,23 @@ class TemplateManager {
                             $buffer .= ', ';
                     }
 
-                    $buffer .= sprintf('$this->_params[\'%s\'][\'%s\']', $match[1], $match[2]);
+                    if (!$this->_inForeachLoop)
+                        $buffer .= sprintf('$this->_params[\'%s\'][\'%s\']', $match[1], $match[2]);
+                    else
+                        $buffer .= sprintf('$%s[\'%s\']', $match[1], $match[2]);
+
                     $lastOperation = self::OPERATION_VARIABLE_CALL;
+                }
+                // Foreach loops
+                else if (preg_match('/^([a-zA-Z_]*)\Q in \E([a-zA-Z]*)$/', $currentOperation, $match)) {
+                    $this->throwErrorIfNoMatch($match);
+
+                    $buffer .= sprintf('$this->_params[\'%s\'] as $%s', $match[2], $match[1]);
+                }
+                else if (preg_match('/^([a-zA-Z_]*)\,([a-zA-Z_]*)\Q in \E([a-zA-Z]*)$/', $currentOperation, $match)) {
+                    $this->throwErrorIfNoMatch($match);
+
+                    $buffer .= sprintf('$this->_params[\'%s\'] as $%s => $%s', $match[3], $match[1], $match[2]);
                 }
                 else
                     throw new Exception(sprintf('Invalid syntax at position %u. Operation: %s', $j, $currentOperation));
@@ -237,6 +281,11 @@ class TemplateManager {
             case 'if':
                 $this->compileStatement(0, $condition, $statementConditions, strlen($statementConditions), $lastOperation, true);
                 $blockOpening = $statement . ' (' . $condition . ') {';
+                break;
+            case 'for':
+                $this->compileStatement(0, $condition, $statementConditions, strlen($statementConditions), $lastOperation, true);
+                $blockOpening = ' foreach (' . $condition . ') {';
+                $this->_inForeachLoop = true;
                 break;
             default:
                 throw new Exception(sprintf('Unknown statement %s', $statement));
@@ -322,6 +371,7 @@ class TemplateManager {
                                 $blockEnding = '}';
                                 unset($this->_blocks[$blockId]);
                                 $done = true;
+                                $this->_inForeachLoop = false;
                             }
                             else if ($subOperation == 'else') {
                                 $blockEnclosed .= '} else { ';

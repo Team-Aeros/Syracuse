@@ -1,9 +1,10 @@
+
 	<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7&key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&language=en"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
+
 	<script type="text/javascript">
 	
-	
+	let map;
 	function initialize() {
 
     var myOptions = {
@@ -12,10 +13,10 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
 		
     };
-    var map = new google.maps.Map(document.getElementById("default"), 
+   	map = new google.maps.Map(document.getElementById("default"), 
 		myOptions);
 
-     $.getJSON('../../Syracuse/weatherstations.json', function(json1) {
+     $.getJSON('{{ base_url }}/weatherstations.json', function(json1) {
     $.each(json1.weatherstations, function (key, data) {
 
         var latLng = new google.maps.LatLng(data.lat, data.lng);
@@ -56,7 +57,8 @@ function bindInfoWindow(marker, map, infowindow, details) {
 
 			// The data for our dataset
 			data: {
-				responsive: false,
+
+				responsive: true,
 				labels: [1,2,3,4,5,6,7,8,9,10,
 					11,12,13,14,15,16,17,18,19,
 					20,21,22,23,24,25,26,27,28,
@@ -69,7 +71,9 @@ function bindInfoWindow(marker, map, infowindow, details) {
 					backgroundColor: 'rgb(238, 127, 55)',
 					borderColor: 'rgb(43, 133, 59)',
 					display: true,
-					responsive: false,
+
+					responsive: true,
+
 					fill: false,
 					data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						11, 12, 13, 14, 15, 16, 17, 18, 19,
@@ -77,12 +81,17 @@ function bindInfoWindow(marker, map, infowindow, details) {
 						30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
 						40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
 						50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
-						60],
+
+						60]
+
 				}]
 			},
 
 			// Configuration options go here
-			options: { 
+
+			options: {
+			    responsive: true,
+                maintainAspectRatio: false,
 				scales: {
 					yAxes: [{
 						ticks: {
@@ -105,21 +114,64 @@ function bindInfoWindow(marker, map, infowindow, details) {
 			}
 		});
     });
-}   
-
+}
+function content(elem) {
+    var tds = ['td1','td2','td3','td4','td5','td6','td7','td8','td9','td10'];
+    for (i=0; i < tds.length; i++) {
+        var td = document.getElementById(tds[i]);
+        td.style.backgroundColor = "white";
+    }
+    elem.style.backgroundColor = "#3e6846";
+    var selStat = document.getElementById("selStat");
+    selStat.innerHTML = "Selected station: " + elem.innerHTML;
+}
         
 		</script>
-	<body onload ="initialize()">	
+	<body>	
     <div id="container">
 
         <div class="subcontainer" id="rain">
             <div id="list_1" class="textBlock widget">
                 <div class="currentStation" id="currentStation">
-                    <P>{{ _translate('selStat') }}</P>
+                    <P id="selStat">{{ _translate('selStat') }}</P>
                 </div>
                 <h2>{{ _translate('rainListTitle') }}</h2>
-                <p>No rain :)</p> <!--placeholder-->
+                <table>
+                    <tr>
+                        <td id="td1" onclick="content(this)">1</td>
+                    </tr>
+                    <tr>
+                        <td id="td2" onclick="content(this)">2</td>
+                    </tr>
+                    <tr>
+                        <td id="td3" onclick="content(this)">3</td>
+                    </tr>
+                    <tr>
+                        <td id="td4" onclick="content(this)">4</td>
+                    </tr>
+                    <tr>
+                        <td id="td5" onclick="content(this)">5</td>
+                    </tr>
+                    <tr>
+                        <td id="td6" onclick="content(this)">6</td>
+                    </tr>
+                    <tr>
+                        <td id="td7" onclick="content(this)">7</td>
+                    </tr>
+                    <tr>
+                        <td id="td8" onclick="content(this)">8</td>
+                    </tr>
+                    <tr>
+                        <td id="td9" onclick="content(this)">9</td>
+                    </tr>
+                    <tr>
+                        <td id="td10" onclick="content(this)">10</td>
+                    </tr>
+                </table>
             </div>
+            <script>
+                load_rain_data('/index.php/update/ajax/top10');
+            </script>
 
             <div id="listData" class="textBlock widget">
                 <H2>{{ _translate('rainDataTitle') }}</H2>
@@ -133,12 +185,14 @@ function bindInfoWindow(marker, map, infowindow, details) {
             </div>
 
             <div id="graph" class="textBlock widget">
-				<canvas id="myChart" height="490" width="731"></canvas>
+
+				<canvas id="myChart"></canvas>
+
             </div>
         </div>
 
         <br class="clear" />
 
-      </div>
+      	</div>
 	</body>
 

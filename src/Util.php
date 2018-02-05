@@ -70,7 +70,7 @@ function _translate(string $identifier, ?string ...$parameters) : string {
  * @return void
  */
 function logError(string $type, string $message, string $filename, int $line, bool $printAnyway = true) : void {
-    if (!SYRACUSE_DEBUG)
+    if (!SYRACUSE_DEBUG || !ENABLE_ERROR_LOGGING)
         return;
 
     $file = fopen(__DIR__ . '/../log.txt', 'a');

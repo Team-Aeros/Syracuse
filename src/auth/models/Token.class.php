@@ -65,10 +65,19 @@ class Token {
             ->insert([
                 'value' => ':value',
                 'created_at' => time(),
-                'user_id' => ':user_id'
+                'user_id' => ':user_id',
+                'length' => 60 * 60 * 24
         ]);
 
         return new self($token, $userId);
+    }
+
+    public static function cleanUp() : void {
+        Database::interact('delete', 'token')
+            ->whereCustom('created_at + length < :time')
+            ->whereCustom('length != 0')
+            ->placeholders(['time' => time()])
+            ->delete();
     }
 
     public function getValue() : string {

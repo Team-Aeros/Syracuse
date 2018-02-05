@@ -27,3 +27,16 @@ function load_module(element, url) {
         $(element).html(response.responseText);
     });
 }
+
+function load_rain_data(url) {
+    var tds = ['td1','td2','td3','td4','td5','td6','td7','td8','td9','td10'];
+    perform_request(url, {}, function(message, data, response) {
+        let i = 0;
+        console.log(response.responseJSON);
+        $.each(response.responseJSON, function() {
+            document.getElementById(tds[i]).innerHTML = (i + 1) + '. ' + this.station;
+            i++;
+        });
+    }, 'GET', 'json');
+}
+
