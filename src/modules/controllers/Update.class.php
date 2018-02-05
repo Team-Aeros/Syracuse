@@ -19,6 +19,7 @@ class Update extends Controller implements Module {
     private $_parameters;
     private $_model;
     private $_rainData;
+    private $_tempData;
 
     public function __construct(string $moduleName, array $parameters) {
         $this->_moduleName = $moduleName;
@@ -26,6 +27,8 @@ class Update extends Controller implements Module {
 
         $dataGetter = new DataGetter();
         $this->_rainData = $dataGetter->getRainDataFiles();
+        $this->_tempData = $dataGetter->getTempDataFiles();
+
 
         $this->loadGui();
         $this->loadAuthenticationSystem();
@@ -42,8 +45,11 @@ class Update extends Controller implements Module {
             case 'top10':
                 echo json_encode($this->_rainData);
                 break;
+            case 'tempGraph':
+                echo json_encode($this->_tempData);
+                break;
             default:
-                die(translated('unknown_ajax_request'));
+                die(_translate('unknown_ajax_request'));
         }
     }
 }
