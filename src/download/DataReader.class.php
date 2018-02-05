@@ -91,15 +91,23 @@ class DataReader extends Controller {
 
         $this->jsonFiles = [];
         foreach ($this->dataLinks as $link) {
-            $file = file_get_contents($link);
-            $json = json_decode($file, true);
 
-            if ($json == null) {
-                header('Location: ' . self::$config->read('url'));
-                exit;
-            } else {
-                $tmpFile = ["station" => $json['station'], "date" => $json['date'], "time" => $json['time'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed'], "precipitation" => $json["precipitation"]];
-                $this->jsonFiles[] = $tmpFile;
+            $file = file_get_contents($link);
+            if (!empty($file)) {
+                $json = json_decode($file, true);
+
+                echo "<pre>";
+                var_dump($json);
+                echo "</pre>";
+
+
+                if (empty($json)) {
+                    header('Location: ' . self::$config->get('url'));
+                    exit;
+                } else {
+                    $tmpFile = ["station" => $json['station'], "date" => $json['date'], "time" => $json['time'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed'], "precipitation" => $json["precipitation"]];
+                    $this->jsonFiles[] = $tmpFile;
+                }
             }
         }
 

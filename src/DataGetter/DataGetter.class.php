@@ -75,7 +75,7 @@ class DataGetter extends Controller {
             $mostRecentFile = file_get_contents($station[count($station)-1]);
             $json = json_decode($mostRecentFile, true);
 
-            $file = ["name" => ($this->getStationName($json['station']) ?? _translate('unknown_station')), "station" => $json['station'], "precipitation" => $json['precipitation'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed']];
+            $file = ["name" => $this->getStationName($json['station']), "station" => $json['station'], "precipitation" => $json['precipitation'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed']];
             $dataFiles[] = $file;
         }
         usort($dataFiles, function ($a, $b) {
@@ -95,7 +95,7 @@ class DataGetter extends Controller {
             ->fields('name')
             ->where(['stn', $stationID])
             ->getSingle();
-        return ucwords(strtolower($result['name'])) ?? null;
+        return ucwords(strtolower($result['name'] ?? _translate('unknown_station')));
     }
              
     private function findDataLinksRain($valid_caribbeanStations) {
