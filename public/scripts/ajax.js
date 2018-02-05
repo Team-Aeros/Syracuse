@@ -44,6 +44,75 @@ function load_rain_data(url) {
 
 }
 
+function loadGraph(url, station) {
+    var stationID = "" + station;
+    perform_request(url, {}, function(message, data,response) {
+        let dataArray = response.responseJSON;
+        if (stationID in dataArray) {
+            ctx = document.getElementById('myChart').getContext('2d');
+            myChart  = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+
+                    responsive: true,
+                    labels:
+                        ["60 Minutes ago","","","","","","53 Minutes ago",
+                            "","","","","","47 Minutes ago",
+                            "","","","","","41 Minutes ago",
+                            "","","","","","35 Minutes ago",
+                            "","","","","","29 Minutes ago",
+                            "","","","","","23 Minutes ago",
+                            "","","","","","17 Minutes ago",
+                            "","","","","","11 Minutes ago",
+                            "","","","","","6 Minutes ago",
+                            "","","","","","Right Now"],
+                    datasets: [{
+                        label: station,
+                        backgroundColor: 'rgb(238, 127, 55)',
+                        borderColor: 'rgb(43, 133, 59)',
+                        display: true,
+
+                        responsive: true,
+
+                        fill: false,
+                        data: dataArray
+
+                    }]
+                },
+
+                // Configuration options go here
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Degrees in Celcius'
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Minutes'
+
+                            }
+                        }]
+
+                    }
+                }
+            });
+        }
+    }, 'GET', 'json');
+}
+
 function display_rain_data(url,station) {
     var stationNameDoc = station;
     perform_request(url, {}, function(message, data, response) {
@@ -62,4 +131,5 @@ function display_rain_data(url,station) {
         });
     }, 'GET', 'json');
 }
+
 
