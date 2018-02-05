@@ -127,7 +127,6 @@ function content(elem) {
 }
         
 		</script>
-	<body>	
     <div id="container">
 
         <div class="subcontainer" id="rain">
