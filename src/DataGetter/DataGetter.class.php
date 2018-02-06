@@ -15,6 +15,9 @@ class DataGetter extends Controller {
 
     /**
      * DataGetter constructor.
+     * sets the currentDate
+     * sets the path to the webdav folder
+     * sets the valid stations arrays
      */
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
