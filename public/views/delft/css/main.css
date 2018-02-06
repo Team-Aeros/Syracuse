@@ -184,6 +184,11 @@ table {
     width: 70%;
     border-collapse:collapse;
 }
+
+td {
+    padding: 5px;
+}
+
 tbody tr:hover.selected td,
 tbody tr:hover td {
     cursor: pointer;

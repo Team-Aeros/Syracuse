@@ -59,9 +59,9 @@ class DataGetter extends Controller {
                 $json = json_decode($file, true);
                 $file = ['station' => $json['station'], 'time' => $json['time'],'temperature' => $json['temperature']];
                 if (key_exists($file['station'], $stationFiles)) {
-                    $stationFiles[$file['station']][] = $file['temperature'];
+                    $stationFiles[$file['station']][] = $file;
                 } else {
-                    $stationFiles[$file['station']] = [$file['temperature']];
+                    $stationFiles[$file['station']] = [$file];
                 }
             }
             $dataFiles[] = $stationFiles;
@@ -149,7 +149,9 @@ class DataGetter extends Controller {
                                     foreach ($fileArrayTime as $val) {
                                         $fileTimeVals[] = (int) $val;
                                     }
-                                    if($fileTimeVals[0] >= $pastHour && $fileTimeVals[1] >= $currentTimeVals[1]) {
+
+                                    // echo $currentTimeVals[1], ' = ', $fileTimeVals[1], '<br />';
+                                    if($fileTimeVals[0] >= $pastHour /*&& $fileTimeVals[1] >= $currentTimeVals[1]*/) {
                                         if (key_exists($station,$dataLinks)) {
                                             $dataLinks[$station][] = $link."/".$fileInFolder;
                                         }else {
