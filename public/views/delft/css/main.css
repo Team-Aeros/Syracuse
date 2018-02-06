@@ -180,18 +180,33 @@ h2 {
     padding: 25px 50px 25px 50px;
 }
 /* top 10 table list*/
-table { width: 70% }
+table {
+    width: 70%;
+    border-collapse:collapse;
+}
 tbody tr:hover.selected td,
 tbody tr:hover td {
     cursor: pointer;
 }
 
 .tableRow {
+    background-color: #e8ebef; /*e8ebef*/
     color: black;
 }
 
+.tableRow2 {
+    background-color: #c3d1e5; /*c3d1e5*/
+    color: black;
+}
+
+.tableHead {
+    background-color: #275cb2; /*275cb2*/
+}
+
+
 #rainDataVals {
     width: 100%;
+    border-collapse: collapse;
 }
 
 #rainDataVals td:last-child {
@@ -201,6 +216,18 @@ tbody tr:hover td {
 #rainDataVals td {
     width: 50%;
 }
+
+.lightRow {
+    background-color: #f29252;
+}
+
+.darkRow {
+    background-color: #ed7e34;
+}
+.headRow {
+    background-color: #d85808;
+}
+
 
 
 /* Form elements */

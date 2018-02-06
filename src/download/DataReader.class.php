@@ -96,11 +96,6 @@ class DataReader extends Controller {
             if (!empty($file)) {
                 $json = json_decode($file, true);
 
-                echo "<pre>";
-                var_dump($json);
-                echo "</pre>";
-
-
                 if (empty($json)) {
                     header('Location: ' . self::$config->get('url'));
                     exit;
@@ -113,11 +108,19 @@ class DataReader extends Controller {
 
     }
     public function download() {
-        $downloadJson = json_encode($this->jsonFiles);
+        $json_obj = $this->jsonFiles;
+        $fp = fopen('download.csv', 'w');
+        fputcsv($fp, ["Station","date","time","temperature", "wind speed", "rainfall"]);
+        foreach ($json_obj as $fields) {
+            fputcsv($fp, $fields);
+        }
+        fclose($fp);
+        $csv_file = file_get_contents("http://localhost/Syracuse/download.csv");
+        unlink("download.csv");
         $filename = date("d-M-Y", $this->maxLastDay) . "-" . date("d-M-Y", $this->currentDay);
-        header("Content-type: application/json");
-        header("Content-disposition: attachment; filename=$filename.json");
-        echo $downloadJson;
+        header("Content-type: text/csv; charset=utf-8");
+        header("Content-disposition: attachment; filename=$filename.csv");
+        echo $csv_file;
     }
     public function getCurrentDate($timezone) {
         date_default_timezone_set($timezone);
