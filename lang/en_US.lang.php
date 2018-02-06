@@ -35,8 +35,8 @@ return [
     'download' => 'Download',
     'logout' => 'Log out',
     'selStat' => 'No station selected',
-    'rainListTitle' => 'Top 10 rain list',
-    'rainDataTitle' => 'Rain and wind speed of selected station',
+    'rainListTitle' => '10 stations with most amount of rain',
+    'rainDataTitle' => 'Data of selected station',
     'mapTitle' => 'Map of Caribbean',
     'graphTitle' => 'Graph of selected weather station temperature',
 
@@ -44,7 +44,7 @@ return [
 
     'rain' => 'Rain',
     'temperature' => 'Temperature',
-    'exLogin' => 'Before you can view the dashboard, you need to log in.',
+    'exLogin2' => 'Before you can view the dashboard, you need to log in.',
 
     'unknown_ajax_request' => 'Unhandled AJAX request',
 
