@@ -3,24 +3,19 @@ namespace Syracuse\src\DataGetter;
 use Syracuse\src\headers\Controller;
 use Syracuse\src\database\Database;
 
-/*
- * DONT FORGET
- * DONT FORGET
- * DONT FORGET
-
- * lijn 40 path veranderen
- * lijn 59 data == currentdate terug zetten
- * DONT FORGET
- * DONT FORGET
- * DONT FORGET
+/**
+ * Class DataGetter
+ * @package Syracuse\src\DataGetter
  */
-
 class DataGetter extends Controller {
     private $currentDate;
     private $path;
     private $valid_caribbeanStations;
     private $valid_gulfStations;
 
+    /**
+     * DataGetter constructor.
+     */
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
         $this->currentDate = date('Y-m-d', time());
@@ -46,6 +41,11 @@ class DataGetter extends Controller {
             "766910", "766913", "766920", "766950", "782240", "782290", "783250", "783284"];
 
     }
+
+    /**
+     * Uses findDataLinksTemp() to get the paths to the valid json files and reads them to make an array with all the data
+     * @return array, containing al the temperature data values as Key(the station number) => Value(array containing all the temperature values from the last hour of that station)
+     */
     public function getTempDataFiles() {
         $stationTempDataLinks = $this->findDataLinksTemp($this->valid_gulfStations);
         $dataFiles = [];
@@ -68,6 +68,10 @@ class DataGetter extends Controller {
         }
         return $dataFiles;
     }
+    /**
+     * Uses findDataLinksRain() to get the paths to the valid json files and reads them to make an array with all the data
+     * @return array, containing all the rain data values as key(station number) => value(array of data(station,precipitation,temperature,windspeed) of that station)
+     */
     public function getRainDataFiles() {
         $stationRainDataLinks = $this->findDataLinksRain($this->valid_caribbeanStations);
         $dataFiles = [];
@@ -90,6 +94,11 @@ class DataGetter extends Controller {
         return $dataFiles;
     }
 
+    /**
+     * @param $stationID, the stationID that needs a corresponding name
+     * Queries the database for the station name corresponding with the station ID given as parameter.
+     * @return string, the database name
+     */
     private function getStationName($stationID) {
         $result = Database::interact('retrieve', 'station')
             ->fields('name')
@@ -97,7 +106,12 @@ class DataGetter extends Controller {
             ->getSingle();
         return ucwords(strtolower($result['name'] ?? _translate('unknown_station')));
     }
-             
+
+    /**
+     * @param $valid_caribbeanStations, all the valid stationID's in the caribbean sea.
+     * finds all the paths to valid jsons in the webdav folder for the rain data
+     * @return array, containing all the paths to valid jsons as Key(stationID) => Value(array of paths for that station)
+     */
     private function findDataLinksRain($valid_caribbeanStations) {
         $dataLinks = [];
         #get the paths to the valid stations
@@ -126,6 +140,11 @@ class DataGetter extends Controller {
         return $dataLinks;
     }
 
+    /**
+     * @param $valid_gulfStations, all the valid stationID's in the Gulf of Mexico.
+     * finds all the paths to valid jsons in the webdav folder for the temperature data
+     * @return array, containing all the paths to valid jsons as Key(stationID) => Value(array of paths for that station)
+     */
     private function findDataLinksTemp($valid_gulfStations) {
         $dataLinks = [];
         foreach (scandir($this->path) as $station) {
