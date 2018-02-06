@@ -19,6 +19,16 @@ class DataReader extends Controller {
     private $jsonFiles;
     private $maxLastDay;
     private $currentDay;
+
+    /**
+     * DataReader constructor.
+     * Very similar to DataGetter
+     * sets current date
+     * sets path to webdav folder
+     * sets valid station arrays
+     *
+     * Unlike DataGetter the finding of valid jsons paths is done here in the constructor
+     */
     public function __construct() {
         date_default_timezone_set('Europe/Amsterdam');
         $currentDate = date('m/d/Y ', time());
@@ -74,7 +84,6 @@ class DataReader extends Controller {
 
             $dayOfFile = mktime(0, 0, 0, $fileDateVals[1], $fileDateVals[2], $fileDateVals[0]);
             $currentDateVals = $this->dateVals($currentDate, "/");
-            #var_dump($currentDateVals);
 
             $this->maxLastDay = mktime(0, 0, 0, $currentDateVals[0], $currentDateVals[1] - 6, $currentDateVals[2]);
             $this->currentDay = mktime(0, 0, 0, $currentDateVals[0], $currentDateVals[1], $currentDateVals[2]);
@@ -107,6 +116,12 @@ class DataReader extends Controller {
         }
 
     }
+
+    /**
+     * Uses the jsonFiles array filled in the constructor and writes it to a csv file
+     * It then gets the csv file contents and deletes the file
+     * Then it offers the csv file to be downloaded with the timeframe of the data as its name
+     */
     public function download() {
         $json_obj = $this->jsonFiles;
         $fp = fopen('download.csv', 'w');
@@ -127,7 +142,10 @@ class DataReader extends Controller {
         return date('Y/m/d ', time());;
     }
 
-    /*[0] is month, [1] is day, [2] is year*/
+    /**
+     * explodes a date string in array and converts it values to ints
+     * [0] is month, [1] is day, [2] is year
+     */
     private function dateVals($dateString, $del) {
         $dateVals = explode($del, $dateString);
         $returnArray = [];
@@ -136,17 +154,5 @@ class DataReader extends Controller {
         }
 
         return $returnArray;
-    }
-
-    public function getDataLinks() {
-        return $this->dataLinks;
-    }
-
-    public function getCaribStations() {
-        return $this->valid_caribbeanStations;
-    }
-
-    public function getGulfStations() {
-        return $this->valid_gulfStations;
     }
 }
