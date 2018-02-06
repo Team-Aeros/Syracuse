@@ -140,6 +140,10 @@ function content(elem) {
                     <h2>{{ _translate('rainListTitle') }}</h2>
                     <table id="listTable">
                         <tr>
+                            <td>Station name</td>
+                            <td>Total rain this day</td>
+                        </tr>
+                        <tr>
                             <td id="td1" class="tableRow" onclick="content(this)"></td>
                             <td id="td1Val"></td>
                         </tr>
