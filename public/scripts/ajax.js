@@ -36,7 +36,7 @@ function perform_request(ajax_url, data_to_send, handler, get_or_post = 'GET', d
  * @param url, the url
  */
 function load_module(element, url) {
-    request = perform_request(url, {}, function(message, data, response) {
+    let request = perform_request(url, {}, function(message, data, response) {
         $(element).html(response.responseText);
     });
 }
@@ -62,6 +62,81 @@ function load_rain_data(url) {
 }
 
 /**
+* Loads the graph
+* @param url, the url
+* @param station, the selected station marker
+*/
+function loadGraph(url, station) {
+    var stationID = "" + station;
+    perform_request(url, {}, function(message, data,response) {
+        let dataArray = response.responseJSON;
+        if (stationID in dataArray) {
+            ctx = document.getElementById('myChart').getContext('2d');
+            myChart  = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+
+                    responsive: true,
+                    labels:
+                        ["60 Minutes ago","","","","","","53 Minutes ago",
+                            "","","","","","47 Minutes ago",
+                            "","","","","","41 Minutes ago",
+                            "","","","","","35 Minutes ago",
+                            "","","","","","29 Minutes ago",
+                            "","","","","","23 Minutes ago",
+                            "","","","","","17 Minutes ago",
+                            "","","","","","11 Minutes ago",
+                            "","","","","","6 Minutes ago",
+                            "","","","","","Right Now"],
+                    datasets: [{
+                        label: station,
+                        backgroundColor: 'rgb(238, 127, 55)',
+                        borderColor: 'rgb(43, 133, 59)',
+                        display: true,
+
+                        responsive: true,
+
+                        fill: false,
+                        data: dataArray
+
+                    }]
+                },
+
+                // Configuration options go here
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Degrees in Celcius'
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Minutes'
+
+                            }
+                        }]
+
+                    }
+                }
+            });
+        }
+    }, 'GET', 'json');
+}
+
+
+/**
  * Displays the rain data for the selected station
  * @param url, the url
  * @param station, the selected station
@@ -84,4 +159,5 @@ function display_rain_data(url,station) {
         });
     }, 'GET', 'json');
 }
+
 
