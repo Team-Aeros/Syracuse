@@ -120,7 +120,7 @@ class DataReader extends Controller {
     /**
      * Uses the jsonFiles array filled in the constructor and writes it to a csv file
      * It then gets the csv file contents and deletes the file
-     * Then it offers the csv file to be downloaded with the timeline of the data as its name
+     * Then it offers the csv file to be downloaded with the timeframe of the data as its name
      */
     public function download() {
         $json_obj = $this->jsonFiles;

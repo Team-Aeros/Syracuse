@@ -26,6 +26,11 @@ class Route {
     private $_routeInfo;
     private $_uri;
 
+    /**
+     * Route constructor.
+     * Uses the Router class to addRoutes for each module
+     * Then uses the Router class to dispatch to the requested URL
+     */
     public function __construct() {
         $this->_dispatcher = new Router();
         $this->_dispatcher->addRoute('GET', '/help', 'help');
@@ -41,6 +46,9 @@ class Route {
         $this->_routeInfo = $this->_dispatcher->dispatch($this->_requestMethod, $this->_uri);
     }
 
+    /**
+     * Sets the requested url
+     */
     private function setRequestUri() : void {
         $this->_uri = $_SERVER['REQUEST_URI'];
 
@@ -64,6 +72,10 @@ class Route {
         $this->_uri = rawurldecode(rtrim($this->_uri, ' /'));
     }
 
+    /**
+     * Gets info of the route
+     * @return array, containing the routes module_name and parameters
+     */
     public function getRouteInfo() : array {
         if ($this->_routeInfo[0] == Router::RETURN_FOUND) {
             $routeInfo = [

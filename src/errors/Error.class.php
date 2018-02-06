@@ -13,22 +13,39 @@
 
 namespace Syracuse\src\errors;
 
+/**
+ * Class Error
+ * @package Syracuse\src\errors
+ */
 class Error {
 
     protected $message;
     protected $detailedError;
     protected $isFatal;
 
+    /**
+     * Error constructor.
+     * @param string $message, the message of the error
+     * @param string $detailedError, the details of the error
+     * @param bool $fatal, whether the error is fatal or not
+     */
     public function __construct(string $message, string $detailedError, bool $fatal = true) {
         $this->message = $message;
         $this->detailedError = $detailedError;
         $this->isFatal = $fatal;
     }
 
+    /**
+     * Checks if an template can be loaded
+     * @return bool
+     */
     protected function canLoadTemplate() : bool {
         return defined('LOADED_TEMPLATE_AND_LANG');
     }
 
+    /**
+     * Triggers an error when called.
+     */
     public function trigger() : void {
         ob_clean();
 
