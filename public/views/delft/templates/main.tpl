@@ -53,15 +53,7 @@
     });
 
 }
-
-
-        var intervalIK = window.setInterval(destroyGraph, 14990);
-        var intervalID = window.setInterval(loadGraph, 15000);
-
-
-        function destroyGraph() {
-            myChart.destroy();
-        }
+        //var intervalID = window.setInterval(loadGraph, 15000);
 
 
         function bindInfoWindow(marker, map, infowindow, details) {

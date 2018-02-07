@@ -119,11 +119,20 @@ function load_rain_data(url) {
 */
 function loadGraph(url, station) {
     var stationID = "" + station;
+    var count = 0;
     perform_request(url, {}, function(message, data,response) {
         let dataArray = response.responseJSON;
-        if (stationID in dataArray) {
+        for(i=0;i < dataArray.length; i++) {
+            var dataStation = dataArray[i][stationID];
+            console.log(stationID);
+            console.log(dataArray[i][stationID]);
+            count = i;
+            if (dataStation !== undefined) {
+                break;
+            }
+        }
             ctx = document.getElementById('myChart').getContext('2d');
-            myChart  = new Chart(ctx, {
+            myChart = new Chart(ctx, {
                 // The type of chart we want to create
                 type: 'line',
 
@@ -132,16 +141,16 @@ function loadGraph(url, station) {
 
                     responsive: true,
                     labels:
-                        ["60 Minutes ago","","","","","","53 Minutes ago",
-                            "","","","","","47 Minutes ago",
-                            "","","","","","41 Minutes ago",
-                            "","","","","","35 Minutes ago",
-                            "","","","","","29 Minutes ago",
-                            "","","","","","23 Minutes ago",
-                            "","","","","","17 Minutes ago",
-                            "","","","","","11 Minutes ago",
-                            "","","","","","6 Minutes ago",
-                            "","","","","","Right Now"],
+                        ["60 Minutes ago", "", "", "", "", "", "53 Minutes ago",
+                            "", "", "", "", "", "47 Minutes ago",
+                            "", "", "", "", "", "41 Minutes ago",
+                            "", "", "", "", "", "35 Minutes ago",
+                            "", "", "", "", "", "29 Minutes ago",
+                            "", "", "", "", "", "23 Minutes ago",
+                            "", "", "", "", "", "17 Minutes ago",
+                            "", "", "", "", "", "11 Minutes ago",
+                            "", "", "", "", "", "6 Minutes ago",
+                            "", "", "", "", "", "Right Now"],
                     datasets: [{
                         label: station,
                         backgroundColor: 'rgb(238, 127, 55)',
@@ -151,7 +160,7 @@ function loadGraph(url, station) {
                         responsive: true,
 
                         fill: false,
-                        data: dataArray
+                        data: dataArray[i][stationID]
 
                     }]
                 },
@@ -182,7 +191,7 @@ function loadGraph(url, station) {
                     }
                 }
             });
-        }
+
     }, 'GET', 'json');
 }
 
@@ -219,5 +228,7 @@ function display_rain_data(url,station) {
         });
     }, 'GET', 'json');
 }
+
+
 
 

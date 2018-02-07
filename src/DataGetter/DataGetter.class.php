@@ -2,7 +2,10 @@
 namespace Syracuse\src\DataGetter;
 use Syracuse\src\headers\Controller;
 use Syracuse\src\database\Database;
-
+/*
+ * lijn 128/161 datum goed
+ * lijn 169 pasthour
+ */
 /**
  * Class DataGetter
  * @package Syracuse\src\DataGetter
@@ -155,7 +158,7 @@ class DataGetter extends Controller {
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == trim($this->currentDate)) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-05") {#trim($this->currentDate)) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
@@ -164,13 +167,18 @@ class DataGetter extends Controller {
                                     foreach ($arrayTime as $val) {
                                         $currentTimeVals[] = (int) $val;
                                     }
-                                    $pastHour = $currentTimeVals[0] - 1;
+                                    $pastHour = $currentTimeVals[0] - 4;
 
                                     $fileArrayTime = explode("-",$fileInFolder);
                                     $fileTimeVals = [];
                                     foreach ($fileArrayTime as $val) {
                                         $fileTimeVals[] = (int) $val;
                                     }
+                                    /*echo "FILE HOUR: " . $fileTimeVals[0];
+                                    echo "<br>";
+                                    echo "PAST HOUR: " . $pastHour;
+                                    echo "<br>";
+                                    die;*/
                                     if($fileTimeVals[0] >= $pastHour && $fileTimeVals[1] >= $currentTimeVals[1]) {
                                         if (key_exists($station,$dataLinks)) {
                                             $dataLinks[$station][] = $link."/".$fileInFolder;
@@ -185,6 +193,9 @@ class DataGetter extends Controller {
                 }
             }
         }
+        /*echo "<pre>";
+        var_dump($dataLinks);
+        echo "</pre>";*/
         return $dataLinks;
     }
 }
