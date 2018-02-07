@@ -205,19 +205,19 @@ function content(elem) {
                             <td>Value</td>
                         </tr>
                         <tr class="darkRow">
-                            <td>Station: </td>
+                            <td id="stationHead">Station: </td>
                             <td id="station"></td>
                         </tr>
                         <tr class="lightRow">
-                            <td>Rain: </td>
+                            <td id="rainHead">Rain: </td>
                             <td id="rainVal"></td>
                         </tr>
                         <tr class="darkRow">
-                            <td>Temperature: </td>
+                            <td id="tempHead">Temperature: </td>
                             <td id="tempVal"></td>
                         </tr>
                         <tr class="lightRow">
-                            <td>Wind speed: </td>
+                            <td id="wspeedHead">Wind speed: </td>
                             <td id="wspeedVal"></td>
                         </tr>
                     </table>
