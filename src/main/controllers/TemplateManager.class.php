@@ -430,6 +430,7 @@ class TemplateManager {
 
     public function getTemplate(string $templateName, array $data) : void {
         $templateNoCache = $this->_templateDir . '/' . $templateName . '.tpl';
+        $cacheTemplate = false;
 
         if (file_exists($templateNoCache))
             $lastUpdated = filemtime($templateNoCache);
@@ -438,7 +439,7 @@ class TemplateManager {
 
         $path = $this->_cacheDir . '/' . $templateName . '.cached.php';
         if (!file_exists($path) || SYRACUSE_DEBUG)
-            $this->updateCache($templateName, $this->compileTemplate($templateName), $lastUpdated);
+            $cacheTemplate = true;
 
         if (file_exists($path))
             require $path;
@@ -448,10 +449,16 @@ class TemplateManager {
         $className = 'Syracuse\template\\' . $templateName;
         $template = new $className($data);
 
-        if ($template->getUpdatedTime() == $lastUpdated) {
-            $template->show();
-            return;
+        /* Yes, this is not a very efficient solution, nor does it prevent browsers from saying 'This website is
+           trying to refresh this page', but at least it works. */
+        if ($template->getUpdatedTime() != $lastUpdated) {
+            $this->updateCache($templateName, $this->compileTemplate($templateName), $lastUpdated);
+            header('Refresh: 0');
+            exit;
         }
+
+        $template->show();
+        return;
     }
 
     private function updateCache(string $templateName, string $body, string $updated) : void {

@@ -1,4 +1,3 @@
-
 	<script src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.7&amp;key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&amp;language=en"></script>
     <script src="{{ node_url }}/chartjs/chart.js"></script>
 	<script type="text/javascript">
