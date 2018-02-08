@@ -17,14 +17,33 @@ use Syracuse\src\core\models\Registry;
 use Syracuse\src\headers\Controller;
 use Syracuse\src\main\models\GUI as Model;
 
+/**
+ * This class is used for loading the graphical user interface and serves as an API to the
+ * template engine.
+ * @since   1.0 Beta 1
+ * @author  Aeros Development
+ */
 class GUI extends Controller {
 
+    /**
+     * @var GUI $_model The GUI model stores paths and other important data
+     */
     private $_model;
-    private $_templateManager;
-    private $_loader;
 
+    /**
+     * @var TemplateManager $_templateManager An instance of the TemplateManager class
+     */
+    private $_templateManager;
+
+    /**
+     * @var array $_defaultData This associative array contains data that should always be available to templates
+     */
     private $_defaultData;
 
+    /**
+     * Creates a new instance of the GUI class and sets the paths.
+     * @return void
+     */
     public function __construct() {
         $this->_model = new Model();
 
@@ -41,10 +60,20 @@ class GUI extends Controller {
         $this->setDefaultData();
     }
 
+    /**
+     * Prints the requested template to the screen
+     * @param string $template The template name (without the extension)
+     * @param array $data Additional variables that should be available to the template
+     * @return void
+     */
     public function displayTemplate(string $template, array $data = []) : void {
         $this->_templateManager->getTemplate($template, $this->_defaultData + $data);
     }
 
+    /**
+     * Sets default data. These variables are available to all templates and are loaded automatically.
+     * @return void
+     */
     private function setDefaultData() : void {
         $this->_defaultData = [
             'template_dir' => $this->_model->getTemplateDir(),
@@ -59,10 +88,20 @@ class GUI extends Controller {
         ];
     }
 
+    /**
+     * Sets the page title
+     * @param string $pageTitle The desired page title
+     * @param void
+     */
     public function setPageTitle(string $pageTitle) : void {
         $this->_model->setPageTitle($pageTitle);
     }
 
+    /**
+     * Sets the template dir
+     * @param string $templateDir The template dir
+     * @param void
+     */
     public function setTemplateDir(string $templateDir) : void {
         $this->_model->setTemplateDir($templateDir);
     }

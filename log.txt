@@ -1,9 +1,0 @@
-[1517913376] (PHP error): Undefined variable: fp in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 121
-[1517913376] (PHP error): fclose() expects parameter 1 to be resource, null given in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 121
-[1517913404] (PHP error): Undefined variable: fp in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 121
-[1517913404] (PHP error): fclose() expects parameter 1 to be resource, null given in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 121
-[1517913432] (PHP error): Undefined variable: fp in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 116
-[1517913432] (PHP error): fclose() expects parameter 1 to be resource, null given in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 116
-[1517913814] (PHP error): file_get_contents(localhost/Syracuse/download.csv): failed to open stream: No such file or directory in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 125
-[1517913823] (PHP error): file_get_contents(localhost/Syracuse/download.csv): failed to open stream: No such file or directory in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 125
-[1517913855] (PHP error): file_get_contents(localhost/Syracuse/download.csv): failed to open stream: No such file or directory in C:\xampp\htdocs\Syracuse\src\download\DataReader.class.php on line 125
