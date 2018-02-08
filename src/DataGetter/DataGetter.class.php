@@ -131,7 +131,7 @@ class DataGetter extends Controller {
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-05") {#trim($this->currentDate)) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..'])) {#trim($this->currentDate)) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
@@ -163,7 +163,7 @@ class DataGetter extends Controller {
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-05") {#trim($this->currentDate)) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..'])) {#trim($this->currentDate)) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
@@ -181,13 +181,15 @@ class DataGetter extends Controller {
                                     }
 
                                     // echo $currentTimeVals[1], ' = ', $fileTimeVals[1], '<br />';
-                                    if($fileTimeVals[0] >= $pastHour /*&& $fileTimeVals[1] >= $currentTimeVals[1]*/) {
+                                    /*if($fileTimeVals[0] >= $pastHour ) {*/
                                         if (key_exists($station,$dataLinks)) {
                                             $dataLinks[$station][] = $link."/".$fileInFolder;
                                         }else {
                                             $dataLinks[$station] =  [$link . "/" . $fileInFolder];
                                         }
-                                    }
+                                    /*}
+                                    else
+                                        echo sprintf('%s = %s<br />', $fileTimeVals[0], $pastHour);*/
                                 }
                             }
                         }
@@ -204,13 +206,67 @@ class DataGetter extends Controller {
     public function getStations() {
         $returnStat = [];
         $stations = Database::interact('retrieve', 'station')
-            ->fields('stn', 'latitude', 'longitude')
+            ->fields('stn', 'name', 'latitude', 'longitude')
             ->getAll();
+
+        $temperatures = [];
+        $this->loadMostRecentTemperatures($temperatures);
+
         foreach ($stations as $station) {
             if(in_array($station['stn'],$this->valid_gulfStations)) {
-                $returnStat[] = ['stn' => $station['stn'], 'lat' => $station['latitude'], 'lng' => $station['longitude']];
+                $returnStat[] = ['stn' => $station['stn'], 'name' => ucwords(strtolower($station['name'])), 'temp' => $temperatures[$station['stn']] ?? '?', 'lat' => $station['latitude'], 'lng' => $station['longitude']];
             }
         }
         return $returnStat;
+    }
+
+    private function loadMostRecentTemperatures(array &$temperatures) : void {
+        $directories = scandir($this->path);
+
+        foreach ($directories as $directory) {
+            if (!is_dir($this->path . '/' . $directory) || in_array($directory, ['.', '..', 'index.php']))
+                continue;
+
+            $subDirectories = scandir($this->path . '/' . $directory);
+            $mostRecent = [0, 0, 0, 0, 0];
+
+            // add comment here
+            foreach ($subDirectories as $subDirectory) {
+                if (!is_dir($this->path . '/' . $directory . '/' . $subDirectory) || in_array($subDirectory, ['.', '..', '.index.php']))
+                    continue;
+
+                foreach (scandir($this->path . '/' . $directory . '/' . $subDirectory) as $tempFile) {
+                    if (in_array($tempFile, ['.', '..', '.index.php']))
+                        continue;
+
+                    // Yep, there are better ways to do this, I know
+                    $parsedDate = array_merge(explode('-', $subDirectory), explode('_', str_replace('.json', '', $tempFile)));
+
+                    if (count($parsedDate) != 5)
+                        continue;
+
+                    $everythingNewer = true;
+                    for ($i = 0; $i < 5; $i++) {
+                        if ($parsedDate[$i] < $mostRecent[$i]) {
+                            $everythingNewer = false;
+                            break;
+                        }
+                    }
+
+                    if ($everythingNewer)
+                        $mostRecent = $parsedDate;
+                }
+            }
+
+            $fileToLoad = sprintf('%s/%s/%02d-%02d-%02d/%02d_%02d.json', $this->path, $directory, ...$mostRecent);
+            $file = @fopen($fileToLoad, 'r');
+
+            if (!$file)
+                return;
+
+            $json = json_decode(fread($file, filesize($fileToLoad)));
+            $temperatures[$directory] = $json[count($json) - 1]->temperature;
+            fclose($file);
+        }
     }
 }

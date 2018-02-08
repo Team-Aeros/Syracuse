@@ -39,8 +39,9 @@ class Update extends Controller implements Module {
         $dataGetter = new DataGetter();
         $this->_rainData = $dataGetter->getRainDataFiles();
         $this->_tempData = $dataGetter->getTempDataFiles();
-        $this->_stationData = $dataGetter->getStations();
-
+        
+        if (($this->_parameters['ajax_request'] ?? 'unknown') == 'stations')
+            $this->_stationData = $dataGetter->getStations();
 
         $this->loadGui();
         $this->loadAuthenticationSystem();

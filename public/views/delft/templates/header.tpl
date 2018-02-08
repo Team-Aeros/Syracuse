@@ -5,6 +5,7 @@
         <p id = "ghostDataTitle"></p>
 
         <script type="text/javascript" src="{{ node_url }}/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ node_url }}/chart.js/dist/Chart.min.js"></script>
         <script type="text/javascript" src="{{ script_url }}/ajax.js"></script>
         <script type="text/javascript" src="{{ script_url }}/widgets.js"></script>
         <script type="text/javascript" src="{{ script_url }}/switch.js"></script>
