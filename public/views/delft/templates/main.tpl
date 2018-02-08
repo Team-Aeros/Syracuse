@@ -1,6 +1,5 @@
-
-	<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7&key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&language=en"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.7&amp;key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&amp;language=en"></script>
+    <script src="{{ node_url }}/chartjs/chart.js"></script>
 	<script type="text/javascript">
 
         var dataArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
