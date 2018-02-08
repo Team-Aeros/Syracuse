@@ -118,7 +118,8 @@ function load_rain_data(url) {
 * @param station, the selected station marker
 */
 function loadGraph(url, station) {
-    var stationID = "" + station;
+    //console.log(myChart);
+    var stationID = "" + "720273";
     var count = 0;
     perform_request(url, {}, function(message, data,response) {
         let dataArray = response.responseJSON;
@@ -235,6 +236,68 @@ function display_rain_data(url,station) {
         });
     }, 'GET', 'json');
 }
+
+function getMarkTitle(url, stationID) {
+    details = stationID;
+    perform_request(url, {}, function(message, data, response) {
+        let dataArray = response.responseJSON;
+        //console.log(dataArray);
+        for(i=0; i< dataArray.length; i++) {
+            //console.log(i);
+            var station = dataArray[i][stationID];
+            if (station !== undefined) {
+                details = "" + stationID + ": " + dataArray[i][stationID][dataArray[i][stationID].length -1];
+                //console.log("ajax");
+                //console.log(details);
+                //document.getElementById("ghostDataTitle").innerHTML = "" + stationID + ": " + dataArray[i][stationID][dataArray[i][stationID].length -1];
+                break;
+            }
+        }
+    }, 'GET', 'json');
+}
+function bindInfoWindow(marker, map, infowindow, details) {
+    google.maps.event.addListener(marker, 'click', function () {
+        map.setZoom(6);
+        map.setCenter(marker.getPosition());
+        infowindow.setContent(details);
+        infowindow.open(map, marker);
+        loadGraph('/index.php/update/ajax/tempGraph');
+    });
+}
+function startUp(map) {
+
+    var myOptions = {
+        center: new google.maps.LatLng(23.300153, -86.770968),
+        zoom: 5,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+
+    };
+
+    map = new google.maps.Map(document.getElementById("default"),
+        myOptions);
+    $.getJSON('http://localhost/Syracuse/weatherstations.json', function (json1) {
+        $.each(json1.weatherstations, function (key, data) {
+
+            getMarkTitle('/index.php/update/ajax/tempGraph', data.title);
+            var latLng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                title: data.title
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            console.log("index");
+            console.log(details);
+            infowindow.setContent(details);
+            infowindow.open(map, marker);
+
+            bindInfoWindow(marker, map, infowindow, details);
+        });
+    });
+}
+
 
 
 

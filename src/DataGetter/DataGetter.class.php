@@ -118,11 +118,11 @@ class DataGetter extends Controller {
      * finds all the paths to valid jsons in the webdav folder for the rain data
      * @return array, containing all the paths to valid jsons as Key(stationID) => Value(array of paths for that station)
      */
-    private function findDataLinksRain($valid_caribbeanStations) {
+    private function findDataLinksRain() {
         $dataLinks = [];
         #get the paths to the valid stations
         foreach (scandir($this->path) as $station) {
-            if (in_array($station, $valid_caribbeanStations)) { #ONLY CHECKS CARIB STATIONS BECAUSE ONLY READ RAIN THERE
+            if (in_array($station, $this->valid_caribbeanStations)) { #ONLY CHECKS CARIB STATIONS BECAUSE ONLY READ RAIN THERE
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
@@ -151,10 +151,10 @@ class DataGetter extends Controller {
      * finds all the paths to valid jsons in the webdav folder for the temperature data
      * @return array, containing all the paths to valid jsons as Key(stationID) => Value(array of paths for that station)
      */
-    private function findDataLinksTemp($valid_gulfStations) {
+    public function findDataLinksTemp() {
         $dataLinks = [];
         foreach (scandir($this->path) as $station) {
-            if (in_array($station, $valid_gulfStations)) { #ONLY CHECKS GULF STATIONS BECAUSE ONLY READ TEMP THERE
+            if (in_array($station, $this->valid_gulfStations)) { #ONLY CHECKS GULF STATIONS BECAUSE ONLY READ TEMP THERE
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
@@ -165,21 +165,27 @@ class DataGetter extends Controller {
                                     $arrayTime = explode("-",date("H-i-s", time()));
                                     $currentTimeVals = [];
                                     foreach ($arrayTime as $val) {
-                                        $currentTimeVals[] = (int) $val;
+                                        $currentTimeVals[] = (int) $val ;
                                     }
-                                    $pastHour = $currentTimeVals[0] - 4;
+                                    $pastHour = $currentTimeVals[0];
 
                                     $fileArrayTime = explode("-",$fileInFolder);
                                     $fileTimeVals = [];
                                     foreach ($fileArrayTime as $val) {
                                         $fileTimeVals[] = (int) $val;
                                     }
+                                    $a = $currentTimeVals[1] - 40;
                                     /*echo "FILE HOUR: " . $fileTimeVals[0];
                                     echo "<br>";
                                     echo "PAST HOUR: " . $pastHour;
                                     echo "<br>";
+                                    echo "FILE MIN: " . $fileTimeVals[1];
+                                    echo "<br>";
+
+                                    echo "PAST MIN: " . $a;
+                                    echo "<br>";
                                     die;*/
-                                    if($fileTimeVals[0] >= $pastHour && $fileTimeVals[1] >= $currentTimeVals[1]) {
+                                    if($fileTimeVals[0] >= $pastHour && $fileTimeVals[1] >= $a) {
                                         if (key_exists($station,$dataLinks)) {
                                             $dataLinks[$station][] = $link."/".$fileInFolder;
                                         }else {
