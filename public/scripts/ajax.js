@@ -119,10 +119,11 @@ function load_rain_data(url) {
 */
 function loadGraph(url, station) {
     var stationID = "" + station;
-    var count = 0;
     perform_request(url, {}, function(message, data,response) {
         let dataArray = response.responseJSON;
-        for(i=0;i < dataArray.length; i++) {
+        let count = 0;
+
+        for (i=0;i < dataArray.length; i++) {
             var dataStation = dataArray[i][stationID];
             //console.log(stationID);
             //console.log(dataArray[i][stationID]);
@@ -131,14 +132,26 @@ function loadGraph(url, station) {
                 break;
             }
         }
-        var ghostCount = 60 - dataArray[i][stationID].length;
+
+        var ghostCount = 60 - dataArray[count][stationID].length;
         var ghost = [];
         for (ghostCount; ghostCount >= 0; ghostCount --) {
             ghost.push(null);
         }
         var graphData = ghost.concat(dataArray[i][stationID]);
-        //console.log(graphData);
+        let actualGraphData = [];
+
+            $.each(graphData, function(key, value) {
+                actualGraphData.push(value['temperature']);
+            });
+
             ctx = document.getElementById('myChart').getContext('2d');
+
+            /*if (localStorage.getItem('myChart')) {
+                myChart.destroy();
+                google.maps.event.clearListeners(map, 'bounds_changed');
+            }*/
+
             myChart = new Chart(ctx, {
                 // The type of chart we want to create
                 type: 'line',
@@ -167,8 +180,7 @@ function loadGraph(url, station) {
                         responsive: true,
 
                         fill: false,
-                        data: graphData
-
+                        data: actualGraphData
                     }]
                 },
 
@@ -240,17 +252,17 @@ function getStations(url, map) {
     perform_request(url, {}, function(message, data, response) {
         let dataArray = response.responseJSON;
         for(i=0; i<dataArray.length; i++) {
-            details = dataArray[i]['stn'];
+            details = dataArray[i];
             var latLng = new google.maps.LatLng(dataArray[i]['lat'], dataArray[i]['lng']);
             var marker = new google.maps.Marker({
                 position: latLng,
                 map: map,
-                title: dataArray[i]['stn']
+                title: dataArray[i].name
             });
 
             var infowindow = new google.maps.InfoWindow();
 
-            infowindow.setContent(details);
+            infowindow.setContent(details.name + ' (' + details.temp + '°c)');
             infowindow.open(map, marker);
 
             bindInfoWindow(marker, map, infowindow, details);
@@ -280,13 +292,12 @@ function bindInfoWindow(marker, map, infowindow, details) {
     google.maps.event.addListener(marker, 'click', function () {
         map.setZoom(6);
         map.setCenter(marker.getPosition());
-        infowindow.setContent(details);
+        infowindow.setContent(details.name);
         infowindow.open(map, marker);
-        loadGraph('/index.php/update/ajax/tempGraph', details);
+        loadGraph('/index.php/update/ajax/tempGraph', details.stn);
         setInterval(function() {
-            loadGraph('/index.php/update/ajax/tempGraph', details);
+            loadGraph('/index.php/update/ajax/tempGraph', details.stn);
         }, 5000);
-
     });
 }
 function startUp(map) {
@@ -295,14 +306,8 @@ function startUp(map) {
         center: new google.maps.LatLng(23.300153, -86.770968),
         zoom: 5,
         mapTypeId: google.maps.MapTypeId.ROADMAP
-
     };
 
     map = new google.maps.Map(document.getElementById("default"), myOptions);
     getStations('/index.php/update/ajax/stations', map);
 }
-
-
-
-
-
