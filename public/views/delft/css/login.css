@@ -16,11 +16,6 @@ body {
 /* Headers and footers */
 #header {
     background: linear-gradient(-180deg, #ccb9a1, #e0ccb3);
-    padding: 15px 20px 15px 20px;
-    height: 10%;
-    width: 100%;
-    border-bottom: 1px solid #aaaaaa;
-    opacity: 0.8;
 }
 
 #header h1, #header h1 a, h2 {

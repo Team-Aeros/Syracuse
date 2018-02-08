@@ -2,13 +2,15 @@
 <html lang="en">
     <head>
         <title>{{ page_title }}</title>
+        <p id = "ghostDataTitle"></p>
 
         <script type="text/javascript" src="{{ node_url }}/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ node_url }}/chart.js/dist/Chart.min.js"></script>
         <script type="text/javascript" src="{{ script_url }}/ajax.js"></script>
         <script type="text/javascript" src="{{ script_url }}/widgets.js"></script>
         <script type="text/javascript" src="{{ script_url }}/switch.js"></script>
 
-        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" /> 
+        <link href="{{ node_url }}/notosans-fontface/css/notosans-fontface.css" rel="stylesheet" /> 
         <link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/main.css" />
         {% if on_login_page %}<link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/login.css" />{% endif %}
 
@@ -19,6 +21,8 @@
 
             // Language strings should go below here
             const could_not_load_module = '{{ _translate('could_not_load_module') }}';
+
+            $("#ghostDataTitle").hide();
         </script>
 
         <link rel="icon" href="{{ base_url }}/favicon.png" sizes="16x16" type="image/png" />

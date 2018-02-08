@@ -1,79 +1,14 @@
-
-	<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7&key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&language=en"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.7&amp;key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&amp;language=en"></script>
 	<script type="text/javascript">
 
-        var dataArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-            11, 12, 13, 14, 15, 16, 17, 18, 19,
-            20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
-            30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
-            40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
-            50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
-            60];
-
-    function changeData(array) {
-        dataArray = array;
-    }
 
 	let map;
 	function initialize() {
-
-    var myOptions = {
-        center: new google.maps.LatLng(23.300153, -86.770968),
-        zoom: 5,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-
-    };
-   	map = new google.maps.Map(document.getElementById("default"),
-		myOptions);
-
-     $.getJSON('{{ base_url }}/weatherstations.json', function(json1) {
-    $.each(json1.weatherstations, function (key, data) {
-
-        var latLng = new google.maps.LatLng(data.lat, data.lng);
-
-        var marker = new google.maps.Marker({
-            position: latLng,
-            map: map,
-            title: data.title
-        });
-
-        var details = data.title;
-
-		var infowindow = new google.maps.InfoWindow();
-
-		infowindow.setContent(details);
-        infowindow.open(map,marker);
+        startUp(map);
+    }
 
 
-        bindInfoWindow(marker, map, infowindow, details);
-
-            });
-
-    });
-
-}
-
-
-        var intervalIK = window.setInterval(destroyGraph, 14990);
-        var intervalID = window.setInterval(loadGraph, 15000);
-
-
-        function destroyGraph() {
-            myChart.destroy();
-        }
-
-
-        function bindInfoWindow(marker, map, infowindow, details) {
-            google.maps.event.addListener(marker, 'click', function () {
-                map.setZoom(6);
-                map.setCenter(marker.getPosition());
-                infowindow.setContent(details);
-                infowindow.open(map, marker);
-                naam = details.substring(0,16);
-                loadGraph('/index.php/update/ajax/tempGraph', naam);
-            });
-        }
+        //var intervalID = window.setInterval(loadGraph('/index.php/update/ajax/tempGraph', naam), 1000);//60000);
 
 function content(elem) {
     var tds1 = ['td1','td3','td5','td7','td9'];
@@ -165,19 +100,19 @@ function content(elem) {
                             <td>Value</td>
                         </tr>
                         <tr class="darkRow">
-                            <td>Station: </td>
+                            <td id="stationHead">Station: </td>
                             <td id="station"></td>
                         </tr>
                         <tr class="lightRow">
-                            <td>Rain: </td>
+                            <td id="rainHead">Rain: </td>
                             <td id="rainVal"></td>
                         </tr>
                         <tr class="darkRow">
-                            <td>Temperature: </td>
+                            <td id="tempHead">Temperature: </td>
                             <td id="tempVal"></td>
                         </tr>
                         <tr class="lightRow">
-                            <td>Wind speed: </td>
+                            <td id="wspeedHead">Wind speed: </td>
                             <td id="wspeedVal"></td>
                         </tr>
                     </table>
@@ -192,7 +127,6 @@ function content(elem) {
             <div id="map" class="widget">
                 <div id="default" style="width:100%; height:100%"></div>
             </div>
-            <button onclick="changeData()">Change me</button>
 
             <div id="graph" class="textBlock widget">
 				<canvas id="myChart"></canvas>

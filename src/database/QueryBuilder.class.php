@@ -198,15 +198,23 @@ class QueryBuilder {
      * @param array $values An associative array ('field' => 'value') containing the desired values
      * @return void
      */
-    private function setValues(array $values) : void {
+    private function setValues(array $values, bool $withFieldNames = false) : void {
         $valueCount = count($values);
 
         $counter = 0;
         foreach ($values as $key => $value) {
-            if (is_numeric($value) || $value[0] == ':')
-                $this->_query .= sprintf('%s', (string) $value);
-            else
-                $this->_query .= sprintf('\'%s\'', $value);
+            if (!$withFieldNames) {
+                if (is_numeric($value) || $value[0] == ':')
+                    $this->_query .= sprintf('%s', (string) $value);
+                else
+                    $this->_query .= sprintf('\'%s\'', $value);
+            }
+            else {
+                if (is_numeric($value) || $value[0] == ':')
+                    $this->_query .= sprintf('`%s` = %s', $key, (string) $value);
+                else
+                    $this->_query .= sprintf('`%s` = \'%s\'', $key, $value);
+            }
 
             if ($counter < $valueCount - 1)
                 $this->_query .= ', ';
@@ -228,7 +236,7 @@ class QueryBuilder {
             case 'delete':
                 $this->_query = 'DELETE FROM ';
                 break;
-            case 'Update.class.class':
+            case 'update':
                 $this->_query = 'UPDATE ';
                 break;
             default:
@@ -237,9 +245,9 @@ class QueryBuilder {
 
         $this->_query .= $this->_connection->getPrefix() . $this->_table;
 
-        if ($this->_action == 'Update.class.class' && !empty($values)) {
+        if ($this->_action == 'update' && !empty($values)) {
             $this->_query .= ' SET ';
-            $this->setValues($values);
+            $this->setValues($values, true);
         }
 
         if (!empty($this->_joins))
