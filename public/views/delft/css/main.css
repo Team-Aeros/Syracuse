@@ -233,8 +233,6 @@ tbody tr:hover td {
     background-color: #d85808;
 }
 
-
-
 /* Form elements */
 input[type="text"], input[type="password"] {
     background: #fff;
