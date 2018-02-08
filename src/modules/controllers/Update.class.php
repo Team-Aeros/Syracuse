@@ -24,6 +24,7 @@ class Update extends Controller implements Module {
     private $_model;
     private $_rainData;
     private $_tempData;
+    private $_stationData;
 
     /**
      * Update constructor.
@@ -38,6 +39,7 @@ class Update extends Controller implements Module {
         $dataGetter = new DataGetter();
         $this->_rainData = $dataGetter->getRainDataFiles();
         $this->_tempData = $dataGetter->getTempDataFiles();
+        $this->_stationData = $dataGetter->getStations();
 
 
         $this->loadGui();
@@ -63,6 +65,9 @@ class Update extends Controller implements Module {
                 break;
             case 'tempGraph':
                 echo json_encode($this->_tempData);
+                break;
+            case 'stations':
+                echo json_encode($this->_stationData);
                 break;
             default:
                 die(_translate('unknown_ajax_request'));

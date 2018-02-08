@@ -2,7 +2,10 @@
 namespace Syracuse\src\DataGetter;
 use Syracuse\src\headers\Controller;
 use Syracuse\src\database\Database;
-
+/*
+ * lijn 128/161 datum goed
+ * lijn 169 pasthour
+ */
 /**
  * Class DataGetter
  * @package Syracuse\src\DataGetter
@@ -50,7 +53,7 @@ class DataGetter extends Controller {
      * @return array, containing al the temperature data values as Key(the station number) => Value(array containing all the temperature values from the last hour of that station)
      */
     public function getTempDataFiles() {
-        $stationTempDataLinks = $this->findDataLinksTemp($this->valid_gulfStations);
+        $stationTempDataLinks = $this->findDataLinksTemp();
         $dataFiles = [];
         foreach ($stationTempDataLinks as $station) {
             /*echo "<pre>";
@@ -79,7 +82,7 @@ class DataGetter extends Controller {
      * @return array, containing all the rain data values as key(station number) => value(array of data(station,precipitation,temperature,windspeed) of that station)
      */
     public function getRainDataFiles() {
-        $stationRainDataLinks = $this->findDataLinksRain($this->valid_caribbeanStations);
+        $stationRainDataLinks = $this->findDataLinksRain();
         $dataFiles = [];
         foreach ($stationRainDataLinks as $station) {
             $mostRecentFile = file_get_contents($station[count($station)-1]);
@@ -120,15 +123,15 @@ class DataGetter extends Controller {
      * finds all the paths to valid jsons in the webdav folder for the rain data
      * @return array, containing all the paths to valid jsons as Key(stationID) => Value(array of paths for that station)
      */
-    private function findDataLinksRain($valid_caribbeanStations) {
+    private function findDataLinksRain() {
         $dataLinks = [];
         #get the paths to the valid stations
         foreach (scandir($this->path) as $station) {
-            if (in_array($station, $valid_caribbeanStations)) { #ONLY CHECKS CARIB STATIONS BECAUSE ONLY READ RAIN THERE
+            if (in_array($station, $this->valid_caribbeanStations)) { #ONLY CHECKS CARIB STATIONS BECAUSE ONLY READ RAIN THERE
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == trim($this->currentDate)) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-05") {#trim($this->currentDate)) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
@@ -153,23 +156,23 @@ class DataGetter extends Controller {
      * finds all the paths to valid jsons in the webdav folder for the temperature data
      * @return array, containing all the paths to valid jsons as Key(stationID) => Value(array of paths for that station)
      */
-    private function findDataLinksTemp($valid_gulfStations) {
+    private function findDataLinksTemp() {
         $dataLinks = [];
         foreach (scandir($this->path) as $station) {
-            if (in_array($station, $valid_gulfStations)) { #ONLY CHECKS GULF STATIONS BECAUSE ONLY READ TEMP THERE
+            if (in_array($station, $this->valid_gulfStations)) { #ONLY CHECKS GULF STATIONS BECAUSE ONLY READ TEMP THERE
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == trim($this->currentDate)) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-05") {#trim($this->currentDate)) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
                                     $arrayTime = explode("-",date("H-i", time()));
                                     $currentTimeVals = [];
                                     foreach ($arrayTime as $val) {
-                                        $currentTimeVals[] = (int) $val;
+                                        $currentTimeVals[] = (int) $val ;
                                     }
-                                    $pastHour = $currentTimeVals[0] - 1;
+                                    $pastHour = $currentTimeVals[0];
 
                                     $fileArrayTime = explode("-",$fileInFolder);
                                     $fileTimeVals = [];
@@ -192,6 +195,22 @@ class DataGetter extends Controller {
                 }
             }
         }
+        /*echo "<pre>";
+        var_dump($dataLinks);
+        echo "</pre>";*/
         return $dataLinks;
+    }
+
+    public function getStations() {
+        $returnStat = [];
+        $stations = Database::interact('retrieve', 'station')
+            ->fields('stn', 'latitude', 'longitude')
+            ->getAll();
+        foreach ($stations as $station) {
+            if(in_array($station['stn'],$this->valid_gulfStations)) {
+                $returnStat[] = ['stn' => $station['stn'], 'lat' => $station['latitude'], 'lng' => $station['longitude']];
+            }
+        }
+        return $returnStat;
     }
 }

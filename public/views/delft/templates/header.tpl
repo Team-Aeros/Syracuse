@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>{{ page_title }}</title>
+        <p id = "ghostDataTitle"></p>
 
         <script type="text/javascript" src="{{ node_url }}/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="{{ script_url }}/ajax.js"></script>
@@ -19,6 +20,8 @@
 
             // Language strings should go below here
             const could_not_load_module = '{{ _translate('could_not_load_module') }}';
+
+            $("#ghostDataTitle").hide();
         </script>
 
         <link rel="icon" href="{{ base_url }}/favicon.png" sizes="16x16" type="image/png" />
