@@ -122,6 +122,7 @@ function loadGraph(url, station) {
     var count = 0;
     perform_request(url, {}, function(message, data,response) {
         let dataArray = response.responseJSON;
+        //console.log(dataArray);
         for(i=0;i < dataArray.length; i++) {
             var dataStation = dataArray[i][stationID];
             //console.log(stationID);
@@ -133,71 +134,74 @@ function loadGraph(url, station) {
         }
         var ghostCount = 60 - dataArray[i][stationID].length;
         var ghost = [];
-        for (ghostCount; ghostCount >= 0; ghostCount --) {
+        for (ghostCount; ghostCount > 0; ghostCount --) {
             ghost.push(null);
         }
         var graphData = ghost.concat(dataArray[i][stationID]);
         //console.log(graphData);
-            ctx = document.getElementById('myChart').getContext('2d');
-            myChart = new Chart(ctx, {
-                // The type of chart we want to create
-                type: 'line',
+        myChart.destroy();
+        ctx = document.getElementById('myChart').getContext('2d');
 
-                // The data for our dataset
-                data: {
+        myChart = new Chart(ctx, {
+
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+
+                responsive: true,
+                labels:
+                    ["60 Minutes ago", "", "", "", "", "", "53 Minutes ago",
+                        "", "", "", "", "", "47 Minutes ago",
+                        "", "", "", "", "", "41 Minutes ago",
+                        "", "", "", "", "", "35 Minutes ago",
+                        "", "", "", "", "", "29 Minutes ago",
+                        "", "", "", "", "", "23 Minutes ago",
+                        "", "", "", "", "", "17 Minutes ago",
+                        "", "", "", "", "", "11 Minutes ago",
+                        "", "", "", "", "", "6 Minutes ago",
+                        "", "", "", "", "", "Right Now"],
+                datasets: [{
+                    label: stationID,
+                    backgroundColor: 'rgb(238, 127, 55)',
+                    borderColor: 'rgb(43, 133, 59)',
+                    display: true,
 
                     responsive: true,
-                    labels:
-                        ["60 Minutes ago", "", "", "", "", "", "53 Minutes ago",
-                            "", "", "", "", "", "47 Minutes ago",
-                            "", "", "", "", "", "41 Minutes ago",
-                            "", "", "", "", "", "35 Minutes ago",
-                            "", "", "", "", "", "29 Minutes ago",
-                            "", "", "", "", "", "23 Minutes ago",
-                            "", "", "", "", "", "17 Minutes ago",
-                            "", "", "", "", "", "11 Minutes ago",
-                            "", "", "", "", "", "6 Minutes ago",
-                            "", "", "", "", "", "Right Now"],
-                    datasets: [{
-                        label: station,
-                        backgroundColor: 'rgb(238, 127, 55)',
-                        borderColor: 'rgb(43, 133, 59)',
-                        display: true,
 
-                        responsive: true,
+                    fill: false,
+                    data: graphData
 
-                        fill: false,
-                        data: graphData
+                }]
+            },
 
+            // Configuration options go here
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Degrees in Celcius'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Minutes'
+
+                        }
                     }]
-                },
 
-                // Configuration options go here
-
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            },
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Degrees in Celcius'
-                            }
-                        }],
-                        xAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Minutes'
-
-                            }
-                        }]
-
-                    }
                 }
-            });
+            }
+        });
 
     }, 'GET', 'json');
 }
@@ -278,19 +282,30 @@ function getMarkTitle(url, stationID) {
 }
 function bindInfoWindow(marker, map, infowindow, details) {
     google.maps.event.addListener(marker, 'click', function () {
-        map.setZoom(6);
-        map.setCenter(marker.getPosition());
-        infowindow.setContent(details);
-        infowindow.open(map, marker);
-        loadGraph('/index.php/update/ajax/tempGraph', details);
-        interval.clearInterval();
-        var interval = setInterval(function() {
-            loadGraph('/index.php/update/ajax/tempGraph', details);
-        }, 5000);
-
+        console.log(timerID);
+        if(timerID === null) {
+            console.log("starting timer");
+            timerID = setInterval(function() {
+                loadGraph('/index.php/update/ajax/tempGraph', details);
+            }, 5000);
+        } else {
+            console.log("stopping timer");
+            clearInterval(timerID);
+            console.log("starting timer again");
+            timerID = setInterval(function() {
+                loadGraph('/index.php/update/ajax/tempGraph', details);
+            }, 5000);
+        }
+        console.log("updating graph");
+    map.setZoom(6);
+    map.setCenter(marker.getPosition());
+    infowindow.setContent(details);
+    infowindow.open(map, marker);
+    loadGraph('/index.php/update/ajax/tempGraph', details);
     });
 }
 function startUp(map) {
+    timerID = null;
 
     var myOptions = {
         center: new google.maps.LatLng(23.300153, -86.770968),
@@ -301,6 +316,69 @@ function startUp(map) {
 
     map = new google.maps.Map(document.getElementById("default"), myOptions);
     getStations('/index.php/update/ajax/stations', map);
+
+    ctx = document.getElementById('myChart').getContext('2d');
+
+    myChart = new Chart(ctx, {
+
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+
+            responsive: true,
+            labels:
+                ["60 Minutes ago", "", "", "", "", "", "53 Minutes ago",
+                    "", "", "", "", "", "47 Minutes ago",
+                    "", "", "", "", "", "41 Minutes ago",
+                    "", "", "", "", "", "35 Minutes ago",
+                    "", "", "", "", "", "29 Minutes ago",
+                    "", "", "", "", "", "23 Minutes ago",
+                    "", "", "", "", "", "17 Minutes ago",
+                    "", "", "", "", "", "11 Minutes ago",
+                    "", "", "", "", "", "6 Minutes ago",
+                    "", "", "", "", "", "Right Now"],
+            datasets: [{
+                label: "No station selected",
+                backgroundColor: 'rgb(238, 127, 55)',
+                borderColor: 'rgb(43, 133, 59)',
+                display: true,
+
+                responsive: true,
+
+                fill: false,
+                data: []
+
+            }]
+        },
+
+        // Configuration options go here
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Degrees in Celcius'
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Minutes'
+
+                    }
+                }]
+
+            }
+        }
+    });
 }
 
 

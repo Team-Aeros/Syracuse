@@ -65,11 +65,11 @@ class DataGetter extends Controller {
                 $json = json_decode($file, true);
 
                 foreach ($json as $decodedJsonFile) {
-                    $file = ['station' => $decodedJsonFile['station'], 'time' => $decodedJsonFile['time'],'temperature' => $decodedJsonFile['temperature']];
-                    if (key_exists($file['station'], $stationFiles)) {
-                        $stationFiles[$file['station']][] = $file;
+                    $file = $decodedJsonFile['temperature'];
+                    if(key_exists($decodedJsonFile['station'], $stationFiles)) {
+                        $stationFiles[$decodedJsonFile['station']][] = $file;
                     } else {
-                        $stationFiles[$file['station']] = [$file];
+                        $stationFiles[$decodedJsonFile['station']] = [$file];
                     }
                 }
             }
@@ -163,36 +163,50 @@ class DataGetter extends Controller {
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-05") {#trim($this->currentDate)) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-08") {#trim($this->currentDate)) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
                                     $arrayTime = explode("-",date("H-i", time()));
+
                                     $currentTimeVals = [];
                                     foreach ($arrayTime as $val) {
                                         $currentTimeVals[] = (int) $val ;
                                     }
-                                    $pastHour = $currentTimeVals[0];
 
-                                    $fileArrayTime = explode("-",$fileInFolder);
+
+                                    $fileArrayTime = explode("_",$fileInFolder);
                                     $fileTimeVals = [];
                                     foreach ($fileArrayTime as $val) {
                                         $fileTimeVals[] = (int) $val;
                                     }
-                                    $a = $currentTimeVals[1] - 40;
-                                    /*echo "FILE HOUR: " . $fileTimeVals[0];
+                                    $maxHour = $fileTimeVals[0] + 1 ;
+                                    $fileHour = $fileTimeVals[0] + 1;
+                                    $fileMinute = $fileTimeVals[1];
+                                    /*echo "FILE HOUR: " . $fileHour;
                                     echo "<br>";
-                                    echo "PAST HOUR: " . $pastHour;
+                                    echo "PAST HOUR: " . $maxHour;
                                     echo "<br>";
-                                    echo "FILE MIN: " . $fileTimeVals[1];
+                                    echo "FILE MIN: " . $fileMinute;
                                     echo "<br>";
+                                    echo "CUR MIN: " . $currentTimeVals[1];
+                                    echo "<br>";*/
 
-                                    // echo $currentTimeVals[1], ' = ', $fileTimeVals[1], '<br />';
-                                    if($fileTimeVals[0] >= $pastHour /*&& $fileTimeVals[1] >= $currentTimeVals[1]*/) {
-                                        if (key_exists($station,$dataLinks)) {
-                                            $dataLinks[$station][] = $link."/".$fileInFolder;
-                                        }else {
-                                            $dataLinks[$station] =  [$link . "/" . $fileInFolder];
+                                    if($fileHour >= $currentTimeVals[0]) {
+                                        if($fileMinute <= $currentTimeVals[1]) {
+                                            if (key_exists($station, $dataLinks)) {
+                                                $dataLinks[$station][] = $link . "/" . $fileInFolder;
+                                            } else {
+                                                $dataLinks[$station] = [$link . "/" . $fileInFolder];
+                                            }
+                                        }
+                                    } elseif ($fileHour <= $maxHour) {
+                                        if($fileMinute <= $currentTimeVals[1]) { // change < to >
+                                            if (key_exists($station, $dataLinks)) {
+                                                $dataLinks[$station][] = $link . "/" . $fileInFolder;
+                                            } else {
+                                                $dataLinks[$station] = [$link . "/" . $fileInFolder];
+                                            }
                                         }
                                     }
                                 }
