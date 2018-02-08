@@ -82,11 +82,18 @@ class DataGetter extends Controller {
         $stationRainDataLinks = $this->findDataLinksRain();
         $dataFiles = [];
         foreach ($stationRainDataLinks as $station) {
-            $mostRecentFile = file_get_contents($station[count($station)-1]);
-            $json = json_decode($mostRecentFile, true);
+            $mostRecentArray = file_get_contents($station[count($station)-1]);
+            $json = json_decode($mostRecentArray, true);
+            $json = array_reverse($json);
+            $done = [];
+            foreach($json as $data) {
+                if(!in_array($data['station'],$done)) {
+                    $file = ["name" => $this->getStationName($data['station']), "station" => $data['station'], "precipitation" => $data['precipitation'], "temperature" => $data['temperature'], "wind_speed" => $data['wind_speed']];
+                    $dataFiles[] = $file;
+                    $done[] = $data['station'];
+                }
+            }
 
-            $file = ["name" => $this->getStationName($json['station']), "station" => $json['station'], "precipitation" => $json['precipitation'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed']];
-            $dataFiles[] = $file;
         }
         usort($dataFiles, function ($a, $b) {
             $result = 0;
@@ -97,7 +104,8 @@ class DataGetter extends Controller {
             }
             return $result;
         });
-        return $dataFiles;
+        $top10 = array_slice($dataFiles,0,10);
+        return $top10;
     }
 
     /**
@@ -126,7 +134,7 @@ class DataGetter extends Controller {
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == "2018-02-05") {#trim($this->currentDate)) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == trim($this->currentDate)) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {

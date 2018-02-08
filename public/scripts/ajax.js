@@ -283,7 +283,8 @@ function bindInfoWindow(marker, map, infowindow, details) {
         infowindow.setContent(details);
         infowindow.open(map, marker);
         loadGraph('/index.php/update/ajax/tempGraph', details);
-        setInterval(function() {
+        interval.clearInterval();
+        var interval = setInterval(function() {
             loadGraph('/index.php/update/ajax/tempGraph', details);
         }, 5000);
 
