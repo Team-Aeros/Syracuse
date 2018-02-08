@@ -63,11 +63,14 @@ class DataGetter extends Controller {
             foreach ($station as $link) {
                 $file = file_get_contents($link);
                 $json = json_decode($file, true);
-                $file = ['station' => $json['station'], 'time' => $json['time'],'temperature' => $json['temperature']];
-                if (key_exists($file['station'], $stationFiles)) {
-                    $stationFiles[$file['station']][] = $file['temperature'];
-                } else {
-                    $stationFiles[$file['station']] = [$file['temperature']];
+
+                foreach ($json as $decodedJsonFile) {
+                    $file = ['station' => $decodedJsonFile['station'], 'time' => $decodedJsonFile['time'],'temperature' => $decodedJsonFile['temperature']];
+                    if (key_exists($file['station'], $stationFiles)) {
+                        $stationFiles[$file['station']][] = $file;
+                    } else {
+                        $stationFiles[$file['station']] = [$file];
+                    }
                 }
             }
             $dataFiles[] = $stationFiles;
@@ -82,24 +85,18 @@ class DataGetter extends Controller {
         $stationRainDataLinks = $this->findDataLinksRain();
         $dataFiles = [];
         foreach ($stationRainDataLinks as $station) {
-            $mostRecentArray = file_get_contents($station[count($station)-1]);
-            $json = json_decode($mostRecentArray, true);
-            $json = array_reverse($json);
-            $done = [];
-            foreach($json as $data) {
-                if(!in_array($data['station'],$done)) {
-                    $file = ["name" => $this->getStationName($data['station']), "station" => $data['station'], "precipitation" => $data['precipitation'], "temperature" => $data['temperature'], "wind_speed" => $data['wind_speed']];
-                    $dataFiles[] = $file;
-                    $done[] = $data['station'];
-                }
-            }
+            $mostRecentFile = file_get_contents($station[count($station)-1]);
+            $json = json_decode($mostRecentFile, true);
 
+            $decodedJsonFile = $json[count($json) - 1] ?? $json[0];
+            $file = ["name" => $this->getStationName($decodedJsonFile['station']), "station" => $decodedJsonFile['station'], "precipitation" => $decodedJsonFile['precipitation'], "temperature" => $decodedJsonFile['temperature'], "wind_speed" => $decodedJsonFile['wind_speed']];
+            $dataFiles[] = $file;
         }
         usort($dataFiles, function ($a, $b) {
             $result = 0;
             if ($b['precipitation'] > $a['precipitation']) {
                 $result = 1;
-            } elseif ($b['precipitation'] > $a['precipitation']) {
+            } elseif ($b['precipitation'] < $a['precipitation']) {
                 $result = -1;
             }
             return $result;
@@ -170,7 +167,7 @@ class DataGetter extends Controller {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
-                                    $arrayTime = explode("-",date("H-i-s", time()));
+                                    $arrayTime = explode("-",date("H-i", time()));
                                     $currentTimeVals = [];
                                     foreach ($arrayTime as $val) {
                                         $currentTimeVals[] = (int) $val ;
@@ -190,10 +187,8 @@ class DataGetter extends Controller {
                                     echo "FILE MIN: " . $fileTimeVals[1];
                                     echo "<br>";
 
-                                    echo "PAST MIN: " . $a;
-                                    echo "<br>";
-                                    die;*/
-                                    if($fileTimeVals[0] >= $pastHour && $fileTimeVals[1] >= $a) {
+                                    // echo $currentTimeVals[1], ' = ', $fileTimeVals[1], '<br />';
+                                    if($fileTimeVals[0] >= $pastHour /*&& $fileTimeVals[1] >= $currentTimeVals[1]*/) {
                                         if (key_exists($station,$dataLinks)) {
                                             $dataLinks[$station][] = $link."/".$fileInFolder;
                                         }else {
