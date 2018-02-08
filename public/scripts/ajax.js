@@ -236,6 +236,28 @@ function display_rain_data(url,station) {
     }, 'GET', 'json');
 }
 
+function getStations(url, map) {
+    perform_request(url, {}, function(message, data, response) {
+        let dataArray = response.responseJSON;
+        for(i=0; i<dataArray.length; i++) {
+            details = dataArray[i]['stn'];
+            var latLng = new google.maps.LatLng(dataArray[i]['lat'], dataArray[i]['lng']);
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                title: dataArray[i]['stn']
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            infowindow.setContent(details);
+            infowindow.open(map, marker);
+
+            bindInfoWindow(marker, map, infowindow, details);
+        }
+    }, 'GET', 'json');
+}
+
 function getMarkTitle(url, stationID) {
     details = stationID;
     perform_request(url, {}, function(message, data, response) {
@@ -276,27 +298,8 @@ function startUp(map) {
 
     };
 
-    map = new google.maps.Map(document.getElementById("default"),
-        myOptions);
-    $.getJSON('http://localhost/Syracuse/weatherstations.json', function (json1) {
-        $.each(json1.weatherstations, function (key, data) {
-
-            getMarkTitle('/index.php/update/ajax/tempGraph', data.title);
-            var latLng = new google.maps.LatLng(data.lat, data.lng);
-            var marker = new google.maps.Marker({
-                position: latLng,
-                map: map,
-                title: data.title
-            });
-
-            var infowindow = new google.maps.InfoWindow();
-
-            infowindow.setContent(details);
-            infowindow.open(map, marker);
-
-            bindInfoWindow(marker, map, infowindow, details);
-        });
-    });
+    map = new google.maps.Map(document.getElementById("default"), myOptions);
+    getStations('/index.php/update/ajax/stations', map);
 }
 
 
