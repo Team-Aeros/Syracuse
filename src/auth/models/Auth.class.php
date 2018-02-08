@@ -32,7 +32,7 @@ class Auth extends Model {
             Token::cleanUp();
     }
 
-    /*
+    /**
      * Checks the entered credentials with the database
      * Returns true if correct, false if not
      */
@@ -56,7 +56,10 @@ class Auth extends Model {
         return $user['id'];
     }
 
-
+    /**
+     * Checks if the user is logged in
+     * @return bool, token value if logged in, false if not
+     */
     public function isLoggedIn() : bool {
         if (empty($_SESSION['logged_in']))
             return false;
@@ -64,12 +67,17 @@ class Auth extends Model {
         return (new Token($_SESSION['logged_in']))->verify();
     }
 
+    /**
+     * Logs the user out by setting the session value 'logged_in' on null
+     */
     public function logOut() {
         $_SESSION['logged_in'] = null;
         header('Location: ' . self::$config->get('url'));
     }
 
-
+    /**
+     * Logs the user in by calling checkCred to validate credentials and if correct setting the session value logged_in token value
+     */
     private function login() {
         if ($userId = $this->checkCred() > 0) {
             $token = Token::generate($userId);

@@ -7,6 +7,8 @@
  * @since       1.0 Beta 1
  *
  * @license     MIT
+ *
+ * Switches the display to the Rain data tab or the temperature data tab
  */
 
 $(document).ready(function () {

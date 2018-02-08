@@ -16,8 +16,16 @@ namespace Syracuse\src\modules\models;
 use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\headers\Model;
 
+/**
+ * Class Login
+ * @package Syracuse\src\modules\models
+ */
 class Login extends Model {
 
+    /**
+     * @param array $errors, the errors array
+     * Fills the errors array if there is an error with logging in
+     */
     public function login(array &$errors) : void {
         // I'm an error
         if(!empty($_POST)) {
