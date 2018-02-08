@@ -109,8 +109,10 @@ class DataReader extends Controller {
                     header('Location: ' . self::$config->get('url'));
                     exit;
                 } else {
-                    $tmpFile = ["station" => $json['station'], "date" => $json['date'], "time" => $json['time'], "temperature" => $json['temperature'], "wind_speed" => $json['wind_speed'], "precipitation" => $json["precipitation"]];
-                    $this->jsonFiles[] = $tmpFile;
+                    foreach ($json as $decodedJson) {
+                        $tmpFile = ["station" => $decodedJson['station'], "date" => $decodedJson['date'], "time" => $decodedJson['time'], "temperature" => $decodedJson['temperature'], "wind_speed" => $decodedJson['wind_speed'], "precipitation" => $decodedJson["precipitation"]];
+                        $this->jsonFiles[] = $tmpFile;
+                    }
                 }
             }
         }
@@ -130,7 +132,7 @@ class DataReader extends Controller {
             fputcsv($fp, $fields);
         }
         fclose($fp);
-        $csv_file = file_get_contents("http://localhost/Syracuse/download.csv");
+        $csv_file = file_get_contents(self::$config->get('path') . '/download.csv');
         unlink("download.csv");
         $filename = date("d-M-Y", $this->maxLastDay) . "-" . date("d-M-Y", $this->currentDay);
         header("Content-type: text/csv; charset=utf-8");
