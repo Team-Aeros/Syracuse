@@ -118,8 +118,7 @@ function load_rain_data(url) {
 * @param station, the selected station marker
 */
 function loadGraph(url, station) {
-    //console.log(myChart);
-    var stationID = "" + "720273";
+    var stationID = "" + station;
     var count = 0;
     perform_request(url, {}, function(message, data,response) {
         let dataArray = response.responseJSON;
@@ -261,7 +260,11 @@ function bindInfoWindow(marker, map, infowindow, details) {
         map.setCenter(marker.getPosition());
         infowindow.setContent(details);
         infowindow.open(map, marker);
-        loadGraph('/index.php/update/ajax/tempGraph');
+        setInterval(function() {
+            loadGraph('/index.php/update/ajax/tempGraph', details);
+        }, 60000);
+        loadGraph('/index.php/update/ajax/tempGraph', details);
+
     });
 }
 function startUp(map) {
@@ -288,8 +291,6 @@ function startUp(map) {
 
             var infowindow = new google.maps.InfoWindow();
 
-            console.log("index");
-            console.log(details);
             infowindow.setContent(details);
             infowindow.open(map, marker);
 
