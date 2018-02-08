@@ -124,13 +124,20 @@ function loadGraph(url, station) {
         let dataArray = response.responseJSON;
         for(i=0;i < dataArray.length; i++) {
             var dataStation = dataArray[i][stationID];
-            console.log(stationID);
-            console.log(dataArray[i][stationID]);
+            //console.log(stationID);
+            //console.log(dataArray[i][stationID]);
             count = i;
             if (dataStation !== undefined) {
                 break;
             }
         }
+        var ghostCount = 60 - dataArray[i][stationID].length;
+        var ghost = [];
+        for (ghostCount; ghostCount >= 0; ghostCount --) {
+            ghost.push(null);
+        }
+        var graphData = ghost.concat(dataArray[i][stationID]);
+        //console.log(graphData);
             ctx = document.getElementById('myChart').getContext('2d');
             myChart = new Chart(ctx, {
                 // The type of chart we want to create
@@ -160,7 +167,7 @@ function loadGraph(url, station) {
                         responsive: true,
 
                         fill: false,
-                        data: dataArray[i][stationID]
+                        data: graphData
 
                     }]
                 },
