@@ -39,7 +39,7 @@ CREATE TABLE `van_accounts` (
 --
 
 INSERT INTO `van_accounts` (`id`, `name`, `pass`) VALUES
-(1, 'j.w.k', '$2y$10$be4JqE98LzxMcv789E12cOclp8ZftrZJZ1/2Y8akl7L6fhBIWvc6C');
+(1, 'j.w.k@pl.hanze.nl', '$2y$10$be4JqE98LzxMcv789E12cOclp8ZftrZJZ1/2Y8akl7L6fhBIWvc6C');
 
 -- --------------------------------------------------------
 
@@ -8138,24 +8138,6 @@ CREATE TABLE `van_token` (
   `length` bigint(20) DEFAULT '0',
   `user_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `van_token`
---
-
-INSERT INTO `van_token` (`id`, `value`, `created_at`, `length`, `user_id`) VALUES
-(1, 'LDX0bg5mkoDdqITZnfP8X3Al8z1OuAIeP4BLs2kL', 1517318168, 0, 1),
-(2, 'iiBL1X3b7RPeS8MM7irPAJBHKQqKcoPY62mR91sJ', 1517320935, 0, 1),
-(3, 'QnJItxp3cLT4e73N4oaes37j2SSvAAFQglJbMY5B', 1517321038, 0, 1),
-(4, 'QLLnnOG8KndzF1fnHvhekYVz8GBpG2kCaoDSARjZ', 1517398254, 0, 1),
-(5, 'm8cjwILWQ6yTleVIctVseICjnalMG1R68zplCvAX', 1517399319, 0, 1),
-(6, '0O5Du0PXN0Pqj2ZUYhBwK45uvp9HaSXCd5goNKAs', 1517399993, 0, 1),
-(7, 'eluthw2oetEQHgZJYPjSPoR63WSK7IZje44vSaLR', 1517400052, 0, 1),
-(8, 'kCc1QCJ0PjEINvCvGvpF8VPWpNQgyx0m1ZAh47pW', 1517481607, 0, 1),
-(9, '4F80sMTIyZJtrITOAsscZKzuwQqM0LBBNDFUFyZr', 1517481847, 0, 1),
-(10, 'r7dURKwgw1BWnm1t2z0mouDbDdkeTHrvW2GDnmnn', 1517482175, 0, 1),
-(11, 'RfdxcEDdhbfAZ6fYNc243M5IIOlKqLK4Lf3e1IBV', 1517482333, 0, 1),
-(19, 'Ipdee7My99VxG7iGqv0QPR7MN7iwG7vM2k5Ln7hJ', 1517833842, 86400, 1);
 
 --
 -- Indexes for dumped tables
