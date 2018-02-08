@@ -101,11 +101,13 @@ function load_rain_data(url) {
             $("#td9Val").show();
             $("#td10Val").show();
             if(this.station !== null) {
-                document.getElementById(tds[i]).innerHTML = this.name + ':';
-                //document.getElementById(tds[i]).show();
-                document.getElementById(tdVals[i]).innerHTML = this.precipitation + " mm";
-                //document.getElementById(tdVals[i]).show();
-                i++;
+                if (tds[i] != undefined) {
+                    document.getElementById(tds[i]).innerHTML = this.name + ':';
+                    //document.getElementById(tds[i]).show();
+                    document.getElementById(tdVals[i]).innerHTML = this.precipitation + " mm";
+                    //document.getElementById(tdVals[i]).show();
+                    i++;
+                }
             }
         });
     }, 'GET', 'json');
@@ -146,11 +148,6 @@ function loadGraph(url, station) {
             });
 
             ctx = document.getElementById('myChart').getContext('2d');
-
-            /*if (localStorage.getItem('myChart')) {
-                myChart.destroy();
-                google.maps.event.clearListeners(map, 'bounds_changed');
-            }*/
 
             myChart = new Chart(ctx, {
                 // The type of chart we want to create
@@ -297,7 +294,7 @@ function bindInfoWindow(marker, map, infowindow, details) {
         loadGraph('/index.php/update/ajax/tempGraph', details.stn);
         setInterval(function() {
             loadGraph('/index.php/update/ajax/tempGraph', details.stn);
-        }, 5000);
+        }, 60000); // 1 minute (60 * 1000)
     });
 }
 function startUp(map) {

@@ -131,7 +131,7 @@ class DataGetter extends Controller {
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..'])) {#trim($this->currentDate)) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $this->currentDate == $dateInLink) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
@@ -221,9 +221,8 @@ class DataGetter extends Controller {
     }
 
     private function loadMostRecentTemperatures(array &$temperatures) : void {
-        $directories = scandir($this->path);
-
-        foreach ($directories as $directory) {
+        $stations = array_merge($this->valid_caribbeanStations, $this->valid_gulfStations);
+        foreach ($stations as $directory) {
             if (!is_dir($this->path . '/' . $directory) || in_array($directory, ['.', '..', 'index.php']))
                 continue;
 
