@@ -9,7 +9,7 @@
         <script type="text/javascript" src="{{ script_url }}/widgets.js"></script>
         <script type="text/javascript" src="{{ script_url }}/switch.js"></script>
 
-        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" /> 
+        <link href="{{ node_url }}/notosans-fontface/css/notosans-fontface.css" rel="stylesheet" /> 
         <link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/main.css" />
         {% if on_login_page %}<link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/login.css" />{% endif %}
 
