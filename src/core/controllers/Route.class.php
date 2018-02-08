@@ -21,6 +21,9 @@ use FastRoute;
  */
 class Route {
 
+    /**
+     * @var Router
+     */
     private $_dispatcher;
     private $_requestMethod;
     private $_routeInfo;

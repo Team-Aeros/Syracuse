@@ -15,6 +15,10 @@ namespace Syracuse\src\database;
 
 use Syracuse\src\core\models\ReturnCode;
 
+/**
+ * Class QueryBuilder
+ * @package Syracuse\src\database
+ */
 class QueryBuilder {
 
     private $_connection;
@@ -336,7 +340,8 @@ class QueryBuilder {
     }
 
     /**
-     * @return $this->_errors
+     * Function for getting Errors.
+     * @return array ->_errors
      */
     public function getErrors() : array {
         return $this->_errors;

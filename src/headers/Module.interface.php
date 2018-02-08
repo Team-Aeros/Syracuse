@@ -13,9 +13,22 @@
 
 namespace Syracuse\src\headers;
 
+/**
+ * Interface Module
+ * @package Syracuse\src\headers
+ */
 interface Module {
 
+    /**
+     * Module constructor.
+     * @param string $moduleName
+     * @param array $parameters
+     */
     public function __construct(string $moduleName, array $parameters);
+
+
     public function execute() : int;
+
+
     public function display() : void;
 }
