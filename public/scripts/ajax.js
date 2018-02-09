@@ -103,11 +103,13 @@ function load_rain_data(url) {
             $("#td9Val").show();
             $("#td10Val").show();
             if(this.station !== null) {
-                document.getElementById(tds[i]).innerHTML = this.name + ':';
-                //document.getElementById(tds[i]).show();
-                document.getElementById(tdVals[i]).innerHTML = this.precipitation + " mm";
-                //document.getElementById(tdVals[i]).show();
-                i++;
+                if (tds[i] != undefined) {
+                    document.getElementById(tds[i]).innerHTML = this.name + ':';
+                    //document.getElementById(tds[i]).show();
+                    document.getElementById(tdVals[i]).innerHTML = this.precipitation + " mm";
+                    //document.getElementById(tdVals[i]).show();
+                    i++;
+                }
             }
         });
     }, 'GET', 'json');
@@ -121,11 +123,12 @@ function load_rain_data(url) {
 */
 function loadGraph(url, station) {
     var stationID = "" + station;
-    var count = 0;
     perform_request(url, {}, function(message, data,response) {
         let dataArray = response.responseJSON;
+
         //console.log(dataArray);
         for(i=0;i < dataArray.length; i++) {
+
             var dataStation = dataArray[i][stationID];
             //console.log(stationID);
             //console.log(dataArray[i][stationID]);
@@ -134,12 +137,14 @@ function loadGraph(url, station) {
                 break;
             }
         }
-        var ghostCount = 60 - dataArray[i][stationID].length;
+
+        var ghostCount = 60 - dataArray[count][stationID].length;
         var ghost = [];
         for (ghostCount; ghostCount > 0; ghostCount --) {
             ghost.push(null);
         }
         var graphData = ghost.concat(dataArray[i][stationID]);
+
         //console.log(graphData);
         myChart.destroy();
         ctx = document.getElementById('myChart').getContext('2d');
@@ -250,17 +255,17 @@ function getStations(url, map) {
     perform_request(url, {}, function(message, data, response) {
         let dataArray = response.responseJSON;
         for(i=0; i<dataArray.length; i++) {
-            details = dataArray[i]['stn'];
+            details = dataArray[i];
             var latLng = new google.maps.LatLng(dataArray[i]['lat'], dataArray[i]['lng']);
             var marker = new google.maps.Marker({
                 position: latLng,
                 map: map,
-                title: dataArray[i]['stn']
+                title: dataArray[i].name
             });
 
             var infowindow = new google.maps.InfoWindow();
 
-            infowindow.setContent(details);
+            infowindow.setContent(details.name + ' (' + details.temp + '°c)');
             infowindow.open(map, marker);
 
             bindInfoWindow(marker, map, infowindow, details);
@@ -317,7 +322,6 @@ function startUp(map) {
         center: new google.maps.LatLng(23.300153, -86.770968),
         zoom: 5,
         mapTypeId: google.maps.MapTypeId.ROADMAP
-
     };
 
     map = new google.maps.Map(document.getElementById("default"), myOptions);

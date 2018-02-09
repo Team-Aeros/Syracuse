@@ -1,5 +1,4 @@
-	<script src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.7&amp;key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&amp;language=en"></script>
-    <script src="{{ node_url }}/chartjs/chart.js"></script>
+	<script src="https://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.7&amp;key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&amp;language=en"></script>
 	<script type="text/javascript">
 
 
@@ -97,15 +96,15 @@ function content(elem) {
                     <H2>{{ _translate('rainDataTitle') }}</H2>
                     <table id="rainDataVals">
                         <tr class="headRow">
-                            <td>Name</td>
-                            <td>Value</td>
+                            <td>{{ _translate('name') }}</td>
+                            <td>{{ _translate('value') }}</td>
                         </tr>
                         <tr class="darkRow">
-                            <td id="stationHead">Station: </td>
+                            <td id="stationHead">{{ _translate('table_station') }}</td>
                             <td id="station"></td>
                         </tr>
                         <tr class="lightRow">
-                            <td id="rainHead">Rain: </td>
+                            <td id="rainHead">{{ _translate('table_rain') }}</td>
                             <td id="rainVal"></td>
                         </tr>
                         <tr class="darkRow">
