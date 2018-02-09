@@ -109,10 +109,14 @@ function content(elem) {
                             <td id="rainVal"></td>
                         </tr>
                         <tr class="darkRow">
-                            <td id="tempHead">Temperature: </td>
-                            <td id="tempVal"></td>
+                            <td id="tempHeadHigh">High Temperature: </td>
+                            <td id="tempValH"></td>
                         </tr>
                         <tr class="lightRow">
+                            <td id="tempHeadLow">Low Temperature: </td>
+                            <td id="tempValL"></td>
+                        </tr>
+                        <tr class="darkRow">
                             <td id="wspeedHead">Wind speed: </td>
                             <td id="wspeedVal"></td>
                         </tr>
