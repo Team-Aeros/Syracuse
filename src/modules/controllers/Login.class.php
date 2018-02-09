@@ -20,18 +20,35 @@ use Syracuse\src\modules\models\Login as Model;
 /**
  * Class Login
  * @package Syracuse\src\modules\controllers
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Login extends Controller implements Module {
 
+    /**
+     * The name of the module
+     */
     private $_moduleName;
+
+    /**
+     * URL parameters
+     */
     private $_parameters;
+
+    /**
+     * An instance of the Login model
+     */
     private $_model;
+
+    /**
+     * Any errors that may or may not have occurred are stored in this array
+     */
     private $_errors;
 
     /**
      * Login constructor.
-     * @param string $moduleName
-     * @param array $parameters
+     * @param string $moduleName The module name
+     * @param array $parameters URL parameters
      */
     public function __construct(string $moduleName, array $parameters) {
         $this->_moduleName = $moduleName;
@@ -47,7 +64,7 @@ class Login extends Controller implements Module {
 
     /**
      * Displays loggin errors if there are any and checks if the user is logged in to redirect if he/she is.
-     * @return int, the return code
+     * @return int The return code
      */
     public function execute() : int {
         $this->_model->login($this->_errors);
@@ -58,7 +75,8 @@ class Login extends Controller implements Module {
     }
 
     /**
-     * displays the login template and gives as parameters the handler, the model data and the error array
+     * Displays the login template and gives as parameters the handler, the model data and the error array
+     * @return void
      */
     public function display() : void {
         self::$gui->displayTemplate('login', $this->_model->getData() +  ['errors' => $this->_errors]);

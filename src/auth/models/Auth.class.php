@@ -19,9 +19,14 @@ use Syracuse\src\headers\Model;
  * If, in a hypothetical future scenario, support for multiple users is
  * added, this class will still work, but a check needs to be
  * added to see which user is currently logged in.
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Auth extends Model {
 
+    /**
+     * Creates a new instance of the Auth class
+     */
     public function __construct() {
         $this->loadSettings();
 
@@ -34,7 +39,7 @@ class Auth extends Model {
 
     /**
      * Checks the entered credentials with the database
-     * Returns true if correct, false if not
+     * @return int The user id if the user exists, else 0
      */
     private function checkCred() : int {
         if (empty($_POST['email']) || empty($_POST['password']))
@@ -58,7 +63,7 @@ class Auth extends Model {
 
     /**
      * Checks if the user is logged in
-     * @return bool, token value if logged in, false if not
+     * @return bool|Token Token value if logged in, false if not
      */
     public function isLoggedIn() : bool {
         if (empty($_SESSION['logged_in']))
@@ -69,6 +74,7 @@ class Auth extends Model {
 
     /**
      * Logs the user out by setting the session value 'logged_in' on null
+     * @return void
      */
     public function logOut() {
         $_SESSION['logged_in'] = null;
@@ -77,6 +83,7 @@ class Auth extends Model {
 
     /**
      * Logs the user in by calling checkCred to validate credentials and if correct setting the session value logged_in token value
+     * @return void
      */
     private function login() {
         if ($userId = $this->checkCred() > 0) {

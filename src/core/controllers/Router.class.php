@@ -4,19 +4,32 @@ namespace Syracuse\src\core\controllers;
  * Class Router
  * Writen by Aeros Development because whe couldn't use FastRoute
  * @package Syracuse\src\core\controllers
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Router {
 
+    /**
+     * An array containing the routes
+     */
     private $routes = array();
 
+    /**
+     * Return found
+     */
     public const RETURN_FOUND = 0x00;
+
+    /**
+     * Route not found
+     */
     public const RETURN_NOT_FOUND = 0x01;
 
     /**
      * Adds a route
-     * @param $requestMethod, GET and/or POST
-     * @param $request, the URL
-     * @param $handler, the handler for the request
+     * @param string|array $requestMethod, GET and/or POST
+     * @param string $request The URL
+     * @param string $handler The handler for the request
+     * @return void
      */
     public function addRoute($requestMethod, $request, $handler) {
         $id = sizeof($this->routes);
@@ -27,9 +40,9 @@ class Router {
 
     /**
      * Dispatches the browser to the correct route
-     * @param $requestMethod, GET and/or POST
-     * @param $uri, the URL
-     * @return array|int, return code, the route, its parameters
+     * @param string|array $requestMethod, GET and/or POST
+     * @param string $uri the URL
+     * @return array|int Return code, the route, its parameters
      */
     public function dispatch($requestMethod, $uri) {
         foreach ($this->routes as $route) {

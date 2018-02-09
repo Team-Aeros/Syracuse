@@ -13,6 +13,11 @@
 
 namespace Syracuse\src\core\models;
 
+/**
+ * Return codes
+ * @since 1.0 Beta 1
+ * @author Aeros Development
+ */
 class ReturnCode {
     // No error occurred
     public const SUCCESS = 0x00;

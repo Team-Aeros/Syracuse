@@ -21,15 +21,18 @@ use Syracuse\src\errors\Error;
 /**
  * Class Connection
  * @package Syracuse\src\database
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Connection {
 
     /**
-     * @var PDO
+     * The PDO connection
      */
     private $_pdoConnection;
+
     /**
-     * @var string
+     * The database prefix
      */
     private $_prefix;
 
@@ -37,12 +40,12 @@ class Connection {
      * Connection constructor.
      * All the necessary information needed
      * to connect to the database.
-     * @param string $host
-     * @param string $username
-     * @param string $password
-     * @param string $dbname
-     * @param string $prefix
-     * @param null|string $charset
+     * @param string $host The database server
+     * @param string $username The database username
+     * @param string $password The database password
+     * @param string $dbname The database name
+     * @param string $prefix The database prefix
+     * @param null|string $charset The character set
      */
     public function __construct(string $host, string $username, string $password, string $dbname, string $prefix, ?string $charset = 'utf8mb4') {
         try {
@@ -68,8 +71,7 @@ class Connection {
     }
 
     /**
-     * Function to return the prefix.
-     * @return string
+     * @return string _prefix
      */
     public function getPrefix() : string {
         return $this->_prefix;
@@ -77,11 +79,11 @@ class Connection {
 
     /**
      * This function will execute the query with the associated parameters.
-     * @param string $query
-     * @param array $params
-     * @param bool $hasResults
-     * @param array $results
-     * @return int
+     * @param string $query The query
+     * @param array $params Database parameters
+     * @param bool $hasResults Whether or not there should be any results
+     * @param array $results An empty array to put results in
+     * @return int The return code
      */
     public function executeQuery(string $query, array $params, bool $hasResults = true, array &$results = []) : int {
         try {

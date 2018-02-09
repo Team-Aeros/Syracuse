@@ -18,31 +18,39 @@ use Syracuse\src\headers\Model;
 /**
  * Class GUI
  * @package Syracuse\src\main\models
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class GUI extends Model {
 
+    /**
+     * Path to the template directory
+     */
     private $_templateDir;
+
+    /**
+     * The current page title
+     */
     private $_pageTitle;
 
     /**
-     * Function for returning the page title.
-     * @return string
+     * @return string _pageTitle
      */
     public function getPageTitle() : string {
         return $this->_pageTitle ?? _translate('dashboard');
     }
 
     /**
-     * Function for returning the template dir.
-     * @return string
+     * @return string _templateDir
      */
     public function getTemplateDir() : string {
         return $this->_templateDir;
     }
 
     /**
-     * Function for setting the page title.
-     * @param string $pageTitle
+     * Sets the page title
+     * @param string $pageTitle The page title
+     * @return void
      */
     public function setPageTitle(string $pageTitle) : void {
         $this->_pageTitle = $pageTitle;
@@ -50,7 +58,8 @@ class GUI extends Model {
 
     /**
      * Function for setting the Template dir.
-     * @param string $templateDir
+     * @param string $templateDir The path to the template directory
+     * @return void
      */
     public function setTemplateDir(string $templateDir) : void {
         $this->_templateDir = $templateDir;

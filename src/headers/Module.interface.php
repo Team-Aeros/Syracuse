@@ -16,6 +16,8 @@ namespace Syracuse\src\headers;
 /**
  * Interface Module
  * @package Syracuse\src\headers
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 interface Module {
 
@@ -26,9 +28,15 @@ interface Module {
      */
     public function __construct(string $moduleName, array $parameters);
 
-
+    /**
+     * Starts execution of the module
+     * @return int The return code
+     */
     public function execute() : int;
 
-
+    /**
+     * Displays the template
+     * @return void
+     */
     public function display() : void;
 }

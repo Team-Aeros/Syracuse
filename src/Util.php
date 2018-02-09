@@ -41,7 +41,7 @@ function dumpAndDie(array $elements) : void {
  * Loads a string from the language file and returns the result.
  * @param string $identifier The string identifier
  * @param \string[] Replacements. Used for replacing things like %s and %u with these replacements (optional)
- * @return string
+ * @return string The language string
  */
 function _translate(string $identifier, ?string ...$parameters) : string {
     $lang = Registry::retrieve('lang');

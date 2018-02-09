@@ -18,24 +18,69 @@ use Syracuse\src\core\models\ReturnCode;
 /**
  * Class QueryBuilder
  * @package Syracuse\src\database
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class QueryBuilder {
 
+    /**
+     * The database connection
+     */
     private $_connection;
+
+    /**
+     * The current query type/action (retrieve, insert, etc)
+     */
     private $_action;
+
+    /**
+     * Any errors that occurred
+     */
     private $_errors;
+
+    /**
+     * The table the query should be executed on
+     */
     private $_table;
 
+    /**
+     * Fields that should be loaded
+     */
     private $_fields;
+
+    /**
+     * Where clauses
+     */
     private $_conditions;
+
+    /**
+     * Result sorting field and direction ('name ASC')
+     */
     private $_order;
 
+    /**
+     * Stop returning at this number
+     */
     private $_limitMax;
+
+    /**
+     * Start returning at this number
+     */
     private $_limitMin;
 
+    /**
+     * Joins
+     */
     private $_joins;
 
+    /**
+     * Query parameters
+     */
     private $_params;
+
+    /**
+     * The current query
+     */
     private $_query;
 
     /**
@@ -58,7 +103,7 @@ class QueryBuilder {
     /**
      * What fields should be loaded? Leave empty to load all fields (not recommended, though).
      * @param \string[] ...$fields The fields you need
-     * @return QueryBuilder
+     * @return QueryBuilder The current instance
      */
     public function fields(string ...$fields) : self {
         $this->_fields = $fields ?? [];
@@ -71,7 +116,7 @@ class QueryBuilder {
      * first one being the key and the second one being the value. If you need more sophisticated conditions, such
      * as 'between' and 'is equal to or higher than', have a look at the whereCustom() method instead.
      * @param \array[] ...$conditions The conditions in the format described above
-     * @return QueryBuilder
+     * @return QueryBuilder The current instance
      */
     public function where(array ...$conditions) : self {
         foreach ($conditions as $condition) {
@@ -88,7 +133,7 @@ class QueryBuilder {
      * Allows the developer to specify custom conditions. Conditions need to be in the following format:
      * ['key = :value']
      * @param string|\string[] ...$conditions The conditions
-     * @return QueryBuilder
+     * @return QueryBuilder The current instance
      */
     public function whereCustom(string ...$conditions) : self {
         $this->_conditions = array_merge($this->_conditions, $conditions);
@@ -100,7 +145,7 @@ class QueryBuilder {
      * Orders a table by a single column.
      * @param string $fieldName The column you want to use for sorting the table
      * @param string $direction The sorting direction. Should be 'ASC' or 'DESC'. Please don't mess this up.
-     * @return QueryBuilder
+     * @return QueryBuilder The current instance
      */
     public function orderBy(string $fieldName, string $direction) : self {
         $this->_order = $fieldName . ' ' . $direction;
@@ -111,7 +156,7 @@ class QueryBuilder {
     /**
      * Orders a table by multiple columns. Each value should be in the following format: 'fieldname ASC' or 'fieldname DESC'
      * @param \string[] ...$fields The columns you want to sort on.
-     * @return QueryBuilder
+     * @return QueryBuilder The current instance
      */
     public function orderByMultiple(string ...$fields) : self {
         $this->_order = $fields;
@@ -122,7 +167,7 @@ class QueryBuilder {
     /**
      * Is there a maximum number of records that should be returned?
      * @param int $max The maximum number of records
-     * @return QueryBuilder
+     * @return QueryBuilder The current instance
      */
     public function max(int $max) : self {
         $this->_limitMax = $max;
@@ -134,7 +179,7 @@ class QueryBuilder {
      * This method allows you to return records X to X.
      * @param int $min When to start returning records
      * @param int $max When to stop returning records
-     * @return QueryBuilder
+     * @return QueryBuilder The current instance
      */
     public function boundaries(int $min, int $max) : self {
         $this->_limitMin = $min;
@@ -146,7 +191,7 @@ class QueryBuilder {
     /**
      * Adds a jion to the query. Note: the join value should be added manually.
      * @param string $join The join, e.g. 'LEFT JOIN cake c ON (r.cake_id = c.id)'
-     * @return QueryBuilder
+     * @return QueryBuilder The current instance
      */
     public function join(string $join) : self {
         $this->_joins[] = $join;
@@ -157,7 +202,7 @@ class QueryBuilder {
     /**
      * Replaces the query with a custom one. Obviously, this will overwrite the existing query (if there is one).
      * @param string $query The raw query.
-     * @return QueryBuilder
+     * @return QueryBuilder The current instance
      */
     public function raw(string $query) : self {
         $this->_query = $query;
@@ -170,8 +215,8 @@ class QueryBuilder {
      * as this will be done automatically. Example: array placeholders = ['id' => 5, 'name' => 'John Doe']. It is
      * STRONGLY recommended to use this method for adding user input to queries, since it is so much safer and takes
      * care of SQL injections automatically.
-     * @param array $placeholders
-     * @return QueryBuilder
+     * @param array $placeholders See general method description
+     * @return QueryBuilder The current instance
      */
     public function placeholders(array $placeholders) : self {
         $this->_params = $placeholders;
@@ -279,6 +324,10 @@ class QueryBuilder {
         return $this->_connection->executeQuery($this->_query, $this->_params, false);
     }
 
+    /**
+     * Deletes a record from the database
+     * @return int The return code
+     */
     public function delete() : int {
         if (empty($this->_query))
             $this->generateQuery();
@@ -340,8 +389,7 @@ class QueryBuilder {
     }
 
     /**
-     * Function for getting Errors.
-     * @return array ->_errors
+     * @return array _errors
      */
     public function getErrors() : array {
         return $this->_errors;

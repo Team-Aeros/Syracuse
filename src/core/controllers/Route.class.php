@@ -15,18 +15,32 @@ namespace Syracuse\src\core\controllers;
 
 use FastRoute;
 
-
 /**
+ * Used for handling routing.
  * @package Syracuse\src\database
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Route {
 
     /**
-     * @var Router
+     * An instance of the Router class
      */
     private $_dispatcher;
+
+    /**
+     * The request method
+     */
     private $_requestMethod;
+
+    /**
+     * Route information
+     */
     private $_routeInfo;
+
+    /**
+     * The request URL
+     */
     private $_uri;
 
     /**
@@ -51,6 +65,7 @@ class Route {
 
     /**
      * Sets the requested url
+     * @return void
      */
     private function setRequestUri() : void {
         $this->_uri = $_SERVER['REQUEST_URI'];
@@ -77,7 +92,7 @@ class Route {
 
     /**
      * Gets info of the route
-     * @return array, containing the routes module_name and parameters
+     * @return array Containing the routes module_name and parameters
      */
     public function getRouteInfo() : array {
         if ($this->_routeInfo[0] == Router::RETURN_FOUND) {

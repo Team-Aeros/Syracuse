@@ -18,20 +18,31 @@ use Syracuse\src\database\Database;
 /**
  * Class Token
  * @package Syracuse\src\auth\models
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Token {
 
+    /**
+     * The token value
+     */
     private $_value;
+
+    /**
+     * The user id
+     */
     private $_userId;
 
-    // If you change this, make sure you update the database as well
+    /**
+     * The length of the token. If you change this, make sure you update the database as well
+     */
     private const LENGTH = 40;
 
     /**
      * Token constructor.
      * Set the value and ID.
-     * @param string $value
-     * @param int|null $userId
+     * @param string $value The token value
+     * @param int|null $userId The user id
      */
     public function __construct(string $value, int $userId = null) {
         $this->_value = $value;
@@ -40,7 +51,7 @@ class Token {
 
     /**
      * Verifying ID.
-     * @return bool
+     * @return bool Whether or not the token was valid
      */
     public function verify() : bool {
         if (strlen($this->_value) != self::LENGTH)
@@ -65,8 +76,8 @@ class Token {
 
     /**
      * Generate token for later use.
-     * @param int $userId
-     * @return Token
+     * @param int $userId What user is this token for?
+     * @return Token The generated token
      */
     public static function generate(int $userId) : self {
         $token = '';
@@ -91,6 +102,10 @@ class Token {
         return new self($token, $userId);
     }
 
+    /**
+     * Cleans up tokens that are no longer used
+     * @return void
+     */
     public static function cleanUp() : void {
         Database::interact('delete', 'token')
             ->whereCustom('created_at + length < :time')
@@ -101,7 +116,7 @@ class Token {
 
     /**
      * Function for returning value.
-     * @return string
+     * @return string The token value
      */
     public function getValue() : string {
         return $this->_value;
@@ -109,7 +124,7 @@ class Token {
 
     /**
      * Function for returning userId.
-     * @return int
+     * @return int The user id
      */
     public function getUserId() : int {
         return $this->_userId;
