@@ -11,9 +11,23 @@ use Syracuse\src\database\Database;
  * @package Syracuse\src\DataGetter
  */
 class DataGetter extends Controller {
+    /**
+     * @var string $currentDate, the current date
+     */
     private $currentDate;
+    /**
+     * @var string $path the file path to the webdav folder on the machine on which this is running
+     */
     private $path;
+
+    /**
+     * @var array $valid_caribbeanStations all the stations that are located in the caribbean sea
+     */
     private $valid_caribbeanStations;
+
+    /**
+     * @var array $valid_gulfStations all tge stations that are located in the gulf of mexico
+     */
     private $valid_gulfStations;
 
     /**
