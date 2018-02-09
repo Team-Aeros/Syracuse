@@ -20,6 +20,10 @@ use Syracuse\src\core\models\Registry;
 use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\database\{Connection, Database};
 
+/**
+ * Class Syracuse
+ * @package Syracuse\src\main\controllers
+ */
 class Syracuse {
 
     private $_gui;

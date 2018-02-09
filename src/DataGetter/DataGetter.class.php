@@ -11,7 +11,13 @@ use Syracuse\src\database\Database;
  * @package Syracuse\src\DataGetter
  */
 class DataGetter extends Controller {
+    /**
+     * @var false|string
+     */
     private $currentDate;
+    /**
+     * @var string
+     */
     private $path;
     private $valid_caribbeanStations;
     private $valid_gulfStations;
@@ -225,6 +231,10 @@ class DataGetter extends Controller {
         return $dataLinks;
     }
 
+    /**
+     * Function for returning the stations.
+     * @return array
+     */
     public function getStations() {
         $returnStat = [];
         $stations = Database::interact('retrieve', 'station')
@@ -242,6 +252,10 @@ class DataGetter extends Controller {
         return $returnStat;
     }
 
+    /**
+     * Function for loading the most recent temperatures.
+     * @param array $temperatures
+     */
     private function loadMostRecentTemperatures(array &$temperatures) : void {
         $stations = array_merge($this->valid_caribbeanStations, $this->valid_gulfStations);
         foreach ($stations as $directory) {

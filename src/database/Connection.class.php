@@ -18,11 +18,32 @@ use PDOException;
 use Syracuse\src\core\models\ReturnCode;
 use Syracuse\src\errors\Error;
 
+/**
+ * Class Connection
+ * @package Syracuse\src\database
+ */
 class Connection {
 
+    /**
+     * @var PDO
+     */
     private $_pdoConnection;
+    /**
+     * @var string
+     */
     private $_prefix;
 
+    /**
+     * Connection constructor.
+     * All the necessary information needed
+     * to connect to the database.
+     * @param string $host
+     * @param string $username
+     * @param string $password
+     * @param string $dbname
+     * @param string $prefix
+     * @param null|string $charset
+     */
     public function __construct(string $host, string $username, string $password, string $dbname, string $prefix, ?string $charset = 'utf8mb4') {
         try {
             $options = [
@@ -46,10 +67,22 @@ class Connection {
         $this->_prefix = $prefix;
     }
 
+    /**
+     * Function to return the prefix.
+     * @return string
+     */
     public function getPrefix() : string {
         return $this->_prefix;
     }
 
+    /**
+     * This function will execute the query with the associated parameters.
+     * @param string $query
+     * @param array $params
+     * @param bool $hasResults
+     * @param array $results
+     * @return int
+     */
     public function executeQuery(string $query, array $params, bool $hasResults = true, array &$results = []) : int {
         try {
             $preparedQuery = $this->_pdoConnection->prepare($query);
