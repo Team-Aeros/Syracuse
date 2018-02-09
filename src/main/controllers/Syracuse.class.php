@@ -23,19 +23,39 @@ use Syracuse\src\database\{Connection, Database};
 /**
  * Class Syracuse
  * @package Syracuse\src\main\controllers
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Syracuse {
 
+    /**
+     * This property contains the GUI object
+     */
     private $_gui;
+
+    /**
+     * This property contains the Config object
+     */
     private $_config;
+
+    /**
+     * This property contains route information
+     */
     private $_route;
 
+    /**
+     * Creates a new instance of Syracuse
+     */
     public function __construct() {
         $this->_config = Registry::store('config', new Config());
         $this->_route = Registry::store('route', new Route());
         $this->setErrorHandler();
     }
 
+    /**
+     * Starts the software by initializing things like the database connection, language loading, etc.
+     * @return void
+     */
     public function start() : void {
         Database::setConnection(new Connection(
             $this->_config->get('database_server'),
@@ -45,6 +65,7 @@ class Syracuse {
             $this->_config->get('database_prefix')
         ));
 
+        // This removes database information from the configuration object
         $this->_config->wipeSensitiveData();
 
         $settings = Database::interact('retrieve', 'setting')
@@ -113,6 +134,10 @@ class Syracuse {
             $this->_gui->displayTemplate('footer');
     }
 
+    /**
+     * Sets the PHP error handler
+     * @return void
+     */
     private function setErrorHandler() : void {
         set_error_handler(function(int $errorNumber, string $errorMessage, ?string $errorFile = '', ?int $errorLine = 0, ?array $errorContext = []) {
             if (SYRACUSE_DEBUG) {

@@ -19,17 +19,34 @@ use Syracuse\src\headers\Model;
 /**
  * Class Language
  * @package Syracuse\src\main\models
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Language extends Model {
 
+    /**
+     * The language id
+     */
     private $_id;
+
+    /**
+     * The language name (in English)
+     */
     private $_name;
+
+    /**
+     * The language name in the language itself)
+     */
     private $_native;
+
+    /**
+     * The language code (e.g. en_US, es_ES, de_CH)
+     */
     private $_code;
 
     /**
      * Language constructor.
-     * @param int $id
+     * @param int $id The language id
      */
     public function __construct(int $id) {
         $this->loadSettings();
@@ -37,7 +54,9 @@ class Language extends Model {
     }
 
     /**
-     * @param int $id
+     * Loads a language by ID
+     * @param int $id The language id
+     * @return void
      */
     private function load(int $id) : void {
         $languages = Database::interact('retrieve', 'language')
@@ -54,38 +73,35 @@ class Language extends Model {
     }
 
     /**
-     * Function for returning the id.
-     * @return int
+     * @return int _id
      */
     public function getId() : int {
         return $this->_id;
     }
 
     /**
-     * Function for returning the name.
-     * @return string
+     * @return string _name
      */
     public function getName() : string {
         return $this->_name;
     }
 
     /**
-     * Function for returning the native language.
-     * @return string
+     * @return string _native
      */
     public function getNative() : string {
         return $this->_native;
     }
 
     /**
-     * Function for returning the language code.
-     * @return string
+     * @return string _code
      */
     public function getCode() : string {
         return $this->_code;
     }
 
     /**
+     * Loads a language by code
      * @param string $code
      * @return null|Language
      */

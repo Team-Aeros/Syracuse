@@ -19,12 +19,15 @@ use Syracuse\src\headers\Model;
 /**
  * Class Login
  * @package Syracuse\src\modules\models
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Login extends Model {
 
     /**
-     * @param array $errors, the errors array
      * Fills the errors array if there is an error with logging in
+     * @param array $errors, the errors array
+     * @return void
      */
     public function login(array &$errors) : void {
         // I'm an error

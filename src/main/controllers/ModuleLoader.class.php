@@ -19,15 +19,34 @@ use Syracuse\src\headers\Controller;
 /**
  * Class ModuleLoader
  * @package Syracuse\src\main\controllers
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class ModuleLoader extends Controller {
 
+    /**
+     * The name of the current module
+     */
     private $_moduleName;
+
+    /**
+     * Route parameters
+     */
     private $_routeParams;
+
+    /**
+     * An object of the loaded module
+     */
     private $_module;
 
+    /**
+     * The default module
+     */
     private const DEFAULT_MODULE = 'main';
 
+    /**
+     * An associative array containing the class names of each module. 'module' => 'class'
+     */
     private static $_modules = [
         'main' => 'Main',
         'login' => 'Login',
@@ -39,7 +58,7 @@ class ModuleLoader extends Controller {
 
     /**
      * ModuleLoader constructor.
-     * @param Route $route
+     * @param Route $route The current route
      */
     public function __construct(Route $route) {
         $this->_moduleName = $route->getRouteInfo()['module_name'] ?? '';
@@ -48,6 +67,10 @@ class ModuleLoader extends Controller {
         $this->loadSettings();
     }
 
+    /**
+     * Loads the module
+     * @return void
+     */
     public function load() : void {
         if (!self::moduleExists($this->_moduleName) && empty($this->_routeParams['ajax_request']))
             $this->_moduleName = self::DEFAULT_MODULE;
@@ -74,12 +97,16 @@ class ModuleLoader extends Controller {
 
     /**
      * Function for returning the module.
-     * @return Controller
+     * @return Controller The module
      */
     public function getModule() : Controller {
         return $this->_module;
     }
 
+    /**
+     * Checks whether or not the module exists in our records
+     * @return bool Whether or not it exists
+     */
     public static function moduleExists(string $module) : bool {
         return array_key_exists($module, self::$_modules);
     }

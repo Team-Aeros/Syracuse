@@ -18,24 +18,69 @@ use Exception;
 /**
  * Class TemplateManager
  * @package Syracuse\src\main\controllers
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class TemplateManager {
 
+    /**
+     * The path to the template directory
+     */
     private $_templateDir;
+
+    /**
+     * The path to the cache dir
+     */
     private $_cacheDir;
 
+    /**
+     * No previous operation
+     */
     private const OPERATION_NONE = 0x00;
+
+    /**
+     * Hardcoded string
+     */
     private const OPERATION_HARDCODED_STRING = 0x01;
+
+    /**
+     * Regular variable call
+     */
     private const OPERATION_VARIABLE_CALL = 0x02;
+
+    /**
+     * Function call
+     */
     private const OPERATION_FUNCTION_CALL = 0x03;
+
+    /**
+     * Loops
+     */
     private const OPERATION_LOOP = 0x04;
+
+    /**
+     * If-else statements
+     */
     private const OPERATION_IF_ELSE = 0x05;
 
+    /**
+     * The currently opened blocks
+     */
     private $_blocks = [];
+
+    /**
+     * The amount of blocks that have been closed
+     */
     private $_blockId = 0;
 
+    /**
+     * Whether or not we're in a foreach loop
+     */
     private $_inForeachLoop;
 
+    /**
+     * Creates a new instance of the template manager
+     */
     public function __construct() {
         $this->_templateDir = __DIR__;
         $this->_cacheDir = __DIR__;
@@ -43,8 +88,8 @@ class TemplateManager {
 
     /**
      * Function for compiling the given template.
-     * @param string $templateName
-     * @return string
+     * @param string $templateName The name of the template (without the extension)
+     * @return string The compiled temlpate
      * @throws Exception
      */
     private function compileTemplate(string $templateName) : string {
@@ -100,6 +145,17 @@ class TemplateManager {
         return $buffer;
     }
 
+    /**
+     * Compiles a single statement
+     * @param int $start The current position
+     * @param string $buffer A buffer to store the generated code in
+     * @param string $content The content that needs to be parsed
+     * @param int $max The content length
+     * @param int $lastOperation The last operation
+     * @param bool $returnOnly If set to true, variables will not be echoed (but returned instead)
+     * @return int The new position
+     * @throws Exception
+     */
     private function compileStatement(int $start, string &$buffer, string $content, int $max, int &$lastOperation, bool $returnOnly = false) : int {
         $j = $start;
 
@@ -268,6 +324,16 @@ class TemplateManager {
         return $j;
     }
 
+    /**
+     * Compiles a block of code
+     * @param int $start The current position
+     * @param string $buffer A buffer to store the generated code in
+     * @param string $content The content that needs to be parsed
+     * @param int $max The content length
+     * @param int $lastOperation The last operation
+     * @return int The new position
+     * @throws Exception
+     */
     private function compileBlock(int $start, string &$buffer, string $content, int $max, int &$lastOperation) : int {
         $currentOperation = '';
         $j = $start;
@@ -438,6 +504,12 @@ class TemplateManager {
         return $j + 2;
     }
 
+    /**
+     * Checks if a template needs to be recompiled and displays the result.
+     * @param string $templateName The name of the template (without the .tpl extension)
+     * @param array $data Template variables
+     * @return void
+     */
     public function getTemplate(string $templateName, array $data) : void {
         $templateNoCache = $this->_templateDir . '/' . $templateName . '.tpl';
         $cacheTemplate = false;
@@ -472,6 +544,13 @@ class TemplateManager {
         return;
     }
 
+    /**
+     * Writes the compiled template to cache
+     * @param string $templateName The name of the template
+     * @param string $body The template body
+     * @param string $updated When the template was last updated
+     * @return void
+     */
     private function updateCache(string $templateName, string $body, string $updated) : void {
         $path = __DIR__ . '/../../BaseTemplate.example.php';
         $baseTemplate = @fopen($path, 'r');
@@ -501,15 +580,31 @@ class TemplateManager {
         fclose($cachedTemplate);
     }
 
+    /**
+     * Throws an error if no match was found
+     * @param array $match An array of matches
+     * @return void
+     * @throws Exception
+     */
     private function throwErrorIfNoMatch(array $match) : void {
         if (empty($match[0]))
             throw new Exception('Could not interpret match.');
     }
 
+    /**
+     * Sets the path to the template directory
+     * @param string $templateDir The path to the template directory
+     * @return void
+     */
     public function setTemplateDir(string $templateDir) : void {
         $this->_templateDir = $templateDir;
     }
 
+    /**
+     * Sets the path to the cache directory
+     * @param string $cacheDir The path to the cache directory
+     * @return void
+     */
     public function setCacheDir(string $cacheDir) : void {
         $this->_cacheDir = $cacheDir;
     }

@@ -19,18 +19,21 @@ use Syracuse\src\errors\Error;
 /**
  * Class Database
  * @package Syracuse\src\database
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Database {
 
     /**
-     * @var
+     * The connection object
      */
     private static $_connection;
 
     /**
-     * @param string $action
-     * @param string $table
-     * @return QueryBuilder
+     * Creates a new instance of the QueryBuilder
+     * @param string $action The query type
+     * @param string $table The table name
+     * @return QueryBuilder A new instance of the QueryBuilder
      */
     public static function interact(string $action, string $table) : QueryBuilder {
         if (!in_array($action, ['retrieve', 'delete', 'modify', 'insert']))
@@ -42,7 +45,7 @@ class Database {
     /**
      * Function to set the connection.
      * @param Connection $connection
-     * @return int
+     * @return int The return code
      */
     public static function setConnection(Connection $connection) : int {
         if (!empty(self::$_connection))

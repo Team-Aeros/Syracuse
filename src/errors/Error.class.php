@@ -16,12 +16,24 @@ namespace Syracuse\src\errors;
 /**
  * Class Error
  * @package Syracuse\src\errors
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
-
 class Error {
 
+    /**
+     * The error message
+     */
     protected $message;
+
+    /**
+     * Detailed information about the error message
+     */
     protected $detailedError;
+
+    /**
+     * Whether or not the error is fatal
+     */
     protected $isFatal;
 
     /**
@@ -38,7 +50,7 @@ class Error {
 
     /**
      * Checks if an template can be loaded
-     * @return bool
+     * @return bool Whether or not the template can be loaded
      */
     protected function canLoadTemplate() : bool {
         return defined('LOADED_TEMPLATE_AND_LANG');
@@ -46,6 +58,7 @@ class Error {
 
     /**
      * Triggers an error when called.
+     * @return void
      */
     public function trigger() : void {
         ob_clean();

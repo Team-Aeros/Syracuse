@@ -16,21 +16,46 @@ use Syracuse\src\DataGetter\DataGetter;
 /**
  * Class Update
  * @package Syracuse\src\modules\controllers
+ * @since 1.0 Beta 1
+ * @author Aeros Development
  */
 class Update extends Controller implements Module {
 
+    /**
+     * The module name
+     */
     private $_moduleName;
+
+    /**
+     * URL parameters
+     */
     private $_parameters;
+
+    /**
+     * The update model
+     */
     private $_model;
+
+    /**
+     * An array containing stations with rain data
+     */
     private $_rainData;
+
+    /**
+     * An array containing stations with temperature data
+     */
     private $_tempData;
+
+    /**
+     * An array containing stations, including their coordinates
+     */
     private $_stationData;
 
     /**
      * Update constructor.
      * Uses the DataGetter to get the rain dataset
-     * @param string $moduleName
-     * @param array $parameters
+     * @param string $moduleName The name of the module
+     * @param array $parameters The URL parameters
      */
     public function __construct(string $moduleName, array $parameters) {
         $this->_moduleName = $moduleName;
@@ -50,14 +75,16 @@ class Update extends Controller implements Module {
     }
 
     /**
-     * @return int, the return code
+     * Executes the help page module. Currently it doesn't do much.
+     * @return int The return code
      */
     public function execute() : int {
         return ReturnCode::SUCCESS;
     }
 
     /**
-     * echos the json rain data for ajax to pick up
+     * Echos the json rain data for AJAX to pick up
+     * @return void
      */
     public function display() : void {
         switch ($this->_parameters['ajax_request'] ?? 'unknown') {
