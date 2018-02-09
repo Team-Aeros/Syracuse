@@ -122,7 +122,9 @@ function load_rain_data(url) {
 * @param station, the selected station marker
 */
 function loadGraph(url, station) {
-    var stationID = "" + station;
+    console.log(station);
+    var stationID = station['stn'];
+    console.log(stationID);
     perform_request(url, {}, function(message, data,response) {
         let dataArray = response.responseJSON;
 
