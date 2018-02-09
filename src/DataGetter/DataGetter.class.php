@@ -71,11 +71,11 @@ class DataGetter extends Controller {
                 $json = json_decode($file, true);
 
                 foreach ($json as $decodedJsonFile) {
-                    $file = ['station' => $decodedJsonFile['station'], 'time' => $decodedJsonFile['time'],'temperature' => $decodedJsonFile['temperature']];
-                    if (key_exists($file['station'], $stationFiles)) {
-                        $stationFiles[$file['station']][] = $file;
+                    $file = $decodedJsonFile['temperature'];
+                    if(key_exists($decodedJsonFile['station'], $stationFiles)) {
+                        $stationFiles[$decodedJsonFile['station']][] = $file;
                     } else {
-                        $stationFiles[$file['station']] = [$file];
+                        $stationFiles[$decodedJsonFile['station']] = [$file];
                     }
                 }
             }
@@ -107,7 +107,8 @@ class DataGetter extends Controller {
             }
             return $result;
         });
-        return $dataFiles;
+        $top10 = array_slice($dataFiles,0,10);
+        return $top10;
     }
 
     /**
@@ -120,7 +121,6 @@ class DataGetter extends Controller {
             ->fields('name')
             ->where(['stn', $stationID])
             ->getSingle();
-
         return ucwords(strtolower($result['name'] ?? _translate('unknown_station')));
     }
 
@@ -137,7 +137,7 @@ class DataGetter extends Controller {
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..'])) {#trim($this->currentDate)) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == trim($this->currentDate)) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
@@ -169,29 +169,51 @@ class DataGetter extends Controller {
                 if (is_dir($this->path . '/' . $station) && !in_array($station, ['index.php', '.', '..'])) {
                     $link = $this->path . '/' . $station;
                     foreach (scandir($link) as $dateInLink) {
-                        if (!in_array($dateInLink, ['index.php', '.', '..'])) {#trim($this->currentDate)) {
+                        if (!in_array($dateInLink, ['index.php', '.', '..']) && $dateInLink == trim($this->currentDate)) {
                             $link = $link . "/" . $dateInLink;
                             foreach (scandir($link) as $fileInFolder) {
                                 if (is_file($link . "/" . $fileInFolder) && !in_array($fileInFolder, ['index.php', '.', '..'])) {
                                     $arrayTime = explode("-",date("H-i", time()));
+
                                     $currentTimeVals = [];
                                     foreach ($arrayTime as $val) {
                                         $currentTimeVals[] = (int) $val ;
                                     }
-                                    $pastHour = $currentTimeVals[0];
 
-                                    $fileArrayTime = explode("-",$fileInFolder);
+
+                                    $fileArrayTime = explode("_",$fileInFolder);
                                     $fileTimeVals = [];
                                     foreach ($fileArrayTime as $val) {
                                         $fileTimeVals[] = (int) $val;
                                     }
+                                    $maxHour = $fileTimeVals[0] + 1 ;
+                                    $fileHour = $fileTimeVals[0] + 1;
+                                    $fileMinute = $fileTimeVals[1];
+                                    /*echo "FILE HOUR: " . $fileHour;
+                                    echo "<br>";
+                                    echo "PAST HOUR: " . $maxHour;
+                                    echo "<br>";
+                                    echo "FILE MIN: " . $fileMinute;
+                                    echo "<br>";
+                                    echo "CUR MIN: " . $currentTimeVals[1];
+                                    echo "<br>";*/
 
-                                    // echo $currentTimeVals[1], ' = ', $fileTimeVals[1], '<br />';
-                                    /*if($fileTimeVals[0] >= $pastHour ) {*/
-                                        if (key_exists($station,$dataLinks)) {
-                                            $dataLinks[$station][] = $link."/".$fileInFolder;
-                                        }else {
-                                            $dataLinks[$station] =  [$link . "/" . $fileInFolder];
+                                    if($fileHour >= $currentTimeVals[0]) {
+                                        if($fileMinute <= $currentTimeVals[1]) {
+                                            if (key_exists($station, $dataLinks)) {
+                                                $dataLinks[$station][] = $link . "/" . $fileInFolder;
+                                            } else {
+                                                $dataLinks[$station] = [$link . "/" . $fileInFolder];
+                                            }
+                                        }
+                                    } elseif ($fileHour <= $maxHour) {
+                                        if($fileMinute >= $currentTimeVals[1]) {
+                                            if (key_exists($station, $dataLinks)) {
+                                                $dataLinks[$station][] = $link . "/" . $fileInFolder;
+                                            } else {
+                                                $dataLinks[$station] = [$link . "/" . $fileInFolder];
+                                            }
+
                                         }
                                     /*}
                                     else
@@ -235,9 +257,8 @@ class DataGetter extends Controller {
      * @param array $temperatures
      */
     private function loadMostRecentTemperatures(array &$temperatures) : void {
-        $directories = scandir($this->path);
-
-        foreach ($directories as $directory) {
+        $stations = array_merge($this->valid_caribbeanStations, $this->valid_gulfStations);
+        foreach ($stations as $directory) {
             if (!is_dir($this->path . '/' . $directory) || in_array($directory, ['.', '..', 'index.php']))
                 continue;
 

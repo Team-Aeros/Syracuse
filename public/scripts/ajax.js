@@ -101,11 +101,13 @@ function load_rain_data(url) {
             $("#td9Val").show();
             $("#td10Val").show();
             if(this.station !== null) {
-                document.getElementById(tds[i]).innerHTML = this.name + ':';
-                //document.getElementById(tds[i]).show();
-                document.getElementById(tdVals[i]).innerHTML = this.precipitation + " mm";
-                //document.getElementById(tdVals[i]).show();
-                i++;
+                if (tds[i] != undefined) {
+                    document.getElementById(tds[i]).innerHTML = this.name + ':';
+                    //document.getElementById(tds[i]).show();
+                    document.getElementById(tdVals[i]).innerHTML = this.precipitation + " mm";
+                    //document.getElementById(tdVals[i]).show();
+                    i++;
+                }
             }
         });
     }, 'GET', 'json');
@@ -121,9 +123,10 @@ function loadGraph(url, station) {
     var stationID = "" + station;
     perform_request(url, {}, function(message, data,response) {
         let dataArray = response.responseJSON;
-        let count = 0;
 
-        for (i=0;i < dataArray.length; i++) {
+        //console.log(dataArray);
+        for(i=0;i < dataArray.length; i++) {
+
             var dataStation = dataArray[i][stationID];
             //console.log(stationID);
             //console.log(dataArray[i][stationID]);
@@ -135,81 +138,75 @@ function loadGraph(url, station) {
 
         var ghostCount = 60 - dataArray[count][stationID].length;
         var ghost = [];
-        for (ghostCount; ghostCount >= 0; ghostCount --) {
+        for (ghostCount; ghostCount > 0; ghostCount --) {
             ghost.push(null);
         }
         var graphData = ghost.concat(dataArray[i][stationID]);
-        let actualGraphData = [];
 
-            $.each(graphData, function(key, value) {
-                actualGraphData.push(value['temperature']);
-            });
+        //console.log(graphData);
+        myChart.destroy();
+        ctx = document.getElementById('myChart').getContext('2d');
 
-            ctx = document.getElementById('myChart').getContext('2d');
+        myChart = new Chart(ctx, {
 
-            /*if (localStorage.getItem('myChart')) {
-                myChart.destroy();
-                google.maps.event.clearListeners(map, 'bounds_changed');
-            }*/
+            // The type of chart we want to create
+            type: 'line',
 
-            myChart = new Chart(ctx, {
-                // The type of chart we want to create
-                type: 'line',
+            // The data for our dataset
+            data: {
 
-                // The data for our dataset
-                data: {
+                responsive: true,
+                labels:
+                    ["60 Minutes ago", "", "", "", "", "", "53 Minutes ago",
+                        "", "", "", "", "", "47 Minutes ago",
+                        "", "", "", "", "", "41 Minutes ago",
+                        "", "", "", "", "", "35 Minutes ago",
+                        "", "", "", "", "", "29 Minutes ago",
+                        "", "", "", "", "", "23 Minutes ago",
+                        "", "", "", "", "", "17 Minutes ago",
+                        "", "", "", "", "", "11 Minutes ago",
+                        "", "", "", "", "", "6 Minutes ago",
+                        "", "", "", "", "", "Right Now"],
+                datasets: [{
+                    label: stationID,
+                    backgroundColor: 'rgb(238, 127, 55)',
+                    borderColor: 'rgb(43, 133, 59)',
+                    display: true,
 
                     responsive: true,
-                    labels:
-                        ["60 Minutes ago", "", "", "", "", "", "53 Minutes ago",
-                            "", "", "", "", "", "47 Minutes ago",
-                            "", "", "", "", "", "41 Minutes ago",
-                            "", "", "", "", "", "35 Minutes ago",
-                            "", "", "", "", "", "29 Minutes ago",
-                            "", "", "", "", "", "23 Minutes ago",
-                            "", "", "", "", "", "17 Minutes ago",
-                            "", "", "", "", "", "11 Minutes ago",
-                            "", "", "", "", "", "6 Minutes ago",
-                            "", "", "", "", "", "Right Now"],
-                    datasets: [{
-                        label: station,
-                        backgroundColor: 'rgb(238, 127, 55)',
-                        borderColor: 'rgb(43, 133, 59)',
-                        display: true,
 
-                        responsive: true,
+                    fill: false,
+                    data: graphData
 
-                        fill: false,
-                        data: actualGraphData
+                }]
+            },
+
+            // Configuration options go here
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Degrees in Celcius'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Minutes'
+
+                        }
                     }]
-                },
 
-                // Configuration options go here
-
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            },
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Degrees in Celcius'
-                            }
-                        }],
-                        xAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Minutes'
-
-                            }
-                        }]
-
-                    }
                 }
-            });
+            }
+        });
 
     }, 'GET', 'json');
 }
@@ -290,17 +287,30 @@ function getMarkTitle(url, stationID) {
 }
 function bindInfoWindow(marker, map, infowindow, details) {
     google.maps.event.addListener(marker, 'click', function () {
-        map.setZoom(6);
-        map.setCenter(marker.getPosition());
-        infowindow.setContent(details.name);
-        infowindow.open(map, marker);
-        loadGraph('/index.php/update/ajax/tempGraph', details.stn);
-        setInterval(function() {
-            loadGraph('/index.php/update/ajax/tempGraph', details.stn);
-        }, 5000);
+        console.log(timerID);
+        if(timerID === null) {
+            console.log("starting timer");
+            timerID = setInterval(function() {
+                loadGraph('/index.php/update/ajax/tempGraph', details);
+            }, 5000);
+        } else {
+            console.log("stopping timer");
+            clearInterval(timerID);
+            console.log("starting timer again");
+            timerID = setInterval(function() {
+                loadGraph('/index.php/update/ajax/tempGraph', details);
+            }, 5000);
+        }
+        console.log("updating graph");
+    map.setZoom(6);
+    map.setCenter(marker.getPosition());
+    infowindow.setContent(details);
+    infowindow.open(map, marker);
+    loadGraph('/index.php/update/ajax/tempGraph', details);
     });
 }
 function startUp(map) {
+    timerID = null;
 
     var myOptions = {
         center: new google.maps.LatLng(23.300153, -86.770968),
@@ -310,4 +320,72 @@ function startUp(map) {
 
     map = new google.maps.Map(document.getElementById("default"), myOptions);
     getStations('/index.php/update/ajax/stations', map);
+
+    ctx = document.getElementById('myChart').getContext('2d');
+
+    myChart = new Chart(ctx, {
+
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+
+            responsive: true,
+            labels:
+                ["60 Minutes ago", "", "", "", "", "", "53 Minutes ago",
+                    "", "", "", "", "", "47 Minutes ago",
+                    "", "", "", "", "", "41 Minutes ago",
+                    "", "", "", "", "", "35 Minutes ago",
+                    "", "", "", "", "", "29 Minutes ago",
+                    "", "", "", "", "", "23 Minutes ago",
+                    "", "", "", "", "", "17 Minutes ago",
+                    "", "", "", "", "", "11 Minutes ago",
+                    "", "", "", "", "", "6 Minutes ago",
+                    "", "", "", "", "", "Right Now"],
+            datasets: [{
+                label: "No station selected",
+                backgroundColor: 'rgb(238, 127, 55)',
+                borderColor: 'rgb(43, 133, 59)',
+                display: true,
+
+                responsive: true,
+
+                fill: false,
+                data: []
+
+            }]
+        },
+
+        // Configuration options go here
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Degrees in Celcius'
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Minutes'
+
+                    }
+                }]
+
+            }
+        }
+    });
 }
+
+
+
+
+

@@ -48,5 +48,13 @@ return [
 
     'unknown_ajax_request' => 'Unhandled AJAX request',
 
-    'unknown_station' => 'Unknown weather station'
+    'unknown_station' => 'Unknown weather station',
+
+    'table_station' => 'Station: ',
+    'table_rain' => 'Rain: ',
+    'table_temperature' => 'Temperature: ',
+    'table_wind_speed' => 'Wind speed: ',
+
+    'name' => 'Name',
+    'value' => 'Value'
 ];

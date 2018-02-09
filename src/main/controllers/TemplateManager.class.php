@@ -463,7 +463,8 @@ class TemplateManager {
            trying to refresh this page', but at least it works. */
         if ($template->getUpdatedTime() != $lastUpdated) {
             $this->updateCache($templateName, $this->compileTemplate($templateName), $lastUpdated);
-            header('Refresh: 0');
+            ob_clean();
+            header('Location: #');
             exit;
         }
 
