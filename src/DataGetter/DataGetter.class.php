@@ -91,13 +91,36 @@ class DataGetter extends Controller {
         $stationRainDataLinks = $this->findDataLinksRain();
         $dataFiles = [];
         foreach ($stationRainDataLinks as $station) {
+            $highTemp = null;
+            $lowTemp = null;
+            for($i=0; $i<count($station); $i++) {
+                $file = file_get_contents($station[$i]);
+                $json = json_decode($file, true);
+                if($highTemp != null) {
+                    if ($json[$i]['temperature'] > $highTemp) {
+                        $highTemp = $json[$i]['temperature'];
+                    }
+                } else {
+                    $highTemp = $json[$i]['temperature'];
+                }
+                if ($lowTemp != null) {
+                    if ($json[$i]['temperature'] < $lowTemp){
+                        $lowTemp = $json[$i]['temperature'];
+                    }
+                } else {
+                    $lowTemp = $json[$i]['temperature'];
+                }
+                $endFile['htemp'] =  $highTemp;
+                $endFile['ltemp'] = $lowTemp;
+            }
             $mostRecentFile = file_get_contents($station[count($station)-1]);
-            $json = json_decode($mostRecentFile, true);
+            $json2 = json_decode($mostRecentFile, true);
 
-            $decodedJsonFile = $json[count($json) - 1] ?? $json[0];
-            $file = ["name" => $this->getStationName($decodedJsonFile['station']), "station" => $decodedJsonFile['station'], "precipitation" => $decodedJsonFile['precipitation'], "temperature" => $decodedJsonFile['temperature'], "wind_speed" => $decodedJsonFile['wind_speed']];
-            $dataFiles[] = $file;
+            $decodedJsonFile = $json2[count($json2) - 1] ?? $json2[0];
+            $endFile = ["name" => $this->getStationName($decodedJsonFile['station']), "station" => $decodedJsonFile['station'], "precipitation" => $decodedJsonFile['precipitation'], "High_temperature" => $highTemp, "Low_temperature" => $highTemp, "wind_speed" => $decodedJsonFile['wind_speed']];
+            $dataFiles[] = $endFile;
         }
+
         usort($dataFiles, function ($a, $b) {
             $result = 0;
             if ($b['precipitation'] > $a['precipitation']) {
@@ -215,8 +238,8 @@ class DataGetter extends Controller {
                                             }
 
                                         }
-                                    /*}
-                                    else
+                                    }
+                                    /*else
                                         echo sprintf('%s = %s<br />', $fileTimeVals[0], $pastHour);*/
                                 }
                             }

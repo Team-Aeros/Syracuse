@@ -70,11 +70,13 @@ function load_rain_data(url) {
     $("#td10Val").hide();
     $("#stationHead").hide();
     $("#rainHead").hide();
-    $("#tempHead").hide();
+    $("#tempHeadHigh").hide();
+    $("#tempHeadLow").hide();
     $("#wspeedHead").hide();
     $("#station").hide();
     $("#rainVal").hide();
-    $("#tempVal").hide();
+    $("#tempValH").hide();
+    $("#tempValL").hide();
     $("#wspeedVal").hide();
     perform_request(url, {}, function(message, data, response) {
         let i = 0;
@@ -224,20 +226,24 @@ function display_rain_data(url,station) {
             if(stationNameDoc === this.name) {
                 $("#stationHead").show();
                 $("#rainHead").show();
-                $("#tempHead").show();
+                $("#tempHeadHigh").show();
+                $("#tempHeadLow").show();
                 $("#wspeedHead").show();
                 $("#station").show();
                 $("#rainVal").show();
-                $("#tempVal").show();
+                $("#tempValH").show();
+                $("#tempValL").show();
                 $("#wspeedVal").show();
 
                 var rainVal = document.getElementById("rainVal");
-                var tempVal = document.getElementById("tempVal");
+                var tempValH = document.getElementById("tempValH");
+                var tempValL = document.getElementById("tempValL");
                 var wspeedVal = document.getElementById("wspeedVal");
                 var stationName = document.getElementById("station");
 
                 rainVal.innerHTML = this.precipitation + " mm";
-                tempVal.innerHTML = this.temperature + " °C";
+                tempValH.innerHTML = this.High_temperature + " °C";
+                tempValL.innerHTML = this.Low_temperature + " °C";
                 wspeedVal.innerHTML = this.wind_speed + " Km/H";
                 stationName.innerHTML = this.name;
             }
