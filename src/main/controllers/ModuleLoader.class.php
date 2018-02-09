@@ -16,6 +16,10 @@ namespace Syracuse\src\main\controllers;
 use Syracuse\src\core\controllers\Route;
 use Syracuse\src\headers\Controller;
 
+/**
+ * Class ModuleLoader
+ * @package Syracuse\src\main\controllers
+ */
 class ModuleLoader extends Controller {
 
     private $_moduleName;
@@ -33,6 +37,10 @@ class ModuleLoader extends Controller {
         'update' => 'Update'
     ];
 
+    /**
+     * ModuleLoader constructor.
+     * @param Route $route
+     */
     public function __construct(Route $route) {
         $this->_moduleName = $route->getRouteInfo()['module_name'] ?? '';
         $this->_routeParams = $route->getRouteInfo()['parameters'] ?? [];
@@ -64,6 +72,10 @@ class ModuleLoader extends Controller {
         $this->_module = new $module($this->_moduleName, $this->_routeParams);
     }
 
+    /**
+     * Function for returning the module.
+     * @return Controller
+     */
     public function getModule() : Controller {
         return $this->_module;
     }

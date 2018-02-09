@@ -12,11 +12,13 @@ use Syracuse\src\database\Database;
  */
 class DataGetter extends Controller {
     /**
+
      * @var string $currentDate, the current date
      */
     private $currentDate;
     /**
      * @var string $path the file path to the webdav folder on the machine on which this is running
+
      */
     private $path;
 
@@ -262,6 +264,10 @@ class DataGetter extends Controller {
         return $dataLinks;
     }
 
+    /**
+     * Function for returning the stations.
+     * @return array
+     */
     public function getStations() {
         $returnStat = [];
         $stations = Database::interact('retrieve', 'station')
@@ -279,6 +285,10 @@ class DataGetter extends Controller {
         return $returnStat;
     }
 
+    /**
+     * Function for loading the most recent temperatures.
+     * @param array $temperatures
+     */
     private function loadMostRecentTemperatures(array &$temperatures) : void {
         $stations = array_merge($this->valid_caribbeanStations, $this->valid_gulfStations);
         foreach ($stations as $directory) {

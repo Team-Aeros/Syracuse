@@ -12,6 +12,10 @@ namespace Syracuse\src\download;
 
 use Syracuse\src\headers\Controller;
 
+/**
+ * Class DataReader
+ * @package Syracuse\src\download
+ */
 class DataReader extends Controller {
     private $dataLinks;
     private $valid_caribbeanStations;

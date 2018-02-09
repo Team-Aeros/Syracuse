@@ -15,6 +15,10 @@ namespace Syracuse\src\main\controllers;
 
 use Exception;
 
+/**
+ * Class TemplateManager
+ * @package Syracuse\src\main\controllers
+ */
 class TemplateManager {
 
     private $_templateDir;
@@ -37,6 +41,12 @@ class TemplateManager {
         $this->_cacheDir = __DIR__;
     }
 
+    /**
+     * Function for compiling the given template.
+     * @param string $templateName
+     * @return string
+     * @throws Exception
+     */
     private function compileTemplate(string $templateName) : string {
         $filename = $this->_templateDir . '/' . $templateName . '.tpl';
         $file = @fopen($filename, 'r');

@@ -13,7 +13,7 @@
 
 const MIN_PHP_VERSION = '7.1.0';
 const SOFTWARE_VERSION = '1.0 Beta 1';
-const SYRACUSE_DEBUG = true;
+const SYRACUSE_DEBUG = false;
 const ENABLE_ERROR_LOGGING = false;
 
 ob_start();

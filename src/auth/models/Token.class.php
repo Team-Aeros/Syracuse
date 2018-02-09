@@ -15,6 +15,10 @@ namespace Syracuse\src\auth\models;
 
 use Syracuse\src\database\Database;
 
+/**
+ * Class Token
+ * @package Syracuse\src\auth\models
+ */
 class Token {
 
     private $_value;
@@ -23,11 +27,21 @@ class Token {
     // If you change this, make sure you update the database as well
     private const LENGTH = 40;
 
+    /**
+     * Token constructor.
+     * Set the value and ID.
+     * @param string $value
+     * @param int|null $userId
+     */
     public function __construct(string $value, int $userId = null) {
         $this->_value = $value;
         $this->_userId = $userId ?? 0;
     }
 
+    /**
+     * Verifying ID.
+     * @return bool
+     */
     public function verify() : bool {
         if (strlen($this->_value) != self::LENGTH)
             return false;
@@ -49,6 +63,11 @@ class Token {
         return true;
     }
 
+    /**
+     * Generate token for later use.
+     * @param int $userId
+     * @return Token
+     */
     public static function generate(int $userId) : self {
         $token = '';
 
@@ -80,10 +99,18 @@ class Token {
             ->delete();
     }
 
+    /**
+     * Function for returning value.
+     * @return string
+     */
     public function getValue() : string {
         return $this->_value;
     }
 
+    /**
+     * Function for returning userId.
+     * @return int
+     */
     public function getUserId() : int {
         return $this->_userId;
     }

@@ -25,7 +25,7 @@ function perform_request(ajax_url, data_to_send, handler, get_or_post = 'GET', d
         method: get_or_post,
         success: handler,
         error: function() {
-            alert(could_not_load_module);
+            console.log(could_not_load_module);
         }
     });
 }

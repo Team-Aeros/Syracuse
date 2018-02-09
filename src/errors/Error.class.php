@@ -17,6 +17,7 @@ namespace Syracuse\src\errors;
  * Class Error
  * @package Syracuse\src\errors
  */
+
 class Error {
 
     protected $message;
