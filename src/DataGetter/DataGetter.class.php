@@ -232,8 +232,8 @@ class DataGetter extends Controller {
                                             }
 
                                         }
-                                    /*}
-                                    else
+                                    }
+                                    /*else
                                         echo sprintf('%s = %s<br />', $fileTimeVals[0], $pastHour);*/
                                 }
                             }

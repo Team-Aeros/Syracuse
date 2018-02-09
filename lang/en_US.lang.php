@@ -52,8 +52,10 @@ return [
 
     'table_station' => 'Station: ',
     'table_rain' => 'Rain: ',
-    'table_temperature' => 'Temperature: ',
+    'table_Htemperature' => 'High Temperature: ',
+    'table_Ltemperature' => 'Low Temperature: ',
     'table_wind_speed' => 'Wind speed: ',
+
 
     'name' => 'Name',
     'value' => 'Value'

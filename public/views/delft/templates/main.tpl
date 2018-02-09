@@ -1,5 +1,5 @@
 	<script src="https://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.7&amp;key=AIzaSyAHfR2pf4ZcO5i68p1prZGq21B02DVmoik&amp;language=en"></script>
-	<script type="text/javascript">
+    <script type="text/javascript">
 
 
 	let map;
@@ -108,15 +108,15 @@ function content(elem) {
                             <td id="rainVal"></td>
                         </tr>
                         <tr class="darkRow">
-                            <td id="tempHeadHigh">High Temperature: </td>
+                            <td id="tempHeadHigh">{{ _translate('table_Htemperature') }}</td>
                             <td id="tempValH"></td>
                         </tr>
                         <tr class="lightRow">
-                            <td id="tempHeadLow">Low Temperature: </td>
+                            <td id="tempHeadLow">{{ _translate('table_Ltemperature') }}</td>
                             <td id="tempValL"></td>
                         </tr>
                         <tr class="darkRow">
-                            <td id="wspeedHead">Wind speed: </td>
+                            <td id="wspeedHead">{{ _translate('table_wind_speed') }}</td>
                             <td id="wspeedVal"></td>
                         </tr>
                     </table>

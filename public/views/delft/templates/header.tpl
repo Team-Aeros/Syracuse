@@ -8,7 +8,7 @@
         <script type="text/javascript" src="{{ node_url }}/chart.js/dist/Chart.min.js"></script>
         <script type="text/javascript" src="{{ script_url }}/ajax.js"></script>
         <script type="text/javascript" src="{{ script_url }}/switch.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>-->
 
         <link href="{{ node_url }}/notosans-fontface/css/notosans-fontface.css" rel="stylesheet" /> 
         <link rel="stylesheet" type="text/css" href="{{ stylesheet_url }}/main.css" />
